@@ -1,0 +1,27 @@
+<header class="header">
+    <div class="header__container container">
+        <div class="header__body">
+            <% if(typeof header_component.homePage !== 'undefined' && header_component.homePage) { %>
+                <%if(header_component.homePage === true) { %>
+                    
+                <% } else { %>
+                    <a href="./index.html" class="header__link-logo">
+                       
+                    </a>
+                <% } %>
+            <% } %>
+            <%- include('../HeaderMenu/HeaderMenu.ejs', {
+                list: [
+                    {'href': '#', 'ancor': 'TEST'},
+                    {'href': '#', 'ancor': 'TEST'},
+                    {'href': '#', 'ancor': 'TEST'},
+                    {'href': '#', 'ancor': 'TEST'},
+                    {'href': '#', 'ancor': 'TEST'},
+                ]
+            }) %>
+            <%- include('../Burger/Burger.ejs', {
+                block: 'header'
+            })%>
+        </div>
+    </div>
+</header>

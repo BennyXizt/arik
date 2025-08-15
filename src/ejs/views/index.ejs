@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<% if(typeof head_component.lang !== 'undefined' && head_component.lang) { %>
+   <html lang="<%= head_component.lang %>">
+<% } else { %>
+   <html lang="en">
+<% } %>
+<head>
+   <%- include('./externe/components/Head/Head.ejs') %>
+</head>
+<body>
+    <%- include('./externe/components/DummyAside/DummyAside.ejs', {
+        dummy_aside_component: {
+            ul: [
+                {
+                    label: 'Font Icons',
+                    href: './externe/pages/fontIcons.html'
+                },
+                {
+                    label: 'Test Page',
+                    href: './externe/pages/test.html'
+                },
+            ]
+        }
+    }) %>
+    <div class="wrapper">
+        <%- include('./externe/components/Header/header.ejs', {
+            header_component: {
+                homePage: true
+            }
+        })%>
+        <main class="layout"></main>
+        <footer class="footer"></footer>
+    </div>
+    <script type="module" src="/src/ts/main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<% 
+    if(typeof carousel_component === 'undefined' || !carousel_component)
+        return
+
+    var blockCSS =  'carousel'
+    var carouselImages = undefined
+
+    if(typeof carousel_component.block !== 'undefined' && carousel_component.block) {
+        blockCSS = `${carousel_component.block}__carousel carousel`
+    }
+    if(typeof carousel_component.images !== 'undefined' && carousel_component.images) {
+        carouselImages = carousel_component.images
+    }
+    
+
+    images = undefined
+%>
+
+<% if(typeof carouselImages !== 'undefined') { %>
+    <article class="<%= blockCSS %>">
+        <% for(const image of carouselImages) { %>
+            <div class="carousel__item">
+                 <%- include('../Image/Image.ejs', {
+                    image_component: {
+                        block: 'carousel',
+                        img: image
+                    } 
+                }) %>
+            </div>           
+        <% } %>
+    </article>
+<% } %>
