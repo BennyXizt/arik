@@ -1,0 +1,196 @@
+@use 'sass:map';
+
+.icon-rounded {
+    border-radius: 100%;
+    border: 1px solid map.get($COLORS, border_default);
+    backdrop-filter: blur(30px);
+    background: map.get($COLORS, background_muted);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include rem((
+        width: 38px,
+        height: 38px
+    ));
+
+    &__icon {
+        @include rem((
+            width: 18px,
+            height: 18px
+        ));
+    }
+
+    &--size-38 {
+        @include rem((
+            width: 30px,
+            height: 30px
+        ));
+
+        .icon-rounded__icon {
+            @include rem((
+                width: 14px,
+                height: 14px
+            ));
+        }
+    }
+    &--size-30 {
+        @include rem((
+            width: 22px,
+            height: 22px
+        ));
+
+        .icon-rounded__icon {
+            @include rem((
+                width: 12px,
+                height: 12px
+            ));
+        }
+    }
+    &--primary {
+        border: unset;
+        backdrop-filter: unset;
+        background-color: map.get($COLORS, base);
+        color: map.get($COLORS, inverse);
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp((
+            width: 46px 38px,
+            height: 46px 38px
+        ));
+        &__icon {
+            @include clamp((
+                width: 23px 18px,
+                height: 23px 18px
+            ));
+        }
+        &--size-38 {
+            @include clamp((
+                width: 38px 30px,
+                height: 38px 30px
+            ));
+
+            .icon-rounded__icon {
+                @include clamp((
+                    width: 16px 14px,
+                    height: 16px 14px
+                ));
+            }
+        }
+        &--size-30 {
+            @include clamp((
+                width: 30px 22px,
+                height: 30px 22px
+            ));
+
+            .icon-rounded__icon {
+                @include clamp((
+                    width: 14px 12px,
+                    height: 14px 12px
+                ));
+            }
+        }
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem((
+                width: 46px,
+                height: 46px
+            ));
+
+            &__icon {
+                @include rem((
+                    width: 23px,
+                    height: 23px
+                ));
+            }
+            &--size-38 {
+                @include rem((
+                    width: 38px,
+                    height: 38px
+                ));
+
+                .icon-rounded__icon {
+                    @include rem((
+                        width: 16px,
+                        height: 16px
+                    ));
+                }
+            }
+            &--size-30 {
+                @include rem((
+                    width: 30px,
+                    height: 30px
+                ));
+
+                .icon-rounded__icon {
+                    @include rem((
+                        width: 14px,
+                        height: 14px
+                    ));
+                }
+            }
+        }
+    }
+}
+
+.icon {
+    @include rem((
+        width: 18px,
+        height: 18px
+    ));
+
+    &--size-38 {
+        @include rem((
+            width: 14px,
+            height: 14px
+        ));
+    }
+
+    &--size-30 {
+        @include rem((
+            width: 12px,
+            height: 12px
+        ));
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp((
+            width: 23px 18px,
+            height: 23px 18px
+        ));
+        &--size-38 {
+            @include clamp((
+                width: 16px 14px,
+                height: 16px 14px
+            ));
+        }
+        &--size-30 {
+            @include clamp((
+                width: 14px 12px,
+                height: 14px 12px
+            ));
+        }
+    }
+
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem((
+                width: 23px,
+                height: 23px
+            ));
+            &--size-38 {
+                @include clamp((
+                    width: 16px,
+                    height: 16px
+                ));
+            }
+            &--size-30 {
+                @include clamp((
+                    width: 14px,
+                    height: 14px
+                ));
+            }
+        }
+    }
+}

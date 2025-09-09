@@ -1,0 +1,40 @@
+<%
+	if(typeof icon_component === 'undefined' || !icon_component) {
+		return
+	}
+
+	var blockCSS = 'icon'
+	var svgCSS = 'icon'
+	if(typeof icon_component.rounded !== 'undefined' && icon_component.rounded) {
+		blockCSS = 'icon-rounded'
+		svgCSS = 'icon-rounded__icon'
+	}
+	if(typeof icon_component.block !== 'undefined' && icon_component.block) {
+		blockCSS = `${icon_component.block}__icon-rounded icon-rounded`
+	}
+	if(typeof icon_component.size !== 'undefined' && icon_component.size) {
+		switch(icon_component.size) {
+			case '38': {
+				blockCSS += ' icon-rounded--size-38'
+				break;
+			}
+			case '30': {
+				blockCSS += ' icon-rounded--size-30'
+				break;
+			}
+		}
+	}
+	if(typeof icon_component.style !== 'undefined' && icon_component.style) {
+		blockCSS += ' icon-rounded--primary'
+	}
+%>
+
+<%if(typeof icon_component.rounded !== 'undefined' && icon_component.rounded) {%>
+	<div class="<%=blockCSS%>">
+<% } %>
+<svg class="<%=svgCSS%>">
+	<use href="/media/icons/sprite.svg#<%= icon_component.name%>"></use>                                    
+</svg>
+<%if(typeof icon_component.rounded !== 'undefined' && icon_component.rounded) {%>
+	</div>
+<% } %>

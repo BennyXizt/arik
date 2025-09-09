@@ -12,7 +12,7 @@
             ul: [
                 {
                     label: 'Font Icons',
-                    href: 'externe/pages/fontIcons.html'
+                    href: 'fontIcons.html'
                 },
                 {
                     label: 'Home Page',
@@ -31,19 +31,111 @@
                 <h4>Title 4</h4>
                 <h5>Title 5</h5>
                 <h6>Title 6</h6>
+                <h6>Title 6 <span>Cursiv</span></h6>
+                <h5>Title 5 <span>Cursiv</span></h5>
+                <h4>Title 4 <span>Cursiv</span></h4>
+                <h3>Title 3 <span>Cursiv</span></h3>
+                <h2>Title 2 <span>Cursiv</span></h2>
+                <h1>Title 1 <span>Cursiv</span></h1>
             </div>
         </div>
     </section>
     <section class="paragraph">
         <div class="outer container">
             <div class="inner">
-        <h1 class="text-center">Paragraph</h1>
-        <p>Lorem ipsum dolor sit amet.</p>
-        </div>
+                <h1 class="text-center">Paragraph</h1>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <div class="text text--size-24">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="text text--size-20">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="text text--size-18">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                 <div class="text text--size-14">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+                 <div class="text text--size-12">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
         </div>
     </section>
-    
-    <script type="module" src="../test.ts"></script>
+	<section class='icon_component'>
+        <div class="outer container">
+            <div class="inner">
+                <h6 class="text-center">ICON Component</h6>
+                <div class="flex items-center gap-x-2">
+                    <%- include('src/ejs/components/icon.ejs', {
+                        icon_component: {
+                            name: 'ph_arrow-down-light',
+                            size: '30',
+                            rounded: true
+                        }
+                    })%>
+                    <%- include('src/ejs/components/icon.ejs', {
+                        icon_component: {
+                            name: 'ph_arrow-down-light',
+                            size: '38',
+                            rounded: true
+                        }
+                    })%>
+                    <%- include('src/ejs/components/icon.ejs', {
+                        icon_component: {
+                            name: 'ph_arrow-down-light',
+                            rounded: true
+                        }
+                    })%>
+                    <%- include('src/ejs/components/icon.ejs', {
+                        icon_component: {
+                            name: 'ph_arrow-down-light',
+                            size: '30',
+                            style: 'primary',
+                            rounded: true
+                        }
+                    })%>
+                    <%- include('src/ejs/components/icon.ejs', {
+                        icon_component: {
+                            name: 'ph_arrow-down-light',
+                            size: '38',
+                            style: 'primary',
+                            rounded: true
+                        }
+                    })%>
+                    <%- include('src/ejs/components/icon.ejs', {
+                        icon_component: {
+                            block: 'asfasgas',
+                            name: 'ph_arrow-down-light',
+                            style: 'primary',
+                            rounded: true
+                        }
+                    })%>
+                </div>
+                <div class="flex items-center gap-x-2">
+                    <%- include('src/ejs/components/icon.ejs', {
+                        icon_component: {
+                            name: 'ph_arrow-down-light',
+                            size: '30'
+                        }
+                    })%>
+                    <%- include('src/ejs/components/icon.ejs', {
+                        icon_component: {
+                            name: 'ph_arrow-down-light',
+                            size: '38'
+                        }
+                    })%>
+                    <%- include('src/ejs/components/icon.ejs', {
+                        icon_component: {
+                            name: 'ph_arrow-down-light'
+                        }
+                    })%>
+                </div>
+            </div>
+        </div>
+	</section>
+	<script type="module" src="../test.ts"></script>
     <script type="module" src="../../../src/ts/main.ts"></script>
 </body>
 </html>

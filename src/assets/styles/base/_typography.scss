@@ -3,7 +3,42 @@
 
 @each $h, $map in $HEADERS {
     @include text_adaptive($h, $map);   
+
+    #{$h} {
+        span {
+            font-family: map.get($FONTS, gambetta);
+            font-style: italic;
+        }
+    }
 }
 
 @include text_adaptive(p, $P);
 
+
+.text {
+    &--size-24 {
+       p {
+        @extend %textXLarge;
+       }
+    }
+    &--size-20 {
+       p {
+         @extend %textLarge;
+       }
+    }
+    &--size-18 {
+       p {
+         @extend %textMedium;
+       }
+    }
+    &--size-14 {
+       p {
+         @extend %textSmall;
+       }
+    }
+    &--size-12 {
+       p {
+         @extend %textXSmall;
+       }
+    }
+}

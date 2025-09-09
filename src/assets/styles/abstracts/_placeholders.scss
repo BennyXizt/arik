@@ -1,6 +1,96 @@
+@use 'sass:map';
+
 %addCounter {
     counter-increment: item;
     &::before {
         content: counter(item, decimal-leading-zero);
+    }
+}
+
+%textXLarge {
+    $fontMobile: 22px;
+    $fontDesktop: 24px;
+    
+    font-weight: 300;
+    line-height: 1.5;
+    @include rem(font-size, $fontMobile);
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(font-size, $fontDesktop $fontMobile);
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(font-size, $fontDesktop);
+        }
+    }
+}
+
+%textLarge {
+    $fontMobile: 18px;
+    $fontDesktop: 20px;
+    
+    line-height: 1.7;
+    @include rem(font-size, $fontMobile);
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(font-size, $fontDesktop $fontMobile);
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(font-size, $fontDesktop);
+        }
+    }
+}
+
+%textMedium {
+    $fontMobile: 16px;
+    $fontDesktop: 18px;
+    
+    line-height: 1.6;
+    @include rem(font-size, $fontMobile);
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(font-size, $fontDesktop $fontMobile);
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(font-size, $fontDesktop);
+        }
+    }
+}
+
+%textSmall {
+    $fontMobile: 12px;
+    $fontDesktop: 14px;
+    
+    font-weight: 300;
+    line-height: 1.6;
+    @include rem(font-size, $fontMobile);
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(font-size, $fontDesktop $fontMobile);
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(font-size, $fontDesktop);
+        }
+    }
+}
+
+%textXSmall {
+    $fontMobile: 10px;
+    $fontDesktop: 12px;
+    
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    @include rem(font-size, $fontMobile);
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(font-size, $fontDesktop $fontMobile);
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(font-size, $fontDesktop);
+        }
     }
 }
