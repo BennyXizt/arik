@@ -9,6 +9,30 @@ config()
 
 
 export default defineConfig({
+  server: {
+    watch: {
+      ignored: [
+        '**/node_modules/**',
+        '**/.git/**',
+        '**/dist/**',
+        '**/build/**',
+        '**/.DS_Store',        
+        '**/*.tmp',           
+        '**/.vscode/**',
+        // '**/public/**'    
+      ],
+      usePolling: true,      
+      interval: 1000          
+    },
+    hmr: {
+      overlay: false,     
+      // timeout: 3000     
+    }
+  },
+  optimizeDeps: {
+    include: ['fluent-ffmpeg', 'vite-plugin-ejs'],
+    exclude: []
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
@@ -26,6 +50,10 @@ export default defineConfig({
         description: 'Default project description',
         keywords: 'vite, ejs, scss, javascript',
         author: 'Your Name'
+      }
+    }, {
+      ejs: {
+        views: [resolve(__dirname)]
       }
     }),
     ViteWatchEJSFolderPlugin({
@@ -45,19 +73,19 @@ export default defineConfig({
       relativePath: `${__dirname}/public/media/icons/`,
       nameOfTheOutputFile: 'sprite.svg',
       dummy: {
-        destination:  `${__dirname}/src/externe/pages/`,
+        destination:  `${__dirname}/externe/pages/`,
         fileName:  'fontIcons.html'
       } 
     }),
-    // ViteWatchFontsFolderPlugin({
-    //   relativePath: '../../assets/fonts',
-    //   outputDestination: '../../assets/styles/base/_fonts.scss'
-    // }),
-    // ViteWatchVideoFolderPlugin({
-    //   relativePath: '../../public/media/video',
-    //   // outputVideoDirectory: '../../public/media/converted',
-    //   // outputVideoFormat: [".mp4"],
-    //   posterDirectory: '../../public/media/image/poster'
-    // })
+    ViteWatchFontsFolderPlugin({
+      relativePath: `${__dirname}/src/assets/fonts`,
+      outputDestination: `${__dirname}/src/assets/styles/base/_fonts.scss`
+    }),
+    ViteWatchVideoFolderPlugin({
+      relativePath: `${__dirname}/public/media/video`,
+      outputVideoDirectory: `${__dirname}/public/media/converted`,
+      outputVideoFormat: [".mp4"],
+      posterDirectory: `${__dirname}/public/media/image/poster`
+    })
   ]
 })

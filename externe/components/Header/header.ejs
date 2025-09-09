@@ -3,24 +3,44 @@
         <div class="header__body">
             <% if(typeof header_component.homePage !== 'undefined' && header_component.homePage) { %>
                 <%if(header_component.homePage === true) { %>
-                    
+                    <%- include('externe/components/Image/Image.ejs', {
+                        image_component: {
+                            block: 'header',
+                            img: {
+                                src: '/media/icons/logo/logo.svg',
+                                alt: 'website-logo'
+                            }
+                        }
+                    })%>
                 <% } else { %>
                     <a href="./index.html" class="header__link-logo">
-                       
+                       <%- include('externe/components/Image/Image.ejs', {
+                            image_component: {
+                                block: 'header',
+                                img: {
+                                    src: '/media/icons/logo/logo.svg',
+                                    alt: 'website-logo'
+                                }
+                            }
+                        })%>
                     </a>
                 <% } %>
             <% } %>
-            <%- include('../HeaderMenu/HeaderMenu.ejs', {
-                list: [
-                    {'href': '#', 'ancor': 'TEST'},
-                    {'href': '#', 'ancor': 'TEST'},
-                    {'href': '#', 'ancor': 'TEST'},
-                    {'href': '#', 'ancor': 'TEST'},
-                    {'href': '#', 'ancor': 'TEST'},
-                ]
+            <%- include('externe/components/HeaderMenu/HeaderMenu.ejs', {
+                header_menu_component: {
+                    list: [
+                        {'href': '#', 'ancor': 'PAGE'},
+                        {'href': '#', 'ancor': 'PAGE'},
+                        {'href': '#', 'ancor': 'PAGE'},
+                        {'href': '#', 'ancor': 'PAGE'},
+                        {'href': '#', 'ancor': 'PAGE'},
+                    ]
+                }
             }) %>
-            <%- include('../Burger/Burger.ejs', {
-                block: 'header'
+            <%- include('externe/components/Burger/Burger.ejs', {
+                burger_component: {
+                    block: 'header'
+                }
             })%>
         </div>
     </div>
