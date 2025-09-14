@@ -21,7 +21,7 @@
             ]
         }
     }) %>
-    <section class="titles">
+    <!-- <section class="titles">
         <div class="outer container">
             <div class="inner">
                 <h1 class="text-center">Titles</h1>
@@ -129,6 +129,115 @@
                     <%- include('src/ejs/components/icon.ejs', {
                         icon_component: {
                             name: 'ph_arrow-down-light'
+                        }
+                    })%>
+                </div>
+            </div>
+        </div>
+	</section>
+	<section class='button_component'>
+        <div class="outer container">
+            <div class="inner">
+                <h6 class="text-center">BUTTON Component</h6>
+                <div class="flex items-center gap-x-2">
+                    <%- include('src/ejs/components/button.ejs', {
+                        button_component: {
+                            label: 'Button',
+                            size: 'small'
+                        }
+                    })%>
+                    <%- include('src/ejs/components/button.ejs', {
+                        button_component: {
+                            label: 'Button'
+                        }
+                    })%>
+                    <%- include('src/ejs/components/button.ejs', {
+                        button_component: {
+                            label: 'Button',
+                            size: 'small',
+                            icon_component: {
+                                name: 'ph_arrow-down-light'
+                            }
+                        }
+                    })%>
+                </div>
+                <div class="flex items-center gap-x-2">
+                    <%- include('src/ejs/components/button.ejs', {
+                        button_component: {
+                            label: 'Button',
+                            size: 'small',
+                            style: 'primary'
+                        }
+                    })%>
+                    <%- include('src/ejs/components/button.ejs', {
+                        button_component: {
+                            label: 'Button',
+                            style: 'primary'
+                        }
+                    })%>
+                    <%- include('src/ejs/components/button.ejs', {
+                        button_component: {
+                            label: 'Button',
+                            // link: 'root',
+                            size: 'small',
+                            style: 'primary',
+                            icon_component: {
+                                name: 'ph_arrow-down-light'
+                            }
+                        }
+                    })%>
+                </div>
+            </div>
+        </div>
+	</section>
+    <section class='button_component TEXT'>
+        <div class="outer container">
+            <div class="inner">
+                <h6 class="text-center">BUTTON TEXT Component</h6>
+                <div class="flex items-center gap-x-2">
+                    <%- include('src/ejs/components/button.ejs', {
+                        button_component: {
+                            label: 'Button',
+                            type: 'button-text',
+                            icon_component: {
+                                block: 'asfasgas',
+                                name: 'ph_arrow-down-light',
+                                size: '30',
+                                // style: 'primary',
+                                rounded: true
+                            }
+                        }
+                    })%>
+                </div>
+            </div>
+        </div>
+	</section> -->
+	<section class='headerText_component'>
+        <div class="outer container">
+            <div class="inner">
+                <h6 class="text-center">HEADERTEXT Component</h6>
+                <div class="flex items-center gap-x-2">
+                    <%- include('src/ejs/components/headerText.ejs', {
+                        headerText_component: {
+                            tag: 'THe PRocess',
+                            header: {
+                                label: `Web Designer <span>& Developer</span>`,
+                                type: 'h1'
+                            },
+                            text: {
+                                label: [
+                                    'Premium web design, development, and SEO services to help your business stand out.',
+                                ],
+                                size: '24'
+                            },
+                            button_component: {
+                                block: 'headerText',
+                                label: 'Button',
+                                size: 'small',
+                                icon_component: {
+                                    name: 'ph_arrow-down-light'
+                                }
+                            }
                         }
                     })%>
                 </div>

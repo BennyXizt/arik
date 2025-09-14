@@ -1,0 +1,36 @@
+<%
+	if(typeof headerText_component === 'undefined' || !headerText_component) {
+		return
+	}
+
+	var blockClass = 'headerText'
+	if(typeof headerText_component.block !== 'undefined' && headerText_component.block) {
+		blockClass = `${headerText_component.block}__headerText headerText`
+	}
+
+	var textSizes = ['12', '14', '18', '20', '24']
+	var textClass = 'headerText__text text'
+
+	if(typeof headerText_component.text.size !== 'undefined' && headerText_component.text.size) {
+		if(textSizes.includes(headerText_component.text.size)) {
+			textClass += ` text--size-${headerText_component.text.size}`;
+		}
+	}
+%>
+
+<article class="<%=blockClass%>">
+	<div class="headerText__tag">
+		<%=headerText_component.tag%>
+	</div>
+	<<%=headerText_component.header.type%>>
+		<%-headerText_component.header.label%>
+	</<%=headerText_component.header.type%>>
+	<div class="<%=textClass%>">
+		<% for(const text of headerText_component.text.label) { %>
+			<p><%=text%></p>
+		<% } %>
+	</div>
+	<%- include('src/ejs/components/button.ejs', {
+		button_component: headerText_component.button_component
+	})%>
+</article>

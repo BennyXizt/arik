@@ -12,16 +12,20 @@
         './base/base';
 
 // internal layout START
+@import
+	'./layout/hero';
 // internal layout END
 
 @import 
         '../../../externe/components/Burger/Burger',
-        '../../../externe/components/HeaderMenu/HeaderMenu',
-        '../../../externe/components/Header/Header';
+        '../../../externe/components/HeaderMenu/HeaderMenu';
 
 // internal components START
 @import
-	'./components/icon';
+	'./components/icon',
+        './components/header',
+	'./components/button',
+	'./components/headerText';
 // internal components END
 
 // @import

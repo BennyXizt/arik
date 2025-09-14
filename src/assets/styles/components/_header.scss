@@ -1,0 +1,64 @@
+@use 'sass:map';
+
+.header {
+    position: relative;
+    @include rem(top, 48px);
+
+    &__body {
+        display: flex;
+        align-items: center;
+        border: 1px solid map.get($COLORS, border_default);
+        border-radius: 2px;
+        @include rem((
+            padding: 12px 12px 12px 12px,
+            gap: 12px
+        ));
+        backdrop-filter: blur(30px);
+        background-color: map.get($COLORS, background_muted);
+    }
+    .menu {
+        flex: 1;
+
+        &__list {
+            @include rem(gap, 12px);
+        }
+    }
+    
+    @include media(tablet) {
+        &__burger {
+            display: none;
+        }
+        .menu {
+            @include rem(padding, 10px 0);
+        }
+    }
+
+    @supports not (font-size: clamp(1px,1px,1px)) {
+       @include media(desktop) {
+        &__body {
+            @include rem((
+                padding: 12px 12px 12px 24px,
+                gap: 32px
+            ));
+        }
+        .menu {
+            &__list {
+                @include rem(gap, 20px);
+            }
+        }
+       }
+    }
+    @supports (font-size: clamp(1px,1px,1px)) {
+        &__body {
+            @include clamp((
+                padding-left: 24px 12px,
+                gap: 32px 12px
+            ));
+        }
+        .menu {
+            &__list {
+                @include clamp(gap, 20px 12px);
+            }
+        }
+    }
+}

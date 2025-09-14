@@ -94,3 +94,21 @@
         }
     }
 }
+
+%textMeta {
+    $fontMobile: 11px;
+    $fontDesktop: 13px;
+    
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    @include rem(font-size, $fontMobile);
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(font-size, $fontDesktop $fontMobile);
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(font-size, $fontDesktop);
+        }
+    }
+}
