@@ -4,6 +4,38 @@
 
 <section class="layout__hero hero">
 	<div class="hero__container container">
-
+		<%- include('externe/components/Image/Image.ejs', {
+			image_component: {
+				block: 'hero',
+				img: {
+					src: 'media/image/arik.png'
+				}
+			}
+		}) %>
+		<%- include('src/ejs/components/headerText.ejs', {
+			headerText_component: {
+				block: 'hero',
+				header: {
+					label: `Web Designer <span>& Developer</span>`,
+					type: 'h1'
+				},
+				text: {
+					label: [
+						'Premium web design, development, and SEO services to help your business stand out.',
+					],
+					size: '24'
+				},
+				button_component: {
+					block: 'headerText',
+					size: 'small',
+					type: 'button-text',
+					label: 'More Details',
+					icon_component: {
+						name: 'ph_arrow-down-light',
+						rounded: true
+					}
+				}
+			}
+		})%>
 	</div>
 </section>

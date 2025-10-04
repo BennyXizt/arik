@@ -12,7 +12,7 @@ const
     convertationTypeQuestion = await new Promise<string>(resolve => rl.question('Выберите тип конвертации(1  - папка(по умолчанию), 2 - файл): ', resolve)),
     convertationType = Number.parseInt(convertationTypeQuestion) || 1,
     questionString = convertationType == 2 ? 'Путь к файлу: ' : 'Путь к папке: ',
-    convertVideoFunction = convertToMP4scale480
+    convertVideoFunction = convertToWEBMscale480
 
 rl.question(questionString, (inputFile) => {
     const 
@@ -22,7 +22,7 @@ rl.question(questionString, (inputFile) => {
             '.vob', '.ogv', '.rm', '.rmvb', '.asf', '.divx', '.f4v',
             '.f4p', '.nut', '.yuv', '.amv', '.nsv'
         ],
-        outputFormat = '.mp4'
+        outputFormat = '.webm'
     
     if(convertationType == 2) {
         const 

@@ -53,6 +53,15 @@
         &--style-primary:hover {
             @include buttonMainStyle;
         }
+        &--type-button-text:hover {
+            background-color: unset;
+            border: unset;
+            color: inherit;
+
+            .icon-rounded {
+                @include iconRoundedPrimary;
+            }
+        }
     }
 
     @supports (font-size: clamp(1px,1px,1px)) {

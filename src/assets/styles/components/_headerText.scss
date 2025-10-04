@@ -8,6 +8,17 @@
     align-items: center;
     @include rem(gap, 12px);
 
+    &__tag {
+        text-transform: uppercase;
+        @extend %textMeta;
+    }
+
+    &__text {
+        p {
+            color: map.get($COLORS, muted);
+        }
+    }
+
     @supports not (font-size: clamp(1px,1px,1px)) {
         @include media(desktop) {
             @include rem(gap, 16px);

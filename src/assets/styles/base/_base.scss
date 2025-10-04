@@ -77,3 +77,33 @@ body {
     }
    
 }
+
+section[class^='layout__'] {
+  &:not([class*='hero']) {
+    @include rem(margin-top, 80px);
+  }
+  &[class*='clients'] {
+    @include rem(margin-top, 48px);
+  }
+
+  @supports (font-size: clamp(1px,1px,1px)) {
+    &:not([class*='hero']) {
+      @include clamp(margin-top, 160px 80px);
+    }
+    &[class*='clients'] {
+      @include clamp(margin-top, 128px 48px);
+    }
+  }
+  @supports not (font-size: clamp(1px,1px,1px)) {
+    &:not([class*='hero']) {
+      @include media(desktop) {
+        @include rem(margin-top, 160px);
+      }
+    }
+    &[class*='clients'] { 
+      @include media(desktop) {
+        @include rem(margin-top, 128px);
+      }
+    }
+  }
+}

@@ -12,7 +12,7 @@
 //   Пример использования компонента:
 //   <\%- include('Carousel.ejs', {
 //        carousel_component: {
-//            block: 'clients',
+//            block: 'blockName',
 //            images: {
 //              src: 'src',
 //              alt: 'alt',
@@ -43,7 +43,7 @@
 
 <% if(typeof carouselImages !== 'undefined') { %>
     <article class="<%= blockCSS %>">
-       <ul class="carousel__inner" data-fsc-marquee>
+       <ul class="carousel__inner" data-fsc-marquee data-fsc-marquee-speed="1000">
          <% for(const image of carouselImages) { %>
             <li class="carousel__item" data-fsc-marquee-item>
                  <%- include('../Image/Image.ejs', {

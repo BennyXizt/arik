@@ -1,0 +1,21 @@
+<%
+
+%>
+
+<section class="layout__clients clients">
+	<div class="clients__container container">
+		<%- include('externe/components/Carousel/Carousel.ejs', {
+			carousel_component: {
+				block: 'clients',
+				images: [
+					{src: 'media/image/brands/brand1.svg'},
+					{src: 'media/image/brands/brand2.svg'},
+					{src: 'media/image/brands/brand3.svg'},
+					{src: 'media/image/brands/brand4.svg'},
+					{src: 'media/image/brands/brand5.svg'},
+					{src: 'media/image/brands/brand6.svg'},
+				],
+			}
+		}) %>
+	</div>
+</section>
