@@ -1,0 +1,40 @@
+<%
+	if(typeof workCard_component === 'undefined' || !workCard_component) {
+		return
+	}
+
+	var blockClass = 'workCard'
+	if(typeof workCard_component.block !== 'undefined' && workCard_component.block) {
+		blockClass = `${workCard_component.block}__workCard workCard`
+	}
+%>
+
+<div class="<%=blockClass%>">
+	<div class="workCard__background">
+		<%- include('externe/components/Image/Image.ejs', {
+			image_component: {
+				class: 'workCard__noise',
+				img: {
+					src: '/media/image/works/Noise.png',
+				}
+			}
+		}) %>
+		<%- include('src/ejs/components/icon.ejs', {
+			icon_component: {
+				block: 'workCard',
+				name: 'ph_arrow-up-right-light',
+				size: '38',
+				rounded: true
+			}
+		}) %>
+		<%- include('externe/components/Image/Image.ejs', {
+			image_component: workCard_component.image_component
+		}) %>
+	</div>
+	<div class="workCard__content">
+		<h4 class="workCard__title"><%= workCard_component.type%></h4>
+		<a href='<%= workCard_component.tag.link%>'>
+			<span class="workCard__text"><%= workCard_component.tag.label%></span>
+		</a>
+	</div>
+</div>

@@ -32,8 +32,21 @@
 
     &--size-38 {
         @include rem((
-            width: 30px,
-            height: 30px
+            width: 32px,
+            height: 32px
+        ));
+
+        .icon-rounded__icon {
+            @include rem((
+                width: 14px,
+                height: 14px
+            ));
+        }
+    }
+    &--size-32 {
+        @include rem((
+            width: 32px,
+            height: 32px
         ));
 
         .icon-rounded__icon {
@@ -73,14 +86,27 @@
         }
         &--size-38 {
             @include clamp((
-                width: 38px 30px,
-                height: 38px 30px
+                width: 38px 32px,
+                height: 38px 32px
             ));
 
             .icon-rounded__icon {
                 @include clamp((
                     width: 16px 14px,
                     height: 16px 14px
+                ));
+            }
+        }
+        &--size-32 {
+            @include clamp((
+                width: 32px 30px,
+                height: 32px 30px
+            ));
+
+            .icon-rounded__icon {
+                @include clamp((
+                    width: 15px 14px,
+                    height: 15px 14px
                 ));
             }
         }
@@ -124,6 +150,19 @@
                     ));
                 }
             }
+            &--size-32 {
+                @include rem((
+                    width: 32px,
+                    height: 32px
+                ));
+
+                .icon-rounded__icon {
+                    @include clamp((
+                        width: 15px,
+                        height: 15px
+                    ));
+                }
+            }
             &--size-30 {
                 @include rem((
                     width: 30px,
@@ -154,6 +193,13 @@
         ));
     }
 
+    &--size-32 {
+        @include rem((
+            width: 14px,
+            height: 14px
+        ));
+    }
+
     &--size-30 {
         @include rem((
             width: 12px,
@@ -170,6 +216,12 @@
             @include clamp((
                 width: 16px 14px,
                 height: 16px 14px
+            ));
+        }
+        &--size-32 {
+            @include clamp((
+                width: 15px 14px,
+                height: 15px 14px
             ));
         }
         &--size-30 {
@@ -190,6 +242,12 @@
                 @include clamp((
                     width: 16px,
                     height: 16px
+                ));
+            }
+            &--size-32 {
+                @include clamp((
+                    width: 15px,
+                    height: 15px
                 ));
             }
             &--size-30 {

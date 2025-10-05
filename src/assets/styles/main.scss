@@ -15,7 +15,9 @@
 @import
 	'./layout/hero',
 	'./layout/clients',
-	'./layout/services';
+	'./layout/services',
+	'./layout/work',
+	'./layout/process';
 // internal layout END
 
 @import 
@@ -27,7 +29,9 @@
 	'./components/icon',
         './components/header',
 	'./components/button',
-	'./components/headerText';
+	'./components/headerText',
+	'./components/serviceCard',
+	'./components/workCard';
 // internal components END
 
 // @import

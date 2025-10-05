@@ -1,5 +1,44 @@
 @use 'sass:map';
 
 .services {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+        @include rem(gap, 16px);
 
+        @include media(desktop) {
+            & > * {
+                &:nth-child(3n + 4):last-child {
+                    grid-column: 1 / -1;
+                }
+                &:nth-child(3n + 5):last-child {
+                    grid-column: 2 / -1;
+                }
+            }
+        }
+
+        @media (min-width: map.get(map.get($CONTAINER, mobile), width)) and (max-width: 1073px) {
+            & > * {
+                &:nth-child(3):last-child {
+                    grid-column: 1 / -1;
+                }
+                &:nth-child(even):last-child {
+                    grid-column: auto;
+                }
+                &:nth-child(odd):last-child {
+                    grid-column: 1 / -1;
+                }
+            }
+        }
+        
+
+        @supports (font-size: clamp(1px,1px,1px)) {
+            @include clamp(gap, 32px 16px);
+        }
+        @supports not (font-size: clamp(1px,1px,1px)) {
+            @include media(desktop) {
+                @include rem(gap, 32px);
+            }
+        }
+    }
 }

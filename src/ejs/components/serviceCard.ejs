@@ -1,0 +1,36 @@
+<%
+	if(typeof serviceCard_component === 'undefined' || !serviceCard_component) {
+		return
+	}
+
+	var blockClass = 'serviceCard'
+	if(typeof serviceCard_component.block !== 'undefined' && serviceCard_component.block) {
+		blockClass = `${serviceCard_component.block}__serviceCard serviceCard`
+	}
+
+	var textSizes = ['12', '14', '18', '20', '24']
+	var textClass = 'serviceCard__text text'
+	if(typeof serviceCard_component.text.size !== 'undefined' && serviceCard_component.text.size) {
+		if(textSizes.includes(serviceCard_component.text.size)) {
+			textClass += ` text--size-${serviceCard_component.text.size}`;
+		}
+	}
+%>
+
+<article class="<%=blockClass%>">
+	<% if(serviceCard_component.title !== 'undefined' && serviceCard_component.title) { %>
+		<h4 class="serviceCard__title"><%=serviceCard_component.title%></h4>
+	<% } %>
+	<% if(serviceCard_component.text.label !== 'undefined' && serviceCard_component.text.label) { %>
+		<div class="<%=textClass%>">
+			<% for(const text of serviceCard_component.text.label) { %>
+				<p><%=text%></p>
+			<% } %>
+		</div>
+	<% } %>
+	<% if(serviceCard_component.button_component !== 'undefined' && serviceCard_component.button_component) { %>
+		<%- include('src/ejs/components/button.ejs', {
+			button_component: serviceCard_component.button_component
+		})%>
+	<% } %>
+</article>

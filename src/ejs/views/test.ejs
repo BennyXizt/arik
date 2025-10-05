@@ -244,6 +244,60 @@
             </div>
         </div>
 	</section>
+	<section class='serviceCard_component'>
+        <div class="outer container">
+            <div class="inner">
+                <h6 class="text-center">SERVICECARD Component</h6>
+                <div class="flex items-center gap-x-2">
+                    <%- include('src/ejs/components/serviceCard.ejs', {
+                        serviceCard_component: {
+                            title: 'Web design',
+                            text: {
+                                label: [
+                                    'Visually stunning web designs that captivate your audience by blending your brand voice and customer needs.'
+                                ],
+                                size: 'default'
+                            },
+                            button_component: {
+                                label: 'About Webdesign',
+                                type: 'button-text',
+                                icon_component: {
+                                    block: 'asfasgas',
+                                    name: 'ph_arrow-up-right-light',
+                                    size: '32',
+                                    rounded: true
+                                }
+                            }
+                        }
+                    })%>
+                </div>
+            </div>
+        </div>
+	</section>
+	<section class='workCard_component'>
+        <div class="outer container">
+            <div class="inner">
+                <h6 class="text-center">WORKCARD Component</h6>
+                <div class="flex items-center gap-x-2">
+                    <%- include('src/ejs/components/workCard.ejs', {
+                        workCard_component: {
+                            tag: {
+                                label: 'Webdesign',
+                                link: ''
+                            },
+                            type: 'Space',
+                            image_component: {
+                                class: 'workCard__image',
+                                img: {
+                                    src: '/media/image/works/w1.png',
+                                }
+                            }
+                        }
+                    })%>
+                </div>
+            </div>
+        </div>
+	</section>
 	<script type="module" src="../test.ts"></script>
     <script type="module" src="../../../src/ts/main.ts"></script>
 </body>
