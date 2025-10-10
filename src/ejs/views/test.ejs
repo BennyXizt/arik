@@ -222,7 +222,7 @@
                             tag: 'THe PRocess',
                             header: {
                                 label: `Web Designer <span>& Developer</span>`,
-                                type: 'h1'
+                                type: 'h2'
                             },
                             text: {
                                 label: [
@@ -292,6 +292,35 @@
                                     src: '/media/image/works/w1.png',
                                 }
                             }
+                        }
+                    })%>
+                </div>
+            </div>
+        </div>
+	</section>
+	<section class='processCard_component'>
+        <div class="outer container">
+            <div class="inner">
+                <h6 class="text-center">PROCESSCARD Component</h6>
+                <div class="flex items-center gap-x-2">
+                    <%- include('src/ejs/components/processCard.ejs', {
+                        processCard_component: {
+                            time: 'Time',
+                            tag: 'Tag',
+                            title: {
+                                label: 'Title',
+                                tag: 'h4'
+                            },
+                            text: {
+                                label: [
+                                    'Before we start, we determine if and how I can help you. What are your requirements for your new website? Why do you need a new website? What goals do you have, and what problems can we solve with a new website?'
+                                ]
+                            },
+                            list: [
+                                'list1',
+                                'list2',
+                                'list3'
+                            ]
                         }
                     })%>
                 </div>

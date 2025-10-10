@@ -7,6 +7,27 @@
     }
 }
 
+%input {
+    border: 1px solid map.get($COLORS, border_default);
+    border-radius: 2px;
+    backdrop-filter: blur(30px);
+    background-color: map.get($COLORS, background_muted);
+}
+%card {
+    @extend %input;
+    @include rem(padding, 18px);
+
+    @supports (font-size: clamp(1px,1px,1px)) { 
+        @include clamp(padding, 48px 18px);   
+    }
+
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(padding, 48px);
+        }
+    }
+}
+
 // text
 %textXLarge {
     $fontMobile: 22px;
@@ -102,6 +123,23 @@
     
     line-height: 1.6;
     letter-spacing: 1.5px;
+    @include rem(font-size, $fontMobile);
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(font-size, $fontDesktop $fontMobile);
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(font-size, $fontDesktop);
+        }
+    }
+}
+
+%textMetaSmall {
+    $fontMobile: 10px;
+    $fontDesktop: 12px;
+    
+    line-height: 1.2;
     @include rem(font-size, $fontMobile);
 
     @supports (font-size: clamp(1px,1px,1px)) {

@@ -1,5 +1,150 @@
 @use 'sass:map';
 
 .process {
+    &__top {
+        position: relative;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        @include rem(gap, 8px);
 
+        &:after {
+            content: '';
+            width: 1px;
+            @include rem(height, 40px);
+            background-color: map.get($COLORS, border_default);
+        }
+    }
+    &__list {
+        counter-reset: item;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    &__item {
+        display: grid;
+        grid-template-columns: 1fr 40px 1fr;
+        @include rem(column-gap, 10px);
+
+        &:not(:first-child) {
+            @include rem(margin-top, -48px);
+        }
+
+        &:last-child {
+            .process__line {
+                &:before {
+                    height: 50%;
+                    top: 0;
+                    transform: unset;
+                }
+            }
+        }
+    }
+    &__line {
+        position: relative;
+        counter-increment: item;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &::before {
+            width: 1px;
+            height: 100%;
+            background-color: map.get($COLORS, border_default);
+            
+        }
+        &::after {
+            content: counter(item, decimal-leading-zero);
+            @extend %textMeta;
+            border: 1px solid map.get($COLORS, border_default);
+            border-radius: 100%;
+            @include rem((
+                padding: 8px,
+                width: 40px,
+                height: 40px
+            ));
+            backdrop-filter: blur(30px);
+            background: map.get($COLORS, background_muted);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            outline: 16px solid  map.get($BASE, background_color);
+        }
+    }
+
+    @include media(tablet, max) {
+        &__item {
+            grid-template-columns: 39px 1fr;
+            grid-template-rows: 1fr 15px;
+
+            &:not(:first-child) {
+                margin-top: unset;
+            }
+        }
+        &__empty {
+            display: none;
+        }
+        &__line {
+            order: -1;
+            grid-row: 1 / -1;
+        }
+        &__top {
+            &:after,
+            button {
+                align-self: flex-start;
+            }
+
+            &:after {
+                @include rem(margin-left, 19px);
+            }
+        }
+    }
+    @supports (font-size: clamp(1px,1px,1px)) {
+        &__top {
+            @include clamp(gap, 16px 8px);
+
+            &:after {
+                @include clamp(height, 96px 40px);
+            }
+        }
+        &__item {
+            @include media(tablet) {
+                @include clamp(column-gap, 80px 10px);
+            }
+        }
+        &__line {
+            &::after {
+                @include clamp((
+                    padding-left: 12px 8px,
+                    padding-right: 12px 8px
+                ));
+            }
+        }
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            &__top {
+                @include rem(gap, 16px);
+
+                &:after {
+                    @include rem(height, 96px);
+                }
+            }
+            &__item {
+                @include rem(column-gap, 80px);
+            }
+            &__line {
+                &::after {
+                    @include rem((
+                        padding: 8px 12px
+                    ));
+                }
+            }
+        }
+    }
 }

@@ -1,0 +1,92 @@
+@use 'sass:map';
+
+.processCard {
+    &__wrapper {
+        @extend %card;
+        display: flex;
+        flex-flow: column nowrap;
+        position: relative;
+
+        & > * {
+            @include rem(margin-bottom, 16px);
+
+            &:last-child {
+                margin-bottom: unset;
+            }
+        }
+    }
+    
+    &__time {
+        margin-bottom: unset!important;
+        align-self: flex-end;
+        position: absolute;
+        @extend %input;
+        @extend %textMetaSmall;
+        text-transform: uppercase;
+        @include rem((
+            padding: 8px,
+            right: 10px,
+            top: 10px
+        ));
+    }
+    &__tag {
+        margin-bottom: 4px!important;
+        font-family: map.get($FONTS, satoshi);
+        @extend %textMeta;
+        text-transform: uppercase;
+        color: map.get($COLORS, muted);
+    }
+    &__title {
+        font-family: map.get($FONTS, satoshi);
+        @extend %h4;
+        text-transform: uppercase;
+        @include rem(margin-bottom, 16px!important);
+    }
+    &__text {
+        color: map.get($COLORS, muted);
+    }
+    &__list {
+        display: flex;
+        flex-flow: column nowrap;
+        @include rem(gap, 8px);
+        li {
+            list-style-type: initial;
+            list-style-position: inside;
+        }
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        &__wrapper {
+            & > * {
+                @include clamp(margin-bottom, 32px 16px);
+            }
+        }
+        &__time {
+            @include clamp((
+                right: 20px 10px,
+                top: 20px 10px
+            ));
+        }
+        &__list {
+            @include clamp(gap, 16px 8px);
+        }
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            &__wrapper {
+                & > * {
+                    @include rem(margin-bottom, 32px);
+                }
+            }
+            &__time {
+                @include rem((
+                    right: 20px,
+                    top: 20px
+                ));
+            }
+            &__list {
+                @include rem(gap, 16px);
+            }
+        }
+    }
+}

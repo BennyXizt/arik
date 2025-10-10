@@ -3,10 +3,8 @@
 .serviceCard {
     font-family: map.get($FONTS, satoshi);
     @extend %addCounter;
-    border: 1px solid map.get($COLORS, border_default);
-    border-radius: 2px;
-    background: map.get($COLORS, background_muted);
-    @include rem(padding, 18px);
+    @extend %card;
+    backdrop-filter: unset;
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
@@ -36,8 +34,6 @@
     }
 
     @supports (font-size: clamp(1px,1px,1px)) { 
-        @include clamp(padding, 48px 18px);   
-
         & > * {
             @include clamp(margin-bottom, 32px 16px);
         }
@@ -48,8 +44,6 @@
     }
     @supports not (font-size: clamp(1px,1px,1px)) {
         @include media(desktop) {
-            @include rem(padding, 48px);
-
             & > * {
                 @include rem(margin-bottom, 32px);
             }

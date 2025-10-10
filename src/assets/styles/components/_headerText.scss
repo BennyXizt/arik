@@ -1,6 +1,7 @@
 @use 'sass:map';
 
 .headerText {
+    font-family: map.get($FONTS, satoshi);
     text-align: center;
     display: flex;
     flex-flow: column nowrap;
@@ -14,9 +15,14 @@
     }
 
     &__text {
+        font-family: map.get($FONTS, chillax);
         p {
             color: map.get($COLORS, muted);
         }
+    }
+
+    &__button {
+        font-family: map.get($FONTS, satoshi);
     }
 
     @supports not (font-size: clamp(1px,1px,1px)) {

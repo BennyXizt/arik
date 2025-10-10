@@ -4,6 +4,137 @@
 
 <section class="layout__process process">
 	<div class="process__container container">
-
+		<div class="process__top">
+			<%- include('src/ejs/components/headerText.ejs', {
+				headerText_component: {
+					tag: 'THe PRocess',
+					header: {
+						label: `Your Website <span>in 5 steps</span>`,
+						type: 'h1'
+					},
+					text: {
+						label: [
+							'Our process ensures that we create a website tailored to your business needs.',
+						],
+						size: '20'
+					},
+					button_component: {
+						type: 'button-text',
+						icon_component: {
+							block: 'asfasgas',
+							name: 'ph_arrow-down-light',
+							// style: 'primary',
+							rounded: true
+						}
+					}
+				}
+			})%>
+		</div>
+		<ul class="process__list">
+			<%- include('src/ejs/components/processCard.ejs', {
+				processCard_component: {
+					direction: 'right',
+					time: '2 Hours',
+					tag: 'Do we Match?',
+					title: {
+						label: 'Discovery Call',
+						tag: 'h4'
+					},
+					text: {
+						label: [
+							'Before we start, we determine if and how I can help you. What are your requirements for your new website? Why do you need a new website? What goals do you have, and what problems can we solve with a new website?'
+						]
+					},
+					list: [
+						'We get to know each other better',
+						'Determine how I can best assist you',
+						'Understand the goals you have for your website'
+					]
+				}
+			})%>
+			<%- include('src/ejs/components/processCard.ejs', {
+				processCard_component: {
+					direction: 'left',
+					time: '1 Week',
+					tag: 'lorem ipsum',
+					title: {
+						label: 'Concept & STrategy',
+						tag: 'h4'
+					},
+					text: {
+						label: [
+							'Together, we develop a strategy that successfully combines your goals with the needs of your target audience. Based on this concept, I create the first wireframes and an interactive prototype. This provides us with a very good impression of the website and the user interface.'
+						]
+					},
+					list: [
+						'UX Design',
+						'Wireframes',
+						'Interactive Prototype'
+					]
+				}
+			})%>
+			<%- include('src/ejs/components/processCard.ejs', {
+				processCard_component: {
+					direction: 'right',
+					time: '1 week',
+					tag: 'SOme MAgic',
+					title: {
+						label: 'web Design',
+						tag: 'h4'
+					},
+					text: {
+						label: [
+							'Now comes the magic. Based on the previously developed concept, I create a high-end screen design perfectly tailored to your brand. A web design that sets you apart from your competition, fits your target audience ideally, and provides an excellent user experience.'
+						]
+					},
+					list: [
+						'High-end web design tailored to your brand',
+						'Interactive prototype of the design'
+					]
+				}
+			})%>
+			<%- include('src/ejs/components/processCard.ejs', {
+				processCard_component: {
+					direction: 'left',
+					time: '4 week',
+					tag: 'More Magic',
+					title: {
+						label: 'Development',
+						tag: 'h4'
+					},
+					text: {
+						label: [
+							'In this step, we breathe life into your new high-end design. You will receive a custom-built website using a modular web design system and CMS integration. Animations will add the necessary flair to your site and set you apart from the boring competition.'
+						]
+					},
+					list: [
+						'Custom framer website',
+						'Modular web design systems',
+						'CMS integration',
+					]
+				}
+			})%>
+			<%- include('src/ejs/components/processCard.ejs', {
+				processCard_component: {
+					direction: 'right',
+					time: '2 hours',
+					tag: 'ready to go',
+					title: {
+						label: 'WEbsite onboarding',
+						tag: 'h4'
+					},
+					text: {
+						label: [
+							"In a personal Framer workshop, I will show you how to make changes to your new website quickly and easily. Additionally, you will receive personalized Framer video tutorials that you can access at any time. Edit your Framer website without a complicated backend or the need for an additional programmer. It's as simple as that."
+						]
+					},
+					list: [
+						'Personal workshop',
+						'Personalized video tutorials',
+						'Edit text and images directly on your website',
+					]
+				}
+			})%>
+		</ul>
 	</div>
 </section>
