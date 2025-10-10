@@ -1,0 +1,83 @@
+@use 'sass:map';
+
+.testimonialCard {
+    @extend %card;
+    display: flex;
+    flex-flow: column nowrap;
+    @include rem(gap, 12px);
+
+    &__title {
+        @extend %h4;
+        font-family: map.get($FONTS, satoshi);
+    }
+    &__text {
+        color: map.get($COLORS, muted);
+    }
+
+    .avatar-testimonialCard {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: center;
+        @include rem(gap, 8px);
+
+        &__image {
+            img {
+                border-radius: 100%;
+                @include rem((
+                    max-width: 30px,
+                    max-height: 30px
+                ))
+            }
+        }
+        &__content {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: flex-start;
+        }
+        &__name {
+            @extend %textMeta;
+            font-family: map.get($FONTS, satoshi);
+            text-transform: uppercase;
+        }
+        &__company {
+            @extend %textSmall;
+            color: map.get($COLORS, muted);
+        }
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(gap, 32px 12px);
+
+        .avatar-testimonialCard {
+            @include clamp(gap, 16px 8px);
+
+            &__image {
+                img {
+                    @include clamp((
+                        max-width: 60px 30px,
+                        max-height: 60px 30px
+                    ))
+                }
+            }
+        }
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(gap, 32px);
+
+            .avatar-testimonialCard {
+                @include rem(gap, 16px);
+
+                &__image {
+                    img {
+                        @include rem((
+                            max-width: 60px,
+                            max-height: 60px
+                        ))
+                    }
+                }
+            }
+        }
+    }
+}

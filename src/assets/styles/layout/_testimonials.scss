@@ -1,0 +1,17 @@
+@use 'sass:map';
+
+.testimonials {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        @include rem(column-gap, 16px);
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            &__list {
+                @include rem(column-gap, 32px);
+            }
+        }
+    }
+}

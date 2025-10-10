@@ -1,0 +1,45 @@
+<%
+	if(typeof testimonialCard_component === 'undefined' || !testimonialCard_component) {
+		return
+	}
+
+	var blockClass = 'testimonialCard'
+	if(typeof testimonialCard_component.block !== 'undefined' && testimonialCard_component.block) {
+		blockClass = `${testimonialCard_component.block}__testimonialCard testimonialCard`
+	}
+
+	var textSizes = ['12', '14', '18', '20', '24']
+	var textClass = 'testimonialCard__text text'
+	if(typeof testimonialCard_component.text.size !== 'undefined' && testimonialCard_component.text.size) {
+		if(textSizes.includes(testimonialCard_component.text.size)) {
+			textClass += ` text--size-${testimonialCard_component.text.size}`;
+		}
+	}
+%>
+
+<div class="<%=blockClass%>">
+	<%- include('externe/components/Image/Image.ejs', {
+		image_component: testimonialCard_component.logo_image_component
+	}) %>
+	<<%=testimonialCard_component.title.tag%> class="testimonialCard__title">
+		<%=testimonialCard_component.title.label%>
+	</<%=testimonialCard_component.title.tag%>>
+	<div class="testimonialCard__text">
+		<% for(const text of testimonialCard_component.text.label) { %>
+			<p class="<%=textClass%>"><%=text%></p>
+		<% } %>
+	</div>
+	<div class="testimonialCard__avatar avatar-testimonialCard">
+		<%- include('externe/components/Image/Image.ejs', {
+			image_component: testimonialCard_component.avatar.icon_image_component
+		}) %>
+		<div class="avatar-testimonialCard__content">
+			<span class="avatar-testimonialCard__name">
+				<%=testimonialCard_component.avatar.name%>
+			</span>
+			<span class="avatar-testimonialCard__company">
+				<%=testimonialCard_component.avatar.company%>
+			</span>
+		</div>
+	</div>
+</div>

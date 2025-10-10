@@ -302,7 +302,7 @@
         <div class="outer container">
             <div class="inner">
                 <h6 class="text-center">PROCESSCARD Component</h6>
-                <div class="flex items-center gap-x-2">
+                <div class="flex items-center flex-col gap-x-2">
                     <%- include('src/ejs/components/processCard.ejs', {
                         processCard_component: {
                             time: 'Time',
@@ -321,6 +321,68 @@
                                 'list2',
                                 'list3'
                             ]
+                        }
+                    })%>
+                    <%- include('src/ejs/components/processCard.ejs', {
+                        processCard_component: {
+                            direction: 'left',
+                            time: 'Time',
+                            tag: 'Tag',
+                            title: {
+                                label: 'Title',
+                                tag: 'h4'
+                            },
+                            text: {
+                                label: [
+                                    'Before we start, we determine if and how I can help you. What are your requirements for your new website? Why do you need a new website? What goals do you have, and what problems can we solve with a new website?'
+                                ]
+                            },
+                            list: [
+                                'list1',
+                                'list2',
+                                'list3'
+                            ]
+                        }
+                    })%>
+                </div>
+            </div>
+        </div>
+	</section>
+	<section class='testimonialCard_component'>
+        <div class="outer container">
+            <div class="inner">
+                <h6 class="text-center">TESTIMONIALCARD Component</h6>
+                <div class="flex items-center gap-x-2">
+                    <%- include('src/ejs/components/testimonialCard.ejs', {
+                        testimonialCard_component: {
+                            logo_image_component: {
+                                class: 'testimonialCard__logo',
+                                img: {
+                                    src: '/media/image/brands/brand3.svg',
+                                    width: '30px',
+                                    height: '20px'
+                                }
+                            },
+                            title: {
+                                label: 'Title',
+                                tag: 'h4'
+                            },
+                            text: {
+                                label: [
+                                    'Text'
+                                ],
+                                // size: 'size'
+                            },
+                            avatar: {
+                                icon_image_component: {
+                                    block: 'avatar-testimonialCard',
+                                    img: {
+                                        src: '/media/image/clients/client1.png'
+                                    }
+                                },
+                                name: 'Name',
+                                company: 'company'
+                            }
                         }
                     })%>
                 </div>

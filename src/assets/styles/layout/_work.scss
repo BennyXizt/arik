@@ -25,7 +25,7 @@
             }
         }
     }
-    @supports not (font-size: clamp(1px,1px,1px)) {
+    @supports (font-size: clamp(1px,1px,1px)) {
         &__content {
             @include clamp((
                 margin-top: 32px 16px,
