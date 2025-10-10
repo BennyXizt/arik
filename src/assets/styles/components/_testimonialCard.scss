@@ -1,11 +1,16 @@
 @use 'sass:map';
 
 .testimonialCard {
-    @extend %card;
-    display: flex;
-    flex-flow: column nowrap;
-    @include rem(gap, 12px);
+    display: grid;
+    height: 100%;
+    @include rem(grid-template-rows, 16px 1fr 16px);
 
+    &__inner {
+        @extend %card;
+        display: flex;
+        flex-flow: column nowrap;
+        @include rem(gap, 12px);
+    }
     &__title {
         @extend %h4;
         font-family: map.get($FONTS, satoshi);
@@ -46,8 +51,13 @@
         }
     }
 
+    @include media(desktop) {
+        @include rem(grid-template-rows, 32px 1fr 32px);
+    }
     @supports (font-size: clamp(1px,1px,1px)) {
-        @include clamp(gap, 32px 12px);
+        &__inner {
+            @include clamp(gap, 32px 12px);
+        }
 
         .avatar-testimonialCard {
             @include clamp(gap, 16px 8px);
@@ -64,7 +74,9 @@
     }
     @supports not (font-size: clamp(1px,1px,1px)) {
         @include media(desktop) {
-            @include rem(gap, 32px);
+            &__inner {
+                @include rem(gap, 32px);
+            }
 
             .avatar-testimonialCard {
                 @include rem(gap, 16px);
