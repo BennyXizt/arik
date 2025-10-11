@@ -157,7 +157,7 @@
                 ));
 
                 .icon-rounded__icon {
-                    @include clamp((
+                    @include rem((
                         width: 15px,
                         height: 15px
                     ));
@@ -239,19 +239,19 @@
                 height: 23px
             ));
             &--size-38 {
-                @include clamp((
+                @include rem((
                     width: 16px,
                     height: 16px
                 ));
             }
             &--size-32 {
-                @include clamp((
+                @include rem((
                     width: 15px,
                     height: 15px
                 ));
             }
             &--size-30 {
-                @include clamp((
+                @include rem((
                     width: 14px,
                     height: 14px
                 ));
