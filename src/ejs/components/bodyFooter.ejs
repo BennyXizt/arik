@@ -10,8 +10,19 @@
 %>
 
 <div class="<%=blockClass%>">
-	<div class="body-footer__content"></div>
-	<div class="body-footer__menus">
+	<div class="body-footer__content">
+		<%- include('externe/components/Spoiler/Spoiler.ejs', {
+			spoiler_component: {
+				// block: 'body-footer',
+				// class: 'body-footer_spoiler_spoiler',
+				title: bodyFooter_component.title,
+				// title: 'title',
+				// body: 'text'
+				body: bodyFooter_component.list,
+			}
+		})%>
+	</div>
+	<!-- <div class="body-footer__menus">
 		<<%= bodyFooter_component.title.type%> class="body-footer__title">
 			<%= bodyFooter_component.title.label %>
 		</<%= bodyFooter_component.title.type%>>
@@ -27,5 +38,5 @@
 				</li>
 			<% } %>
 		</ul>
-	</div>
+	</div> -->
 </div>
