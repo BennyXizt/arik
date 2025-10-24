@@ -18,7 +18,9 @@
 	'./layout/services',
 	'./layout/work',
 	'./layout/process',
-	'./layout/testimonials';
+	'./layout/testimonials',
+	'./layout/cta',
+	'./layout/footer';
 // internal layout END
 
 @import 
@@ -34,7 +36,8 @@
 	'./components/serviceCard',
 	'./components/workCard',
 	'./components/processCard',
-	'./components/testimonialCard';
+	'./components/testimonialCard',
+	'./components/bodyFooter';
 // internal components END
 
 // @import

@@ -1,0 +1,44 @@
+<%
+
+%>
+
+<aside class="cta">
+	<%- include('externe/components/Carousel/Carousel.ejs', {
+		carousel_component: {
+			block: 'cta',
+			data: [
+				'Let’s talk',
+				'+++'
+			]
+		}
+	}) %>
+	<section class="cta__body">
+		<div class="cta__container container">
+			<%- include('src/ejs/components/headerText.ejs', {
+				headerText_component: {
+					class: 'cta__headerText headerText--gap-8',
+					tag: 'Project in mind?',
+					header: {
+						label: `Let’s make your <span>Website shine</span>`,
+						type: 'h2'
+					},
+					text: {
+						label: [
+							'Premium web design, development, and SEO services to help your business stand out.',
+						],
+						size: '20'
+					},
+					button_component: {
+						block: 'headerText',
+						label: 'Get in touch',
+						size: 'small',
+						style: 'primary',
+						icon_component: {
+							name: 'ph_arrow-up-right-light'
+						}
+					}
+				}
+			})%>
+		</div>
+	</section>
+</aside>

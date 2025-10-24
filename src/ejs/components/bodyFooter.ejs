@@ -1,0 +1,31 @@
+<%
+	if(typeof bodyFooter_component === 'undefined' || !bodyFooter_component) {
+		return
+	}
+
+	var blockClass = 'body-footer'
+	if(typeof bodyFooter_component.block !== 'undefined' && bodyFooter_component.block) {
+		blockClass = `${bodyFooter_component.block}__body body-footer`
+	}
+%>
+
+<div class="<%=blockClass%>">
+	<div class="body-footer__content"></div>
+	<div class="body-footer__menus">
+		<<%= bodyFooter_component.title.type%> class="body-footer__title">
+			<%= bodyFooter_component.title.label %>
+		</<%= bodyFooter_component.title.type%>>
+		<ul class="body-footer__list">
+			<% for(const item of bodyFooter_component.list) { %>
+				<li class="body-footer__item">
+					<a href=<%=item.link%> class="body-footer__link">
+						<%- include('src/ejs/components/icon.ejs', {
+							icon_component: item.icon_component
+						}) %>
+						<%=item.label%>
+					</a>
+				</li>
+			<% } %>
+		</ul>
+	</div>
+</div>

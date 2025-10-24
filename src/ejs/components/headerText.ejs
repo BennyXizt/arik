@@ -6,6 +6,8 @@
 	var blockClass = 'headerText'
 	if(typeof headerText_component.block !== 'undefined' && headerText_component.block) {
 		blockClass = `${headerText_component.block}__headerText headerText`
+	} else if(typeof headerText_component.class !== 'undefined' && headerText_component.class) {
+		blockClass = `${headerText_component.class} headerText`
 	}
 
 	var textSizes = ['12', '14', '18', '20', '24']
@@ -22,7 +24,7 @@
 	<div class="headerText__tag">
 		<%=headerText_component.tag%>
 	</div>
-	<<%=headerText_component.header.type%>>
+	<<%=headerText_component.header.type%> class='headerText__title'>
 		<%-headerText_component.header.label%>
 	</<%=headerText_component.header.type%>>
 	<div class="<%=textClass%>">

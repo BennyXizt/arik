@@ -1,0 +1,29 @@
+<%
+
+%>
+
+<footer class="footer">
+	<div class="footer__container container">
+		<%- include('src/ejs/components/bodyFooter.ejs', {
+			bodyFooter_component: {
+				block: 'footer',
+				title: {
+					label: 'test',
+					type: 'h5'
+				},
+				list: [
+					{ 
+						label: 'test', 
+						icon_component: {
+
+						},
+						link: '#'
+					}
+				]
+			}
+		}) %>
+		<div class="footer__bottom bottom-footer">
+			
+		</div>
+	</div>
+</footer>

@@ -14,6 +14,15 @@
         @extend %textMeta;
     }
 
+    &__title,
+    &__tag {
+        @include rem(max-width, 1000px);
+    }
+
+    &__text {
+        @include rem(max-width, 600px);
+    }
+
     &__text {
         font-family: map.get($FONTS, chillax);
         p {
@@ -25,13 +34,43 @@
         font-family: map.get($FONTS, satoshi);
     }
 
+    &--gap-8 {
+        @include rem(gap, 6px);
+
+        .headerText {
+            &__button {
+                @include rem(margin-top, 16px);
+            }
+        }
+    }
+
     @supports not (font-size: clamp(1px,1px,1px)) {
         @include media(desktop) {
             @include rem(gap, 16px);
+
+            &--gap-8 {
+                @include rem(gap, 8px);
+
+                .headerText {
+                    &__button {
+                        @include rem(margin-top, 24px);
+                    }
+                }
+            }
         }
     }
 
     @supports (font-size: clamp(1px,1px,1px)) {
         @include clamp(gap, 16px 12px);
+
+        &--gap-8 {
+            @include clamp(gap, 8px 6px);
+
+            .headerText {
+                &__button {
+                    @include clamp(margin-top, 24px 16px);
+                }
+            }
+        }
     }
 }

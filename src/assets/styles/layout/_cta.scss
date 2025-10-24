@@ -1,0 +1,58 @@
+@use 'sass:map';
+
+.cta {
+    background-color: map.get($COLORS, background_muted);
+    .carousel {
+        @include rem(padding, 8px 0);
+        border-radius: 2px;
+        background: rgba(218, 197, 167, 0.1);
+
+        &__inner {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            @include rem(gap, 20px);
+
+            & > * {
+                white-space: nowrap;
+            }
+        }
+
+        &__item {
+            @extend %textMeta;
+            font-family: map.get($FONTS, satoshi);
+            text-transform: uppercase;
+        }
+    }
+
+    &__body {
+        @include rem(padding, 40px 0);
+    }
+
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            .carousel {
+                @include rem(padding, 16px 0);
+
+                &__inner {
+                    @include rem(gap, 40px);
+                }
+            }
+            &__body {
+                @include rem(padding, 160px 0);
+            }
+        }
+    }
+    @supports (font-size: clamp(1px,1px,1px)) {
+        .carousel {
+            @include clamp(padding, (16px 8px) 0);
+
+            &__inner {
+                @include clamp(gap, 40px 20px);
+            }
+        }
+        &__body {
+            @include clamp(padding, (160px 40px) 0);
+        }
+    }
+}
