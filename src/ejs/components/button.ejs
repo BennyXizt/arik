@@ -6,6 +6,8 @@
 	var blockClass = 'button'
 	if(typeof button_component.block !== 'undefined' && button_component.block) {
 		blockClass = `${button_component.block}__button button`
+	} else if(typeof button_component.class !== 'undefined' && button_component.class) {
+		blockClass = `${button_component.class} button`
 	}
 
 	var blockType = 'button'
@@ -39,9 +41,17 @@
 			}
 		}
 	}
+
+	var thisDataAttributes = undefined
+	if(
+		(typeof button_component.this !== 'undefined' && button_component.this) &&
+		(typeof button_component.this.dataAttribute !== 'undefined' && button_component.this.dataAttribute)
+	) {
+		thisDataAttributes = button_component.this.dataAttribute
+	}
 %>
 
-<<%=blockType%> <%= blockType === 'a' ? `href=${button_component.link}` : ''%> class="<%=blockClass%>">
+<<%=blockType%> <%= blockType === 'a' ? `href=${button_component.link}` : ''%> <%=thisDataAttributes%> class="<%=blockClass%>">
 	<%=button_component.label%>
 	<%- include('src/ejs/components/icon.ejs', {
 		icon_component: button_component.icon_component

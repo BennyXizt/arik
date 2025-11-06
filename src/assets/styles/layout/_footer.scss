@@ -1,5 +1,119 @@
 @use 'sass:map';
 
 .footer {
+    background-color: map.get($COLORS, background_muted);
+    @include rem(padding, 40px);
 
+    &__container {
+        @include rem(max-width, 1630px);
+    }
+
+    .bottom-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include rem(gap, 10px);
+
+        &__copyright {
+            @extend %textXSmall;
+            color: map.get($COLORS, muted);
+        }
+
+        &__up {
+            div {
+                order: 1;
+            }
+        }
+    }
+
+    .accordion {
+        font-family: map.get($FONTS, satoshi);
+
+        &__title {
+            @extend %h5;
+        }
+
+        &__body {
+            @include rem(padding-top, 20px);
+
+            li {
+                @extend %textMeta;
+                text-transform: uppercase;
+                color: map.get($COLORS, muted);
+                transition: color .3s ease-in-out;
+
+                @media (any-hover: hover) and (pointer: fine) {
+                    &:hover {
+                        color: map.get($COLORS, base);
+                    }
+                }
+            }
+
+            & > *:not(:last-child) {
+                @include rem(margin-bottom, 8px);
+            }
+        }
+
+        &__icon {
+            @include rem((
+                width: 15px,
+                height: 15px
+            ))
+        }
+    }
+
+    & > * {
+        &:not(:last-child) {
+            @include rem(margin-bottom, 30px);
+        }
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(padding, 64px 40px);
+
+        .bottom-footer {
+            @include clamp(gap, 20px 10px);
+        }
+
+        .accordion {
+            &__body {
+                @include clamp(padding-top, 32px 20px);
+
+                & > *:not(:last-child) {
+                    @include clamp(margin-bottom, 16px 8px);
+                }
+            }
+        }
+
+        & > * {
+            &:not(:last-child) {
+                @include clamp(margin-bottom, 80px 30px);
+            }
+        }
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(padding, 64px);
+
+            .bottom-footer {
+                @include rem(gap, 20px);
+            }
+
+            .accordion {
+                &__body {
+                    @include rem(padding-top, 32px);
+
+                    & > *:not(:last-child) {
+                        @include rem(margin-bottom, 16px);
+                    }
+                }
+            }
+
+            & > * {
+                &:not(:last-child) {
+                    @include rem(margin-bottom, 80px);
+                }
+            }
+        }
+    }
 }

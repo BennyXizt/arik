@@ -170,3 +170,21 @@
         }
     }
 }
+
+%h5 {
+    $fontMobile: 16px;
+    $fontDesktop: 20px;
+    
+    line-height: 1.4;
+    letter-spacing: 1px;
+    @include rem(font-size, $fontMobile);
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(font-size, $fontDesktop $fontMobile);
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(font-size, $fontDesktop);
+        }
+    }
+}

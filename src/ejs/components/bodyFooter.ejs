@@ -7,36 +7,135 @@
 	if(typeof bodyFooter_component.block !== 'undefined' && bodyFooter_component.block) {
 		blockClass = `${bodyFooter_component.block}__body body-footer`
 	}
+	var accordionCommonProperties = {
+		this: {
+			parent: 'body-footer'
+		},
+		behaviour: 'default',
+		media: {
+			type:'max-width',
+			label: '767.98px'
+		},
+		icon: 'ph_plus-light'
+	}   
+
+	var contentLogoLink = '#' 
+	if(typeof bodyFooter_component.logo.link !== 'undefined' && bodyFooter_component.logo.link) {
+		contentLogoLink = bodyFooter_component.logo.link
+	}
 %>
 
 <div class="<%=blockClass%>">
-	<div class="body-footer__content">
-		<%- include('externe/components/Spoiler/Spoiler.ejs', {
-			spoiler_component: {
-				// block: 'body-footer',
-				// class: 'body-footer_spoiler_spoiler',
-				title: bodyFooter_component.title,
-				// title: 'title',
-				// body: 'text'
-				body: bodyFooter_component.list,
+	<div class="body-footer__content content-footer">
+		<a href=<%=contentLogoLink%> class="content-footer__logo">
+			<%- include('externe/components/Image/Image.ejs', {
+				image_component: bodyFooter_component.logo.image_component
+			})%>
+		</a>
+		<%- include('src/ejs/components/social.ejs', {
+			social_component: {
+				this: {
+					parent: 'content-footer',
+					type: 'ul'
+				},
+				type: 'vertical',
+				list: [
+					{
+						icon_component: {
+							block: 'social',
+							name: 'ph_instagram-logo-light', 
+							size: '38',
+							rounded: true
+						},
+						label: 'Instagram'
+					},
+					{
+						icon_component: {
+							block: 'social',
+							name: 'ph_twitter-logo-light',
+							size: '38',
+							rounded: true
+						},
+						label: 'Twitter'
+					},
+					{
+						icon_component: {
+							block: 'social',
+							name: 'ph_dribbble-logo-light',
+							size: '38',
+							rounded: true
+						},
+						label: 'Dribbble'
+					},
+					{
+						icon_component: {
+							block: 'social',
+							name: 'ph_behance-logo-light',
+							size: '38',
+							rounded: true
+						},
+						label: 'Behance'
+					}
+				]
 			}
 		})%>
 	</div>
-	<!-- <div class="body-footer__menus">
-		<<%= bodyFooter_component.title.type%> class="body-footer__title">
-			<%= bodyFooter_component.title.label %>
-		</<%= bodyFooter_component.title.type%>>
-		<ul class="body-footer__list">
-			<% for(const item of bodyFooter_component.list) { %>
-				<li class="body-footer__item">
-					<a href=<%=item.link%> class="body-footer__link">
-						<%- include('src/ejs/components/icon.ejs', {
-							icon_component: item.icon_component
-						}) %>
-						<%=item.label%>
-					</a>
-				</li>
-			<% } %>
-		</ul>
-	</div> -->
+	<ul class="body-footer__list">
+		<li class="body-footer__item">
+			<%- include('externe/components/Accordion/Accordion.ejs', {
+			  accordion_component: {
+				...accordionCommonProperties,
+			    title: { type: 'h6', label: 'Pages' },
+			    body: [
+			      { label: 'Home', link: '#' },
+			      { label: 'Services', link: '#' },
+			      { label: 'About', link: '#' },
+			      { label: 'Contact', link: '#' },
+			    ]
+			  }
+			}) %>
+			<%- include('src/ejs/components/button.ejs', {
+				button_component: {
+					block: 'body-footer',
+					label: 'More Templates',
+					// link: 'root',
+					size: 'small',
+					style: 'primary',
+					icon_component: {
+						name: 'ph_arrow-up-right-light'
+					}
+				}
+			})%>
+		</li>
+		<li class="body-footer__item">
+			<%- include('externe/components/Accordion/Accordion.ejs', {
+			  accordion_component: {
+				...accordionCommonProperties,
+			    title: { type: 'h6', label: 'CMS' },
+			    body: [
+			      { label: 'Work', link: '#' },
+			      { label: 'Work Single', link: '#' },
+			      { label: 'Blog', link: '#' },
+			      { label: 'Blog Post', link: '#' },
+			    ]
+			  }
+			}) %>
+		</li>
+		<li class="body-footer__item">
+			<%- include('externe/components/Accordion/Accordion.ejs', {
+			  accordion_component: {
+				...accordionCommonProperties,
+			    title: { type: 'h6', label: 'Utility Pages' },
+			    body: [
+			      { label: '404 Error Page', link: '#' },
+			      { label: 'Password Protected', link: '#' },
+			      { label: 'Styleguide', link: '#' },
+			      { label: 'Licensing', link: '#' },
+			      { label: 'Changelog', link: '#' },
+			    ]
+			  }
+			}) %>
+		</li>
+	</div>
+	
 </div>

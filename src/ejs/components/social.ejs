@@ -1,0 +1,79 @@
+<%
+// Пример вызова в шаблоне (EJS):
+//
+// <\%- include('src/ejs/components/social.ejs', 
+//	social_component: {
+//		this: {
+//			parent: 'parentClass',
+//			class: 'childClass',
+//			type: 'div',
+//			style: 'customStyle',
+//			dataAttribute: 'customDataAttributes' 
+//		}
+//	}) %>
+%>
+<%
+	if(typeof social_component === 'undefined' || !social_component) {
+		return
+	}
+
+	var thisClass = 'social'
+	if(
+		(typeof social_component.this !== 'undefined' && social_component.this) &&
+		(typeof social_component.this.parent !== 'undefined' && social_component.this.parent)
+	) {
+		thisClass = `${social_component.this.parent}__social social`
+	} else if(
+		(typeof social_component.this !== 'undefined' && social_component.this) &&
+		(typeof social_component.this.class !== 'undefined' && social_component.this.class)
+	) {
+		thisClass = `${social_component.this.class} social`
+	}
+
+	var thisType = 'ul'
+	if(
+		(typeof social_component.this !== 'undefined' && social_component.this) &&
+		(typeof social_component.this.type !== 'undefined' && social_component.this.type)
+	) {
+		thisType = social_component.this.type
+	}
+
+	var thisStyles = undefined
+	if(
+		(typeof social_component.this !== 'undefined' && social_component.this) &&
+		(typeof social_component.this.style !== 'undefined' && social_component.this.style)
+	) {
+		thisStyles = `style='${social_component.this.style}'`
+	}
+
+	var thisDataAttributes = undefined
+	if(
+		(typeof social_component.this !== 'undefined' && social_component.this) &&
+		(typeof social_component.this.dataAttribute !== 'undefined' && social_component.this.dataAttribute)
+	) {
+		thisDataAttributes = social_component.this.dataAttribute
+	}
+
+	if(social_component.type !== 'undefined' && social_component.type) {
+		thisClass += ' social--vertical'
+	}
+%>
+
+<<%=thisType%> <%=thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>
+	<% if(social_component.list !== 'undefined' && social_component.list) { %>
+		<% for(const item of social_component.list) { %>
+			<li class="social__item">
+				<a href="<%=item.link%>" class="social__link">
+					<%- include('src/ejs/components/icon.ejs', {
+						icon_component: item.icon_component
+					}) %>
+					<% if(item.label !== 'undefined' && item.label) { %>
+						<span class="social__label">
+							<%=item.label%>
+						</span>
+					<% } %>
+				</a>
+			</li>
+		<% } %>
+	<% } %>
+</<%=thisType%>>

@@ -1,0 +1,41 @@
+[data-fsc-accordion] {
+    .accordion {
+        &__top {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            @include rem(gap, 5px);
+            justify-content: space-between;
+        }
+        &__icon {
+            display: none;
+            transition: transform .5s ease-in-out;
+        }
+    }
+    @include media(tablet, max) {
+        .accordion {
+            &__body {
+                height: 0;
+                opacity: 0;
+                visibility: hidden;
+                transition: .3s ease-in-out;
+                transition-property: height, opacity, visibility, padding;
+                overflow: hidden;
+            }
+            &__icon {
+                display: unset;
+            }
+        }
+        &[data-fsc-accordion-active] {
+            .accordion {
+                &__body {
+                    opacity: 1;
+                    visibility: visible;
+                }
+                &__icon {
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+}

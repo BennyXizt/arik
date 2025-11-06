@@ -6,6 +6,7 @@
 <% } %>
 <head>
    <%- include('externe/components/Head/Head.ejs') %>
+   <!-- <link rel="stylesheet" href="../../src/assets/styles/main.scss"> -->
 </head>
 <body>
     <%- include('externe/components/DummyAside/DummyAside.ejs', {
@@ -28,14 +29,14 @@
                 homePage: true
             }
         })%>
-        <!-- <main class="layout">
+        <main class="layout">
 			<%- include('src/ejs/layout/hero.ejs')%>
 			<%- include('src/ejs/layout/clients.ejs')%>
 			<%- include('src/ejs/layout/services.ejs')%>
 			<%- include('src/ejs/layout/work.ejs')%>
 			<%- include('src/ejs/layout/process.ejs')%>
 			<%- include('src/ejs/layout/testimonials.ejs')%>
-		</main> -->
+		</main>
         <%- include('src/ejs/layout/cta.ejs')%>
         <%- include('src/ejs/layout/footer.ejs')%>
     </div>

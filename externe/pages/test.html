@@ -348,7 +348,7 @@
             </div>
         </div>
 	</section>
-	<section class='testimonialCard_component'>
+	<!-- <section class='testimonialCard_component'>
         <div class="outer container">
             <div class="inner">
                 <h6 class="text-center">TESTIMONIALCARD Component</h6>
@@ -388,15 +388,100 @@
                 </div>
             </div>
         </div>
-	</section>
-	<section class='bodyFooter_component'>
+	</section> -->
+	<section class='social_component'>
         <div class="outer container">
             <div class="inner">
-                <h6 class="text-center">BODYFOOTER Component</h6>
+                <h6 class="text-center">SOCIAL Component</h6>
                 <div class="flex items-center gap-x-2">
-                    <%- include('src/ejs/components/bodyFooter.ejs', {
-                        bodyFooter_component: {
-                            
+                    <%- include('src/ejs/components/social.ejs', {
+                        social_component: {
+                            this: {
+                                parent: 'parentClass',
+                                type: 'ul'
+                            },
+                            type: 'vertical',
+                            list: [
+                                {
+                                   icon_component: {
+                                        block: 'social',
+                                        name: 'ph_twitter-logo-light',
+                                        size: '38',
+                                        rounded: true
+                                   },
+                                   label: 'test'
+                                },
+                                {
+                                    icon_component: {
+                                        block: 'social',
+                                        name: 'ph_instagram-logo-light',
+                                        size: '38',
+                                        rounded: true
+                                    },
+                                    label: 'test'
+                                },
+                                {
+                                    icon_component: {
+                                        block: 'social',
+                                        name: 'ph_dribbble-logo-light',
+                                        size: '38',
+                                        rounded: true
+                                    },
+                                    label: 'test'
+                                },
+                                {
+                                   icon_component: {
+                                        block: 'social',
+                                        name: 'ph_behance-logo-light',
+                                        size: '38',
+                                        rounded: true
+                                   },
+                                   label: 'test'
+                                }
+                            ],
+                            label: 'Text'
+                        }
+                    })%>
+                    <%- include('src/ejs/components/social.ejs', {
+                        social_component: {
+                            this: {
+                                parent: 'parentClass',
+                                type: 'ul'
+                            },
+                            list: [
+                                {
+                                   icon_component: {
+                                        block: 'social',
+                                        name: 'ph_twitter-logo-light',
+                                        size: '38',
+                                        rounded: true
+                                   }
+                                },
+                                {
+                                    icon_component: {
+                                        block: 'social',
+                                        name: 'ph_instagram-logo-light',
+                                        size: '38',
+                                        rounded: true
+                                    }
+                                },
+                                {
+                                    icon_component: {
+                                        block: 'social',
+                                        name: 'ph_dribbble-logo-light',
+                                        size: '38',
+                                        rounded: true
+                                    }
+                                },
+                                {
+                                   icon_component: {
+                                        block: 'social',
+                                        name: 'ph_behance-logo-light',
+                                        size: '38',
+                                        rounded: true
+                                   }
+                                }
+                            ]
                         }
                     })%>
                 </div>
