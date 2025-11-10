@@ -24,6 +24,14 @@
             background-color: map.get($BASE, main_color);
         }
 
+        &--active {
+            &::after {
+                left: 0;
+                width: 100%;
+                color: color.scale(map.get($BASE, main_color), $lightness: 100%);
+            }
+        }
+
         @media (any-hover: hover) {
             &:hover {
                 color: color.scale(map.get($BASE, main_color), $lightness: 100%);

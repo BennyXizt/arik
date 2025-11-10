@@ -1,0 +1,72 @@
+<%
+
+%>
+
+<section class="layout__stats stats">
+	<div class="stats__container container">
+		<%- include('src/ejs/components/statsItem.ejs', {
+			statsItem_component: {
+				this: {
+					class: 'stats__item',
+					type: 'article'
+				},
+				title: {
+					label: 'Clients',
+					tag: 'h4'
+				},
+				value: {
+					label: '150',
+					symbol: '+'
+				}
+			}
+		})%>
+		<%- include('src/ejs/components/statsItem.ejs', {
+			statsItem_component: {
+				this: {
+					class: 'stats__item',
+					type: 'article'
+				},
+				title: {
+					label: 'Projects',
+					tag: 'h4'
+				},
+				value: {
+					label: '300',
+					symbol: '+'
+				}
+			}
+		})%>
+		<%- include('src/ejs/components/statsItem.ejs', {
+			statsItem_component: {
+				this: {
+					class: 'stats__item',
+					type: 'article'
+				},
+				title: {
+					label: 'Happy Clients',
+					tag: 'h4'
+				},
+				value: {
+					label: '100',
+					symbol: '%'
+				}
+			}
+		})%>
+		<%- include('src/ejs/components/statsItem.ejs', {
+			statsItem_component: {
+				this: {
+					class: 'stats__item',
+					type: 'article'
+				},
+				title: {
+					label: 'Followers',
+					tag: 'h4'
+				},
+				value: {
+					label: '100',
+					symbol: 'K'
+				}
+			}
+		})%>
+	</div>
+</section>

@@ -1,0 +1,22 @@
+@use 'sass:map';
+
+.item-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    font-family: map.get($FONTS, satoshi);
+    text-transform: uppercase;
+
+    &__title {
+        @extend %textMeta;
+        color: map.get($COLORS, muted);
+    }
+
+    &__value {
+        @extend %h1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

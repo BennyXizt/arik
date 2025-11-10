@@ -1,0 +1,47 @@
+<%
+
+%>
+
+<section class="layout__hero-services hero-services">
+	<div class="hero-services__container container">
+		<%- include('src/ejs/components/headerText.ejs', {
+            headerText_component: {
+                block: 'hero-services',
+                header: {
+                    label: `Web <br> Designer <span>& Framer</span>`,
+                    type: 'h1'
+                },
+                text: {
+                    label: [
+                        'Premium web design, development, and SEO services to help your business stand out.',
+                    ],
+                    size: '24'
+                },
+                button_component: {
+                    block: 'hero-services',
+                    this: {
+                        dataAttribute: "data-fsc-scroll data-fsc-scroll-to=.footer data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start"
+                    },
+                    size: 'small',
+                    type: 'button-text',
+                    label: 'My Services',
+                    icon_component: {
+                        name: 'ph_arrow-down-light',
+                        rounded: true
+                    }
+                }
+            }
+        })%>
+        <%- include('externe/components/Image/Image.ejs', {
+            image_component: {
+                this: {
+                    parent: 'hero-services'
+                },
+                img: {
+                    src: 'media/image/laptop.png',
+                    alt: 'alt'
+                }
+            }
+        }) %>
+	</div>
+</section>

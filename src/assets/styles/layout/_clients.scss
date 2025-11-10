@@ -1,7 +1,7 @@
 @use 'sass:map';
 
 .clients {
-    .carousel {
+    .marquee {
         overflow: hidden;
         mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%);
         
@@ -13,7 +13,7 @@
     }
 
     @supports (font-size: clamp(1px,1px,1px)) {
-        .carousel {
+        .marquee {
             ul {
                 @include clamp(column-gap, 128px 48px);
             }
@@ -21,7 +21,7 @@
     }
     @supports not (font-size: clamp(1px,1px,1px)) {
         @include media(desktop) {
-            .carousel {
+            .marquee {
                 ul {
                     @include rem(column-gap, 128px);
                 }

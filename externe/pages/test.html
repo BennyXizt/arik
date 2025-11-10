@@ -7,20 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-    <%- include('./externe/components/DummyAside/DummyAside.ejs', {
-        dummy_aside_component: {
-            ul: [
-                {
-                    label: 'Font Icons',
-                    href: 'fontIcons.html'
-                },
-                {
-                    label: 'Home Page',
-                    href: '/'
-                },
-            ]
-        }
-    }) %>
+    <%- include('./externe/components/DummyAside/DummyAside.ejs') %>
     <section class="titles">
         <div class="outer container">
             <div class="inner">
@@ -482,6 +469,62 @@
                                    }
                                 }
                             ]
+                        }
+                    })%>
+                </div>
+            </div>
+        </div>
+	</section>
+	<section class='stats_component'>
+        <div class="outer container">
+            <div class="inner">
+                <h6 class="text-center">STATS Component</h6>
+                <div class="flex items-center gap-x-2">
+                    <%- include('src/ejs/components/statsItem.ejs', {
+                        statsItem_component: {
+                            this: {
+                                parent: 'stats-item',
+                                type: 'article'
+                            },
+                            title: {
+                                label: 'Title',
+                                tag: 'h4'
+                            },
+                            value: {
+                                label: '150',
+                                symbol: 'K'
+                            }
+                        }
+                    })%>
+                </div>
+            </div>
+        </div>
+	</section>
+	<section class='serviceListCard_component'>
+        <div class="outer container">
+            <div class="inner">
+                <h6 class="text-center">SERVICELISTCARD Component</h6>
+                <div class="flex items-center gap-x-2">
+                    <%- include('src/ejs/components/serviceListCard.ejs', {
+                        serviceListCard_component: {
+                            this: {
+                                parent: 'service-list'
+                            },
+                            tag: 'tag',
+                            title: {
+                                label: 'Text',
+                                tag: 'h2',
+                                link: '#'
+                            },
+                            image: {
+                                link: '#',
+                                image_component: {
+                                    img: { src: 'media/image/works/w1.png' }
+                                }
+                            },
+                            image_component: {
+                                    img: { src: 'media/image/works/w1.png' }
+                                }
                         }
                     })%>
                 </div>

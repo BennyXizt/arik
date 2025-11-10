@@ -1,0 +1,52 @@
+@use 'sass:map';
+
+.hero-services {
+    @include rem(padding-top, 78px);
+    
+    &__container {
+        @include rem(max-width, 1630px);
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__image {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__button {
+        @include rem((
+            margin-top: 16px,
+            margin-bottom: 16px
+        ));
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(padding-top, 224px 78px);
+        &__button {
+            @include clamp((
+                margin-top: 48px 16px,
+                margin-bottom: 64px 16px
+            ));
+        }
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            .hero-services {
+                @include rem(padding-top, 224px);
+                &__button {
+                    @include rem((
+                        margin-top: 48px,
+                        margin-bottom: 64px
+                    ));
+                }
+            }
+        }
+    }
+}

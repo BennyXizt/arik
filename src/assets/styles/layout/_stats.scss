@@ -1,0 +1,37 @@
+@use 'sass:map';
+
+.stats {
+    @include rem(max-width, 1230px);
+
+    &__container {
+        display: flex;
+        flex-flow: row wrap;
+        @include rem(gap, 20px);
+        align-items: flex-end;
+    }
+
+    &__item {
+        flex: 1 1 calc(50% - 40px);
+    }
+
+    @include media(tablet) {
+        &__item {
+            flex: 1 1 calc(25% - 40px);
+        }
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        &__container {
+            @include clamp(column-gap, 64px 20px);
+        }
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            .stats {
+                &__container {
+                    @include rem(column-gap, 64px);
+                }
+            }
+        }
+    }
+}

@@ -13,7 +13,9 @@
 	<div class="workCard__background">
 		<%- include('externe/components/Image/Image.ejs', {
 			image_component: {
-				class: 'workCard__noise',
+				this: {
+					class: 'workCard__noise'
+				},
 				img: {
 					src: '/media/image/works/Noise.png',
 				}

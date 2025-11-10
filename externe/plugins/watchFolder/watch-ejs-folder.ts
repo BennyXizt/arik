@@ -2,7 +2,7 @@ import type { Plugin, ViteDevServer } from 'vite'
 import { fileURLToPath } from 'url'
 import { resolve, dirname, basename, extname } from 'path'
 import fs from 'fs'
-import type {EJSFolderInterface } from './types/plugin.interface'
+import type { EJSFolderInterface } from './types/plugin.interface'
 import { EJSFolderTranslation } from './i18n'
 
 export function ViteWatchEJSFolderPlugin({relativePath, outputDestination, language}: EJSFolderInterface): Plugin {
@@ -13,24 +13,22 @@ export function ViteWatchEJSFolderPlugin({relativePath, outputDestination, langu
                 __filename = fileURLToPath(import.meta.url),
                 __dirname = dirname(__filename),
                 watchDir = resolve(__dirname, relativePath),
-                finalDestinationRoot = outputDestination.root ? outputDestination.root :  {
-                    fileName: '',
-                    fileDestination: ''
+                finalDestinationPages = outputDestination.pages ? outputDestination.pages :  {
+                    fileNameException: ['test.ejs'],
+                    fileDestination: __dirname
                 },
-                finalDestinationTest = outputDestination.test ? outputDestination.test :  {
-                    fileName: '',
-                    fileDestination: ''
+                finalDestinationRest = outputDestination.rest ? outputDestination.rest :  {
+                    fileName: ['test.ejs'],
+                    fileDestination: `${__dirname}/externe/pages/`
                 },
-                destinationRootHTML = outputDestination.root ? resolve(__dirname, outputDestination.root.fileDestination) : undefined,
-                destinationTestHTML = outputDestination.test ? resolve(__dirname, outputDestination.test.fileDestination) : undefined,
+                destinationPagesHTML = outputDestination.pages ? resolve(__dirname, outputDestination.pages.fileDestination) : undefined,
+                destinationRestHTML = outputDestination.rest ? resolve(__dirname, outputDestination.rest.fileDestination) : undefined,
                 translation = new EJSFolderTranslation({pluginName: 'watchEJSFolderPlugin', language})
 
-            translation.pluginStart(watchDir, { destinationRootHTML })
-            
+            translation.pluginStart(watchDir, { destinationPagesHTML, destinationRestHTML })
 
-            server.watcher.add(watchDir);
             server.watcher.on('change', (changedFile) => {
-                if (dirname(changedFile) !== watchDir ) 
+                if (dirname(changedFile) !== watchDir) 
                     return
 
                 translation.fileHasBeenChanged(changedFile)
@@ -40,16 +38,21 @@ export function ViteWatchEJSFolderPlugin({relativePath, outputDestination, langu
                         finalOutputDestionation: string | undefined = undefined,
                         needToRewrite = false
 
-                    if(changedFile.includes(finalDestinationRoot.fileName)) {
-                        finalOutputDestionation =  destinationRootHTML
+                    const bool = destinationPagesHTML && (!finalDestinationPages.fileNameException.includes(basename(changedFile)))
+
+                    if(
+                        (destinationPagesHTML) &&
+                        (!finalDestinationPages.fileNameException.includes(basename(changedFile)))
+                    ) {
+                        finalOutputDestionation =  resolve(destinationPagesHTML, `${basename(changedFile).split('.')[0]}.html`)
+                        needToRewrite = true
+                    } else if(
+                        (destinationRestHTML) &&
+                        (finalDestinationRest.fileName.includes(basename(changedFile)))
+                    ) {
+                        finalOutputDestionation =  resolve(destinationRestHTML, `${basename(changedFile).split('.')[0]}.html`)
                         needToRewrite = true
                     }
-
-                    if(changedFile.includes(finalDestinationTest.fileName)) {
-                        finalOutputDestionation =  destinationTestHTML
-                        needToRewrite = true
-                    }
-
 
                     if(needToRewrite) {
                         const 
@@ -58,10 +61,7 @@ export function ViteWatchEJSFolderPlugin({relativePath, outputDestination, langu
 
                         fs.writeFileSync(finalOutputDestionation!, fileContent, 'utf-8')
                         translation.fileHasBeenUpdated(finalOutputDestionation!)
-                           
                     }
-                    
-                    
 
                 }, 100)
                 // server.ws.send({ type: 'full-reload' })

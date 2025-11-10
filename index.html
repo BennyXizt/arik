@@ -9,20 +9,7 @@
    <!-- <link rel="stylesheet" href="../../src/assets/styles/main.scss"> -->
 </head>
 <body>
-    <%- include('externe/components/DummyAside/DummyAside.ejs', {
-        dummy_aside_component: {
-            ul: [
-                {
-                    label: 'Font Icons',
-                    href: 'externe/pages/fontIcons.html'
-                },
-                {
-                    label: 'Test Page',
-                    href: 'externe/pages/test.html'
-                },
-            ]
-        }
-    }) %>
+    <%- include('externe/components/DummyAside/DummyAside.ejs') %>
     <div class="wrapper">
         <%- include('externe/components/Header/Header.ejs', {
             header_component: {

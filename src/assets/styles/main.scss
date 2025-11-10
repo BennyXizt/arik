@@ -20,7 +20,10 @@
 	'./layout/process',
 	'./layout/testimonials',
 	'./layout/cta',
-	'./layout/footer';
+	'./layout/footer',
+	'./layout/hero-services',
+	'./layout/stats',
+	'./layout/service-list';
 // internal layout END
 
 @import 
@@ -39,8 +42,10 @@
 	'./components/testimonialCard',
 	'./components/bodyFooter',
 	'./components/accordion',
-	'./components/social';
+	'./components/social',
+	'./components/statsItem',
+	'./components/serviceListCard';
 // internal components END
 
-// @import
-//         'pages'
+@import
+	'./pages/services';

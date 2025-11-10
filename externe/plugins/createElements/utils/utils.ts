@@ -39,72 +39,93 @@ export function createEJSFile({ejsDir, blockType, componentName, fs}) {
 
     switch(blockType) {
         case 'components': {
-            // ejsFileContent = `
-            //     <%\n\tif(typeof ${formattedComponentName}_component === 'undefined' || !${formattedComponentName}_component) {\n\t\treturn\n\t}
-            //     `.trim() +
-            //     `\n\n\tvar blockClass = 'class=${componentName}'` + 
-            //     `\n\tif(typeof ${formattedComponentName}_component.block !== 'undefined' && ${formattedComponentName}_component.block) {` +
-            //     `\n\t\tblockClass = \`class=\${${formattedComponentName}_component.block}__${componentName} ${componentName}\`` + 
-            //     `\n\t} else if(typeof ${formattedComponentName}_component.class !== 'undefined' && ${formattedComponentName}_component.class) {` + 
-            //     `\n\t\tblockClass = \`class=\${${formattedComponentName}_component.class}\`` +
-            //     `\n\t}\n%>` +
-            //     `\n\n<div <%-blockClass%>>\n\n</div>`
-
             ejsFileContent = 
             `<%\n` +
             `// Пример вызова в шаблоне (EJS):\n` +
             `//\n` +
-            `// <\\%- include('src/ejs/components/${componentName}.ejs', \n` +
+            `// <\\%- include('src/ejs/components/${componentName}.ejs', { \n` +
             `//\t${componentName}_component: {\n` +
             `//\t\tthis: {\n` +
             `//\t\t\tparent: 'parentClass',\n` +
-            `//\t\t\tclass: 'childClass',\n` +
-            `//\t\t\ttype: 'div',\n` +
-            `//\t\t\tstyle: 'customStyle',\n` +
-            `//\t\t\tdataAttribute: 'customDataAttributes' \n` +
+            `//\t\t\tblock: 'childBlockClass',\n` +
+            `//\t\t\tclass: ['childClass'],\n` +
+            `//\t\t\ttag: 'div',\n` +
+            `//\t\t\tstyle: ['customStyle'],\n` +
+            `//\t\t\tdataAttribute: ['customDataAttributes'], \n` +
             `//\t\t}\n` +
+            `//\t}\n` +
             `//\t}) %>\n` +
             `%>\n` +
+
             `<%\n` +
             `\tif(typeof ${componentName}_component === 'undefined' || !${componentName}_component) {\n` +
             `\t\treturn\n` +
             `\t}\n\n` +
             `\tvar thisClass = '${componentName}'\n` +
+            `\tvar blockClass = thisClass\n` +
+            `\tif(\n` +
+            `\t\t(typeof ${componentName}_component.this !== 'undefined' && ${componentName}_component.this) &&\n` +
+            `\t\t(typeof ${componentName}_component.this.block !== 'undefined' && ${componentName}_component.this.block)\n` +
+            `\t) {\n` +
+            `\t\tblockClass = ${componentName}_component.this.block\n` +
+            `\t}\n` +
             `\tif(\n` +
             `\t\t(typeof ${componentName}_component.this !== 'undefined' && ${componentName}_component.this) &&\n` +
             `\t\t(typeof ${componentName}_component.this.parent !== 'undefined' && ${componentName}_component.this.parent)\n` +
             `\t) {\n` +
-            `\t\tthisClass = \`$\{${componentName}_component.this.parent\}__${componentName} ${componentName}\`\n` +
+            `\t\tthisClass = \`$\{${componentName}_component.this.parent\}__$\{thisClass} $\{blockClass}\`\n` +
             `\t} else if(\n` +
             `\t\t(typeof ${componentName}_component.this !== 'undefined' && ${componentName}_component.this) &&\n` +
             `\t\t(typeof ${componentName}_component.this.class !== 'undefined' && ${componentName}_component.this.class)\n` +
             `\t) {\n` +
-            `\t\tthisClass = \`$\{${componentName}_component.this.class} ${componentName}\`\n` +
+            `\t\tif(typeof ${componentName}_component.this.class === 'string') {\n` +
+            `\t\t\tthisClass = \`$\{${componentName}_component.this.class} $\{blockClass}\`\n` +
+            `\t\t} else if(typeof ${componentName}_component.this.class === 'object') {\n` +
+            `\t\t\tthisClass = \`$\{${componentName}_component.this.class.join(' ')} $\{blockClass}\`\n` +
+            `\t\t}\n` +
+            `\t} else {\n` +
+            `\t\tthisClass = blockClass\n` +
             `\t}\n\n` +
-            `\tvar thisType = 'div'\n` +
+
+            `\tvar thisTag = 'div'\n` +
             `\tif(\n` +
             `\t\t(typeof ${componentName}_component.this !== 'undefined' && ${componentName}_component.this) &&\n` +
-            `\t\t(typeof ${componentName}_component.this.type !== 'undefined' && ${componentName}_component.this.type)\n` +
+            `\t\t(typeof ${componentName}_component.this.tag !== 'undefined' && ${componentName}_component.this.tag)\n` +
             `\t) {\n` +
-            `\t\tthisType = ${componentName}_component.this.type\n` +
+            `\t\tthisTag = ${componentName}_component.this.tag\n` +
             `\t}\n\n` +
+
             `\tvar thisStyles = undefined\n` +
             `\tif(\n` +
             `\t\t(typeof ${componentName}_component.this !== 'undefined' && ${componentName}_component.this) &&\n` +
             `\t\t(typeof ${componentName}_component.this.style !== 'undefined' && ${componentName}_component.this.style)\n` +
             `\t) {\n` +
-            `\t\tthisStyles = \`style='$\{${componentName}_component.this.style}'\`\n` +
+            `\t\tif(typeof ${componentName}_component.this.style === 'string') {\n` +
+            `\t\t\tthisStyles = \`style='$\{${componentName}_component.this.style}'\`\n` +
+            `\t\t} else if(typeof ${componentName}_component.this.style === 'object') {\n` +
+            `\t\t\tthisStyles = \`style='$\{${componentName}_component.this.style.join(' ')}'\`\n` +
+            `\t\t}\n` +
             `\t}\n\n` +
-            `\tvar thisDataAttributes = undefined\n` +
+
+            `\tvar thisDataAttributes = ''\n` +
             `\tif(\n` +
             `\t\t(typeof ${componentName}_component.this !== 'undefined' && ${componentName}_component.this) &&\n` +
             `\t\t(typeof ${componentName}_component.this.dataAttribute !== 'undefined' && ${componentName}_component.this.dataAttribute)\n` +
             `\t) {\n` +
-            `\t\tthisDataAttributes = ${componentName}_component.this.dataAttribute\n` +
+            `\t\tif(typeof ${componentName}_component.this.dataAttribute === 'string')\n` +
+            `\t\t{\n` +
+            `\t\t\tthisDataAttributes += ' ' + ${componentName}_component.this.dataAttribute\n` +
+            `\t\t}\n` +
+            `\t\telse if(typeof ${componentName}_component.this.dataAttribute === 'object')\n` +
+            `\t\t{\n` +
+            `\t\t\tthisDataAttributes += ' ' + ${componentName}_component.this.dataAttribute.join(' ')\n` +
+            `\t\t}\n` +
             `\t}\n` +
+
             `%>\n\n` +
-            `<<%=thisType%> <%=thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>\n\n` +
-            `</<%=thisType%>>`
+
+            `<<%=thisTag%> <%=thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>\n\n` +
+            `</<%=thisTag%>>`
             break
         }
         case 'layout': {
@@ -169,10 +190,10 @@ export function updateTestEJSFile({ejsDir, componentName, fs}) {
     fs.writeFileSync(ejsFile, fileContent, 'utf-8')  
 }
 
-export function updateMainEJSFile({ejsDir, componentName, fs}) {
+export function updateMainEJSFile({ejsDir, componentName, rootPage, fs}) {
     const
-        data = fs.readFileSync(`${ejsDir}/views/index.ejs`, 'utf-8'),
-        ejsFile = `${ejsDir}/views/index.ejs`,
+        data = fs.readFileSync(`${ejsDir}/views/${rootPage}`, 'utf-8'),
+        ejsFile = `${ejsDir}/views/${rootPage}`,
         lastIndex = data.lastIndexOf('</main>'),
         fileContent = 
             data.slice(0, lastIndex).trim() + '\n\t' +
