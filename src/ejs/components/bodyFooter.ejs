@@ -85,7 +85,7 @@
 			<%- include('externe/components/Accordion/Accordion.ejs', {
 			  accordion_component: {
 				...accordionCommonProperties,
-			    title: { type: 'h6', label: 'Pages' },
+			    title: { tag: 'h6', label: 'Pages' },
 			    body: [
 			      { label: 'Home', link: '#' },
 			      { label: 'Services', link: '#' },
@@ -96,7 +96,9 @@
 			}) %>
 			<%- include('src/ejs/components/button.ejs', {
 				button_component: {
-					block: 'body-footer',
+					this: {
+						parent: 'body-footer'
+					},
 					label: 'More Templates',
 					// link: 'root',
 					size: 'small',
@@ -111,7 +113,7 @@
 			<%- include('externe/components/Accordion/Accordion.ejs', {
 			  accordion_component: {
 				...accordionCommonProperties,
-			    title: { type: 'h6', label: 'CMS' },
+			    title: { tag: 'h6', label: 'CMS' },
 			    body: [
 			      { label: 'Work', link: '#' },
 			      { label: 'Work Single', link: '#' },
@@ -125,7 +127,7 @@
 			<%- include('externe/components/Accordion/Accordion.ejs', {
 			  accordion_component: {
 				...accordionCommonProperties,
-			    title: { type: 'h6', label: 'Utility Pages' },
+			    title: { tag: 'h6', label: 'Utility Pages' },
 			    body: [
 			      { label: '404 Error Page', link: '#' },
 			      { label: 'Password Protected', link: '#' },
@@ -136,6 +138,6 @@
 			  }
 			}) %>
 		</li>
-	</div>
+	</ul>
 	
 </div>

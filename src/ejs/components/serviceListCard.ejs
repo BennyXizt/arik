@@ -76,9 +76,12 @@
 		</a>
 	</<%=serviceListCard_component.title.tag%>>
 	<a href="<%=serviceListCard_component.image.link%>" class="<%=blockClass%>__link-image">
-		<%= include('externe/components/Image/Image.ejs', {
+		<%- include('externe/components/Image/Image.ejs', {
 			image_component: {
-				img: { src: 'media/image/works/w1.png' }
+				...serviceListCard_component.image.image_component,
+				this: {
+					parent: blockClass
+				}
 			}
 		}) %>
 	</a>
