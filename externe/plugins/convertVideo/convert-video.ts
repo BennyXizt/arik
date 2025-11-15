@@ -12,7 +12,7 @@ const
     convertationTypeQuestion = await new Promise<string>(resolve => rl.question('Выберите тип конвертации(1  - папка(по умолчанию), 2 - файл): ', resolve)),
     convertationType = Number.parseInt(convertationTypeQuestion) || 1,
     questionString = convertationType == 2 ? 'Путь к файлу: ' : 'Путь к папке: ',
-    convertVideoFunction = convertToMOV
+    convertVideoFunction = convertToMP4scale480
 
 rl.question(questionString, (inputFile) => {
     const 

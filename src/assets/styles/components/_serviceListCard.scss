@@ -1,5 +1,163 @@
 @use 'sass:map';
 
-.serviceListCard {
+.item-list-service {
+    font-family: map.get($FONTS, satoshi);
+    @extend %input;
+    @include rem(padding, 20px);
 
+    & > * {
+        @include rem(margin-bottom, 16px);
+
+        &:last-child {
+            margin-bottom: unset;
+        }
+    }
+
+
+    &__tag {
+        @extend %textMeta;
+        text-transform: uppercase;
+        @include rem(margin-bottom, 8px);
+    }
+
+    &__title {
+        @extend %h1;
+    }
+
+    &__link-image {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid map.get($COLORS, border_default);
+        border-radius: 2px;
+    }
+
+    &__icon-rounded {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        visibility: hidden;
+        opacity: 0;
+        transition: .4s ease-in-out;
+        transition-property: visibility, opacity;
+    }
+
+    &__noise {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        
+        img {
+            @extend %workCardImage;
+        }
+    }
+
+    &__image {
+        transition: transform .8s ease-in-out;
+
+        img {
+            @extend %workCardImage;
+        }
+    }
+
+    .table-service {
+        &__label {
+            @extend %textMeta;
+            text-transform: uppercase;
+            width: 23.452158%;
+            @include rem(padding-right, 15px);
+        }
+        &__row {
+            &:not(:first-child) {
+                td {
+                    @include rem(padding-top, 20px);
+                }
+            }
+            &:not(:last-child) {
+                td {
+                    @include rem(padding-bottom, 20px);
+                    border-bottom: 1px solid map.get($COLORS, border_default);
+                }
+            }
+        }
+    }
+
+    @media (any-hover: hover) {
+        &__link-image:hover {
+            .item-list-service  {
+                &__image {
+                    transform: scale(1.01);
+                }
+                &__icon-rounded {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(padding, 64px 20px);
+
+        & > * {
+            @include clamp(margin-bottom, 48px 16px);
+        }
+
+        &__tag {
+            @include clamp(margin-bottom, 16px 8px);
+        }
+
+        .table-service {
+            &__text {
+                font-family: map.get($FONTS, chillax);
+                color: map.get($COLORS, muted);
+            }
+            &__row {
+                &:not(:first-child) {
+                    td {
+                        @include clamp(padding-top, 48px 20px);
+                    }
+                }
+                &:not(:last-child) {
+                    td {
+                        @include clamp(padding-bottom, 48px 20px);
+                    }
+                }
+            }
+        }
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(padding, 64px);
+
+            & > * {
+                @include rem(margin-bottom, 48px);
+            }
+
+            &__tag {
+                @include rem(margin-bottom, 16px);
+            }
+
+            .table-service {
+                &__row {
+                    &:not(:first-child) {
+                        td {
+                            @include rem(padding-top, 48px);
+                        }
+                    }
+                    &:not(:last-child) {
+                        td {
+                            @include rem(padding-bottom, 48px);
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
 }

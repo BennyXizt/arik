@@ -64,6 +64,15 @@
 			thisDataAttributes += ' ' + serviceListCard_component.this.dataAttribute.join(' ')
 		}
 	}
+
+	var textSizes = ['12', '14', '18', '20', '24']
+	var textClass = ' text'
+	
+	if(typeof serviceListCard_component.text.size !== 'undefined' && serviceListCard_component.text.size) {
+		if(textSizes.includes(serviceListCard_component.text.size)) {
+			textClass += ` text--size-${serviceListCard_component.text.size}`;
+		}
+	}
 %>
 
 <<%=thisType%> <%=thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>
@@ -78,6 +87,24 @@
 	<a href="<%=serviceListCard_component.image.link%>" class="<%=blockClass%>__link-image">
 		<%- include('externe/components/Image/Image.ejs', {
 			image_component: {
+				this: {
+					class: `${blockClass}__noise`
+				},
+				img: {
+					src: 'media/image/works/Noise.png'
+				}
+			}
+		}) %>
+		<%- include('src/ejs/components/icon.ejs', {
+			icon_component: {
+				block: blockClass,
+				name: 'ph_arrow-up-right-light',
+				size: '38',
+				rounded: true
+			}
+		}) %>
+		<%- include('externe/components/Image/Image.ejs', {
+			image_component: {
 				...serviceListCard_component.image.image_component,
 				this: {
 					parent: blockClass
@@ -85,4 +112,18 @@
 			}
 		}) %>
 	</a>
+	<table class="<%=blockClass%>__table table-service">
+		<% for(const item of serviceListCard_component.text.list) { %>
+			<tr class="table-service__row">
+				<td class="table-service__label">
+					<%=item.label%>
+				</td>
+				<td class="table-service__text <%=textClass%>">
+					<% for(const text of item.text) { %>
+						<p><%=text%></p>
+					<% } %>
+				</td>
+			</tr>
+		<% } %>
+	</table>
 </<%=thisType%>>

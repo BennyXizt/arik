@@ -1,5 +1,23 @@
 @use 'sass:map';
 
 .service-list {
+    &__container {
+        display: grid;
+        @include rem(gap, 16px);
+    }
 
+    @supports (font-size: clamp(1px,1px,1px)) {
+        &__container {
+            @include clamp(gap, 32px 16px);
+        }
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+       @include media(desktop) {
+            .service-list {
+                &__container {
+                    @include rem(gap, 32px);
+                }
+            }
+       }
+    }
 }
