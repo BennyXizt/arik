@@ -54,8 +54,19 @@
 		thisDataAttributes = social_component.this.dataAttribute
 	}
 
+	var typeOfView = 'default'
 	if(social_component.type !== 'undefined' && social_component.type) {
-		thisClass += ' social--vertical'
+		switch(social_component.type) {
+			case 'button': {
+				typeOfView = 'button'
+				thisClass += ' social--button'
+				break;
+			} 
+			case 'vertical': {
+				thisClass += ' social--vertical'
+				break;
+			}
+		}
 	}
 %>
 
@@ -71,6 +82,16 @@
 						<span class="social__label">
 							<%=item.label%>
 						</span>
+					<% } %>
+					<% if(typeOfView === 'button') { %>
+						<%- include('src/ejs/components/icon.ejs', {
+							icon_component: {
+								this: {
+									class: 'social__link-arrow'
+								},
+								name: 'ph_arrow-up-right-light',
+							}
+						}) %>
 					<% } %>
 				</a>
 			</li>

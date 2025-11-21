@@ -1,0 +1,75 @@
+@use 'sass:map';
+
+.hero-about {
+    &__picture {
+        @include rem(flex, 1 1 520px);
+
+        img {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            mix-blend-mode: lighten;
+        }
+    }
+    &__headerText {
+        &:not(:only-child) {
+            @include rem(margin-bottom, 64px - 12px);
+        }
+    }
+    &__body {
+        margin-top: 0;
+        display: grid;
+        @include rem((
+            row-gap: 12px,
+            flex: 1 1 800px
+        ));
+    }
+
+    @include media(tablet) {
+        &__container {
+            display: flex;
+            @include rem(gap, 30px);
+        }
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        &__headerText {
+            &:not(:only-child) {
+                @include clamp(margin-bottom, (128px - 12px) (64px - 12px));
+            }
+        }
+        @include media(tablet) {
+            &__container {
+                @include clamp(column-gap, 80px 30px);
+            }
+        }
+        &__body {
+            @include clamp((
+                margin-top: 64px 0px,
+                row-gap: 16px 12px
+            ));
+        }
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            .hero-about {
+                &__headerText {
+                    &:not(:only-child) {
+                        @include rem(margin-bottom, 128px - 12px);
+                    }
+                }
+                &__container {
+                    @include rem(gap, 30px 80px);
+                }
+                &__body {
+                    @include rem((
+                        margin-top: 64px,
+                        row-gap: 16px
+                    ));
+                }
+            }
+        }
+    }
+}

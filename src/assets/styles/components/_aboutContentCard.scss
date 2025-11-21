@@ -1,0 +1,48 @@
+@use 'sass:map';
+
+.content-about {
+    @extend %card;
+    color: map.get($COLORS, muted);
+    font-family: map.get($FONTS, satoshi);
+    display: grid;
+    @include rem(gap, 8px);
+
+    &__tag {
+        @extend %textMeta;
+        text-transform: uppercase;
+    }
+    &__title {
+        @extend %h2;
+        color: map.get($COLORS, base);
+    }
+    &__text {
+        font-family: map.get($FONTS, chillax);
+    }
+    &__picture {
+        position: relative;
+    }
+    &__image {
+        border: 1px solid map.get($COLORS, border_default);
+        border-radius: 2px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    &__noise {
+        @extend %noise;
+    }
+
+    @supports  (font-size: clamp(1px,1px,1px)) {   
+        @include clamp(gap, 16px 8px);
+    }
+
+    @supports not (font-size: clamp(1px,1px,1px)) {   
+        @include media(desktop) {
+            @include rem(gap, 16px);
+        }
+    }
+}

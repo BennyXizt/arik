@@ -18,6 +18,15 @@
 			textClass += ` text--size-${headerText_component.text.size}`;
 		}
 	}
+
+	if(typeof headerText_component.position !== 'undefined' && headerText_component.position) {
+		switch(headerText_component.position) {
+			case 'left': {
+				blockClass += ' headerText--left'
+				break;
+			}
+		}
+	}
 %>
 
 <article class="<%=blockClass%>">

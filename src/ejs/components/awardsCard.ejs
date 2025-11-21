@@ -1,0 +1,100 @@
+<%
+// Пример вызова в шаблоне (EJS):
+//
+// <\%- include('src/ejs/components/awardsCard.ejs', { 
+//	awardsCard_component: {
+//		this: {
+//			parent: 'parentClass',
+//			block: 'childBlockClass',
+//			class: ['childClass'],
+//			tag: 'div',
+//			style: ['customStyle'],
+//			dataAttribute: ['customDataAttributes'], 
+//		}
+//	}
+//	}) %>
+%>
+<%
+	if(typeof awardsCard_component === 'undefined' || !awardsCard_component) {
+		return
+	}
+
+	var thisClass = 'awards-about'
+	var blockClass = thisClass
+	if(
+		(typeof awardsCard_component.this !== 'undefined' && awardsCard_component.this) &&
+		(typeof awardsCard_component.this.block !== 'undefined' && awardsCard_component.this.block)
+	) {
+		blockClass = awardsCard_component.this.block
+	}
+	if(
+		(typeof awardsCard_component.this !== 'undefined' && awardsCard_component.this) &&
+		(typeof awardsCard_component.this.parent !== 'undefined' && awardsCard_component.this.parent)
+	) {
+		thisClass = `${awardsCard_component.this.parent}__${thisClass} ${blockClass}`
+	} else if(
+		(typeof awardsCard_component.this !== 'undefined' && awardsCard_component.this) &&
+		(typeof awardsCard_component.this.class !== 'undefined' && awardsCard_component.this.class)
+	) {
+		if(typeof awardsCard_component.this.class === 'string') {
+			thisClass = `${awardsCard_component.this.class} ${blockClass}`
+		} else if(typeof awardsCard_component.this.class === 'object') {
+			thisClass = `${awardsCard_component.this.class.join(' ')} ${blockClass}`
+		}
+	} else {
+		thisClass = blockClass
+	}
+
+	var thisTag = 'article'
+	if(
+		(typeof awardsCard_component.this !== 'undefined' && awardsCard_component.this) &&
+		(typeof awardsCard_component.this.tag !== 'undefined' && awardsCard_component.this.tag)
+	) {
+		thisTag = awardsCard_component.this.tag
+	}
+
+	var thisStyles = undefined
+	if(
+		(typeof awardsCard_component.this !== 'undefined' && awardsCard_component.this) &&
+		(typeof awardsCard_component.this.style !== 'undefined' && awardsCard_component.this.style)
+	) {
+		if(typeof awardsCard_component.this.style === 'string') {
+			thisStyles = `style='${awardsCard_component.this.style}'`
+		} else if(typeof awardsCard_component.this.style === 'object') {
+			thisStyles = `style='${awardsCard_component.this.style.join(' ')}'`
+		}
+	}
+
+	var thisDataAttributes = ''
+	if(
+		(typeof awardsCard_component.this !== 'undefined' && awardsCard_component.this) &&
+		(typeof awardsCard_component.this.dataAttribute !== 'undefined' && awardsCard_component.this.dataAttribute)
+	) {
+		if(typeof awardsCard_component.this.dataAttribute === 'string')
+		{
+			thisDataAttributes += ' ' + awardsCard_component.this.dataAttribute
+		}
+		else if(typeof awardsCard_component.this.dataAttribute === 'object')
+		{
+			thisDataAttributes += ' ' + awardsCard_component.this.dataAttribute.join(' ')
+		}
+	}
+%>
+
+<<%=thisTag%> <%=thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>
+	<<%=awardsCard_component.title.tag%> class="<%=blockClass%>__title">
+		<%=awardsCard_component.title.label%>
+	</<%=awardsCard_component.title.tag%>>
+	<table class="<%=blockClass%>__table">
+		<% for(const item of awardsCard_component.table) { %>
+			<tr class="<%=blockClass%>__line">
+				<td class="<%=blockClass%>__label">
+					<%=item.label%>
+				</td>
+				<td class="<%=blockClass%>__year">
+					<%=item.year%>
+				</td>
+			</tr>
+		<% } %>
+	</table>
+</<%=thisTag%>>

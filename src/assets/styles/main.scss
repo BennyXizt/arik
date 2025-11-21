@@ -23,7 +23,8 @@
 	'./layout/footer',
 	'./layout/hero-services',
 	'./layout/stats',
-	'./layout/service-list';
+	'./layout/service-list',
+	'./layout/hero-about';
 // internal layout END
 
 @import 
@@ -44,8 +45,11 @@
 	'./components/accordion',
 	'./components/social',
 	'./components/statsItem',
-	'./components/serviceListCard';
+	'./components/serviceListCard',
+	'./components/aboutContentCard',
+	'./components/awardsCard';
 // internal components END
 
 @import
-	'./pages/services';
+	'./pages/services',
+	'./pages//about';

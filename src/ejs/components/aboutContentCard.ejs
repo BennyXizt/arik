@@ -1,0 +1,128 @@
+<%
+// Пример вызова в шаблоне (EJS):
+//
+// <\%- include('src/ejs/components/aboutContentCard.ejs', { 
+//	aboutContentCard_component: {
+//		this: {
+//			parent: 'parentClass',
+//			block: 'childBlockClass',
+//			class: ['childClass'],
+//			tag: 'div',
+//			style: ['customStyle'],
+//			dataAttribute: ['customDataAttributes'], 
+//		}
+//	}
+//	}) %>
+%>
+<%
+	if(typeof aboutContentCard_component === 'undefined' || !aboutContentCard_component) {
+		return
+	}
+
+	var thisClass = 'content-about'
+	var blockClass = thisClass
+	if(
+		(typeof aboutContentCard_component.this !== 'undefined' && aboutContentCard_component.this) &&
+		(typeof aboutContentCard_component.this.block !== 'undefined' && aboutContentCard_component.this.block)
+	) {
+		blockClass = aboutContentCard_component.this.block
+	}
+	if(
+		(typeof aboutContentCard_component.this !== 'undefined' && aboutContentCard_component.this) &&
+		(typeof aboutContentCard_component.this.parent !== 'undefined' && aboutContentCard_component.this.parent)
+	) {
+		thisClass = `${aboutContentCard_component.this.parent}__${thisClass} ${blockClass}`
+	} else if(
+		(typeof aboutContentCard_component.this !== 'undefined' && aboutContentCard_component.this) &&
+		(typeof aboutContentCard_component.this.class !== 'undefined' && aboutContentCard_component.this.class)
+	) {
+		if(typeof aboutContentCard_component.this.class === 'string') {
+			thisClass = `${aboutContentCard_component.this.class} ${blockClass}`
+		} else if(typeof aboutContentCard_component.this.class === 'object') {
+			thisClass = `${aboutContentCard_component.this.class.join(' ')} ${blockClass}`
+		}
+	} else {
+		thisClass = blockClass
+	}
+
+	var thisTag = 'article'
+	if(
+		(typeof aboutContentCard_component.this !== 'undefined' && aboutContentCard_component.this) &&
+		(typeof aboutContentCard_component.this.tag !== 'undefined' && aboutContentCard_component.this.tag)
+	) {
+		thisTag = aboutContentCard_component.this.tag
+	}
+
+	var thisStyles = undefined
+	if(
+		(typeof aboutContentCard_component.this !== 'undefined' && aboutContentCard_component.this) &&
+		(typeof aboutContentCard_component.this.style !== 'undefined' && aboutContentCard_component.this.style)
+	) {
+		if(typeof aboutContentCard_component.this.style === 'string') {
+			thisStyles = `style='${aboutContentCard_component.this.style}'`
+		} else if(typeof aboutContentCard_component.this.style === 'object') {
+			thisStyles = `style='${aboutContentCard_component.this.style.join(' ')}'`
+		}
+	}
+
+	var thisDataAttributes = ''
+	if(
+		(typeof aboutContentCard_component.this !== 'undefined' && aboutContentCard_component.this) &&
+		(typeof aboutContentCard_component.this.dataAttribute !== 'undefined' && aboutContentCard_component.this.dataAttribute)
+	) {
+		if(typeof aboutContentCard_component.this.dataAttribute === 'string')
+		{
+			thisDataAttributes += ' ' + aboutContentCard_component.this.dataAttribute
+		}
+		else if(typeof aboutContentCard_component.this.dataAttribute === 'object')
+		{
+			thisDataAttributes += ' ' + aboutContentCard_component.this.dataAttribute.join(' ')
+		}
+	}
+
+	var textSizes = ['12', '14', '18', '20', '24']
+	var textClass = `${blockClass}__text text`
+
+	if(typeof aboutContentCard_component.text.size !== 'undefined' && aboutContentCard_component.text.size) {
+		if(textSizes.includes(aboutContentCard_component.text.size)) {
+			textClass += ` text--size-${aboutContentCard_component.text.size}`;
+		}
+	}
+%>
+
+<<%=thisTag%> <%=thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>
+	<span class="<%=blockClass%>__tag">
+		<%=aboutContentCard_component.tag%>
+	</span>
+	<<%=aboutContentCard_component.title.tag%> class="<%=blockClass%>__title">
+		<%=aboutContentCard_component.title.label%>
+	</<%=aboutContentCard_component.title.tag%>>
+	<div class="<%=textClass%>">
+		<% for(const text of aboutContentCard_component.text.label) { %>
+			<p>
+				<%=text%>
+			</p>
+		<% } %>
+	</div>
+	<div class="<%=blockClass%>__picture">
+		<%- include('externe/components/Image/Image.ejs', {
+			image_component: {
+				this: {
+					class: `${blockClass}__noise`
+				},
+				img: {
+					src: 'media/image/works/Noise.png'
+				}
+			}
+		}) %>
+		<%- include('externe/components/Image/Image.ejs', {
+			image_component: {
+				...aboutContentCard_component.image_component,
+				this: {
+					parent: blockClass
+				}
+			}
+		}) %>
+	</div>
+	
+</<%=thisTag%>>

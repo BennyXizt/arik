@@ -1,8 +1,6 @@
 @use 'sass:map';
 
 .hero-services {
-    @include rem(padding-top, 78px);
-    
     &__container {
         @include rem(max-width, 1630px);
         display: flex;
@@ -28,7 +26,6 @@
     }
 
     @supports (font-size: clamp(1px,1px,1px)) {
-        @include clamp(padding-top, 224px 78px);
         &__button {
             @include clamp((
                 margin-top: 48px 16px,
@@ -39,7 +36,6 @@
     @supports not (font-size: clamp(1px,1px,1px)) {
         @include media(desktop) {
             .hero-services {
-                @include rem(padding-top, 224px);
                 &__button {
                     @include rem((
                         margin-top: 48px,

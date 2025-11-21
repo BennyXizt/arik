@@ -27,6 +27,18 @@
         }
     }
 }
+%noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    
+    img {
+        @extend %workCardImage;
+    }
+}
 
 // text
 %textXLarge {
@@ -154,7 +166,7 @@
 
 // heding
 %h1 {
-    $fontMobile: 32px;
+    $fontMobile: 48px;
     $fontDesktop: 64px;
     
     line-height: 1.1;
@@ -170,8 +182,25 @@
     }
 }
 
+%h2 {
+    $fontMobile: 32px;
+    $fontDesktop: 48px;
+    
+    line-height: 1.1;
+    @include rem(font-size, $fontMobile);
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(font-size, $fontDesktop $fontMobile);
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(font-size, $fontDesktop);
+        }
+    }
+}
+
 %h4 {
-    $fontMobile: 18px;
+    $fontMobile: 20px;
     $fontDesktop: 24px;
     
     line-height: 1.3;
@@ -189,7 +218,7 @@
 }
 
 %h5 {
-    $fontMobile: 16px;
+    $fontMobile: 18px;
     $fontDesktop: 20px;
     
     line-height: 1.4;

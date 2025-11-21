@@ -44,6 +44,11 @@
         }
     }
 
+    &--left {
+        text-align: left;
+        align-items: flex-start;
+    }
+
     @supports not (font-size: clamp(1px,1px,1px)) {
         @include media(desktop) {
             @include rem(gap, 16px);

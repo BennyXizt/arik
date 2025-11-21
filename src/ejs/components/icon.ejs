@@ -31,6 +31,18 @@
 	if(typeof icon_component.style !== 'undefined' && icon_component.style) {
 		blockCSS += ' icon-rounded--primary'
 	}
+
+	if(
+		(typeof icon_component.this !== 'undefined' && icon_component.this) &&
+		(typeof icon_component.this.parent !== 'undefined' && icon_component.this.parent)
+	) {
+		svgCSS = `${icon_component.this.parent}__social social`
+	} else if(
+		(typeof icon_component.this !== 'undefined' && icon_component.this) &&
+		(typeof icon_component.this.class !== 'undefined' && icon_component.this.class)
+	) {
+		svgCSS = `${icon_component.this.class} social`
+	}
 %>
 
 <%if(typeof icon_component.rounded !== 'undefined' && icon_component.rounded) {%>

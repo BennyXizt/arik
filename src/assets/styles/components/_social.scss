@@ -10,6 +10,20 @@
         flex-direction: column;
         align-items: flex-start;
     }
+    &--button {
+        .social {
+            &__item {
+                @include rem(flex, 1 1 128px);
+            }
+            &__label {
+                color: map.get($COLORS, base);
+            }
+            &__link {
+                @extend %input;
+                @include rem(padding, 10px 15px);
+            }
+        }
+    }
 
     &__label {
         @extend %textMeta;
@@ -23,6 +37,20 @@
         flex-flow: row nowrap;
         align-items: center;
         @include rem(column-gap, 8px);
+
+        &-icon {
+            @include rem((
+                width: 14px,
+                height: 14px
+            ));
+        }
+        &-arrow {
+            @include rem((
+                width: 14px,
+                height: 14px
+            ));
+            margin-left: auto;
+        }
     }
 
     @media (any-hover: hover) {
@@ -36,6 +64,15 @@
                 }
             }
         }
+        &--button {
+            .social__link:hover {
+                @include buttonPrimaryStyle;
+
+                .social__label {
+                    color: map.get($COLORS, inverse);
+                }
+            }
+        }
     }
 
     @supports (font-size: clamp(1px,1px,1px)) {
@@ -45,6 +82,31 @@
         ));
         &__link {
             @include clamp(column-gap, 16px 8px);
+
+            &-icon {
+                @include clamp((
+                    width: 20px 14px,
+                    height: 20px 14px
+                ))
+            }
+            &-arrow {
+                @include clamp((
+                    width: 18px 14px,
+                    height: 18px 14px
+                ));
+            }
+        }
+        &--button {
+            @include clamp(column-gap, 16px 8px);
+            .social {
+                &__item {
+                    @include clamp(flex-basis, 256px 128px);
+                }
+                &__link {
+                    @include clamp(padding, (16px 10px) (24px 15px));
+                }
+            }
+            
         }
     }
     @supports not (font-size: clamp(1px,1px,1px)) {
@@ -56,6 +118,30 @@
                 ));
                 &__link {
                     @include rem(column-gap, 16px);
+
+                    &-icon {
+                        @include rem((
+                            width: 20px,
+                            height: 20px
+                        ))
+                    }
+                    &-arrow {
+                        @include rem((
+                            width: 18px,
+                            height: 18px
+                        ));
+                    }
+                }
+                &--button {
+                    @include rem(column-gap, 16px);
+                    .social {
+                        &__item {
+                            @include rem(flex-basis, 256px);
+                        }
+                        &__link {
+                            @include rem(padding, 16px 24px);
+                        }
+                    }
                 }
             }
        }

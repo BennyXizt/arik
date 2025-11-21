@@ -1,0 +1,182 @@
+<%
+	blockClass = 'hero-about'
+%>
+
+<section class='layout__<%=blockClass%> <%=blockClass%>'>
+	<div class='<%=blockClass%>__container container'>
+		<%- include('externe/components/Image/Image.ejs', {
+			image_component: {
+				this: {
+					class: `${blockClass}__picture`
+				},
+				img: {
+					src: 'media/image/arik.png'
+				}
+			}
+		}) %>
+		<div class="<%=blockClass%>__body">
+			<%- include('src/ejs/components/headerText.ejs', {
+				headerText_component: {
+					block: blockClass,
+					position: 'left',
+					header: {
+						label: `Arik <span>Andersson</span>`,
+						type: 'h1'
+					},
+					text: {
+						label: [
+							'Delivering Premium Web Design and Development Services to Boost Your Online Presence.',
+						],
+						size: '24'
+					},
+					button_component: {
+						block: blockClass,
+						this: {
+							dataAttribute: `data-fsc-scroll data-fsc-scroll-to=.${blockClass}__content-about data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start`
+						},
+						size: 'small',
+						type: 'button-text',
+						label: 'About Me',
+						icon_component: {
+							name: 'ph_arrow-down-light',
+							rounded: true
+						}
+					}
+				}
+			})%>
+			<%- include('src/ejs/components/aboutContentCard.ejs', {
+				aboutContentCard_component: {
+					this: {
+						parent: blockClass
+					},
+					tag: 'Arik Andersson',
+					title: {
+						label: 'Your Partner in Bringing Your Web Design Vision to Life',
+						tag: 'h2'
+					},
+					text: {
+						label: [
+							"As a freelance web designer and developer, I bring a unique combination of creativity and technical expertise to every project. With a keen eye for design and a passion for delivering user-friendly web experiences, I work closely with clients to understand their needs and bring their vision to life",
+							"My approach is rooted in collaboration and communication, and I take pride in my ability to explain technical concepts in simple terms. Whether I'm developing a new website from scratch or optimizing an existing site for search engines, I always strive for excellence in both form and function. With a dedication to quality and a commitment to staying on top of the latest trends and technologies, I am confident in my ability to deliver exceptional results that exceed my clients' expectations.",
+						],
+						size: '16'
+					},
+					image_component: {
+						img: {
+							src: '/media/image/arik1.png'
+						}
+					}
+				}
+			})%>
+			<%- include('src/ejs/components/social.ejs', {
+				social_component: {
+					this: {
+						parent: blockClass,
+						type: 'ul'
+					},
+					type: 'button',
+					list: [
+						{
+							icon_component: {
+								this: {
+									class: 'social__link-icon'
+								},
+								name: 'ph_instagram-logo-light',
+							},
+							label: 'Instagram',
+							link: '#'
+						},
+						{
+							icon_component: {
+								this: {
+									class: 'social__link-icon'
+								},
+								name: 'ph_twitter-logo-light'
+							},
+							label: 'Twitter',
+							link: '#'
+						},
+						{
+							icon_component: {
+								this: {
+									class: 'social__link-icon'
+								},
+								name: 'ph_facebook-logo-light',
+							},
+							label: 'Facebook',
+							link: '#'
+						},
+						{
+							icon_component: {
+								this: {
+									class: 'social__link-icon'
+								},
+								name: 'ph_behance-logo-light',
+							},
+							label: 'Behance',
+							link: '#'
+						},
+						{
+							icon_component: {
+								this: {
+									class: 'social__link-icon'
+								},
+								name: 'ph_dribbble-logo-light',
+							},
+							label: 'Dribbble',
+							link: '#'
+						},
+						{
+							icon_component: {
+								this: {
+									class: 'social__link-icon'
+								},
+								name: 'ph_pinterest-logo-light',
+							},
+							label: 'Pinterest',
+							link: '#'
+						},
+						
+					]
+				}
+			})%>
+			<%- include('src/ejs/components/awardsCard.ejs', {
+				awardsCard_component: {
+					this: {
+						class: 'about__awards'
+					},
+					title: {
+						label: 'Awards',
+						tag: 'h6'
+					},
+					table: [
+						{
+							label: 'Awwwards SOTD',
+							year: '2023'
+						},
+						{
+							label: 'CSSDA SOTD',
+							year: '2023'
+						},
+						{
+							label: 'Awwwards Website of the Month',
+							year: '2023'
+						},
+						{
+							label: 'CSSDA SOTD',
+							year: '2022'
+						},
+						{
+							label: 'Awwwards SOTD',
+							year: '2022'
+						},
+						{
+							label: 'Awwwards Website of the Year',
+							year: '2021'
+						},
+					]
+				}
+			})%>
+		</div>
+	</div>
+</section>
