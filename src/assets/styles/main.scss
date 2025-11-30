@@ -1,15 +1,15 @@
 @import 
-        './abstracts/default',
-        './abstracts/variables',
-        './abstracts/mixins',
-        './abstracts/functions',
-        './abstracts/placeholders';
+	'./abstracts/default',
+	'./abstracts/variables',
+	'./abstracts/mixins',
+	'./abstracts/functions',
+	'./abstracts/placeholders';
 
 @import 
-        './base/reset',
-        './base/fonts',
-        './base/typography',
-        './base/base';
+	'./base/reset',
+	'./base/fonts',
+	'./base/typography',
+	'./base/base';
 
 // internal layout START
 @import
@@ -24,12 +24,13 @@
 	'./layout/hero-services',
 	'./layout/stats',
 	'./layout/service-list',
-	'./layout/hero-about';
+	'./layout/hero-about',
+	'./layout/contacts';
 // internal layout END
 
 @import 
-        '../../../externe/components/Burger/Burger',
-        '../../../externe/components/HeaderMenu/HeaderMenu';
+	'../../../externe/components/Burger/Burger',
+	'../../../externe/components/HeaderMenu/HeaderMenu';
 
 // internal components START
 @import
@@ -47,7 +48,8 @@
 	'./components/statsItem',
 	'./components/serviceListCard',
 	'./components/aboutContentCard',
-	'./components/awardsCard';
+	'./components/awardsCard',
+	'./components/contactForm';
 // internal components END
 
 @import

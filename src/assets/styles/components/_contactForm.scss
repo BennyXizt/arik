@@ -1,0 +1,72 @@
+@use 'sass:map';
+
+.form-contacts {
+    font-family: map.get($FONTS, satoshi);
+    @extend %card;
+
+    &__header {
+        &:not(:last-child) {
+            @include rem(margin-bottom, 20px)
+        }
+    }
+    &__body {
+        display: grid;
+        @include rem(gap, 8px);
+    }
+
+    &__label {
+        @extend %textMeta;
+        text-transform: uppercase;
+        color: map.get($COLORS, muted);
+    }
+    &__title {
+        @extend %h2;
+    }
+    &__input {
+        @extend %input;
+        @extend %textMeta;
+        backdrop-filter: unset;
+        @include rem((
+            padding: 16px 24px,
+            height: 53px
+        ));
+
+        color: map.get($COLORS, base);
+
+        &::placeholder {
+            text-transform: uppercase;
+        }
+    }
+    textarea#{&}__input {
+        resize: vertical;
+        @include rem(min-height, 200px);
+    }
+    &__button {
+        font-family: map.get($FONTS, satoshi);
+    }
+
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        &__header {
+            &:not(:last-child) {
+                @include clamp(margin-bottom, 32px 20px)
+            }
+        }
+        &__body {
+            @include clamp(gap, 16px 8px);
+        }
+    }
+
+    @supports not (font-size: clamp(1px,1px,1px)) {
+       @include media(desktop) {
+            &__header {
+                &:not(:last-child) {
+                    @include rem(margin-bottom, 32px)
+                }
+            }
+            &__body {
+                @include rem(gap, 16px);
+            }
+       }
+    }
+}

@@ -1,0 +1,54 @@
+<%
+// Пример вызова в шаблоне (EJS):
+//
+// <\%- include('src/ejs/components/contactForm.ejs', { 
+//	contactForm_component: {
+//		this: {
+//			parent: 'parentClass',
+//			block: 'childBlockClass',
+//			class: ['childClass'],
+//			tag: 'div',
+//			style: ['customStyle'],
+//			dataAttribute: ['customDataAttributes'], 
+//		}
+//	}
+//	}) %>
+%>
+<%
+	if(typeof contactForm_component === 'undefined' || !contactForm_component) {
+		return
+	}
+
+	var {thisClass, blockClass, thisTag, thisStyles, thisDataAttributes} = externe.setupEJSComponent({...contactForm_component, componentName: 'form'})
+	thisTag = 'form'
+%>
+
+<<%=thisTag%> data-fsc-phpmailer action='/php/mail.php' method='POST' <%-thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>
+	<div class="<%=blockClass%>__header">
+		<div class="<%=blockClass%>__label">
+			<%=contactForm_component.label%>
+		</div>
+		<<%=contactForm_component.title.tag%> class='<%=blockClass%>__title'>
+			<%=contactForm_component.title.label%>
+		</<%=contactForm_component.title.tag%>>
+	</div>
+	<div class="<%=blockClass%>__body">
+		<input required placeholder="name" type="text" name="name" class="<%=blockClass%>__input">
+		<input required placeholder="email" type="text" name="email" class="<%=blockClass%>__input">
+		<textarea required placeholder="message" name="message" class="<%=blockClass%>__input"></textarea>
+		<%- include('src/ejs/components/button', {
+			button_component: {
+				block: blockClass,
+				this: {
+					dataAttribute: [
+						'type=submit'
+					]
+				},
+				label: 'Send Message',
+				// link: 'root',
+				size: 'small',
+				style: 'primary'
+			}
+		}) %>
+	</div>
+</<%=thisTag%>>

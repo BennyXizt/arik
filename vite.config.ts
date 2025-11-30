@@ -28,6 +28,13 @@ export default defineConfig({
     hmr: {
       overlay: false,     
       // timeout: 3000     
+    },
+    proxy: {
+      '/php': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/php/, '') // убираем /php из пути
+      }
     }
   },
   optimizeDeps: {

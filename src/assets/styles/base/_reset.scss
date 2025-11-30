@@ -39,3 +39,24 @@ body {
 table {
   border-collapse: collapse;
 }
+input,
+textarea {
+  background: none;
+  font: inherit;
+  caret-color: inherit;
+  color: inherit;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &::placeholder {
+    color: inherit;
+  }
+
+  &:focus {
+    border-color:inherit;
+  }
+}
+textarea {
+  display: block;
+}

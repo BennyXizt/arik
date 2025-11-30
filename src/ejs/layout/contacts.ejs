@@ -1,0 +1,105 @@
+<%
+	blockClass = 'contacts'
+%>
+
+<section class='layout__<%=blockClass%> <%=blockClass%>'>
+	<div class='<%=blockClass%>__container container'>
+		<%- include('externe/components/Image/Image.ejs', {
+			image_component: {
+				this: {
+					class: `${blockClass}__picture`
+				},
+				img: {
+					src: 'media/image/arik.png'
+				}
+			}
+		}) %>
+		<div class="<%=blockClass%>__body">
+			<%- include('src/ejs/components/contactForm.ejs', {
+				contactForm_component: {
+					this: {
+						parent: blockClass,
+						block: 'form-contacts'
+					},
+					label: 'Contact',
+					title: {
+						tag: 'h2',
+						label: 'Let’s get in touch.'
+					}
+				}
+			})%>
+			<%- include('src/ejs/components/social.ejs', {
+				social_component: {
+					this: {
+						parent: blockClass,
+						type: 'ul'
+					},
+					type: 'button',
+					list: [
+						{
+							icon_component: {
+								this: {
+									class: 'social__link-icon'
+								},
+								name: 'ph_instagram-logo-light',
+							},
+							label: 'Instagram',
+							link: '#'
+						},
+						{
+							icon_component: {
+								this: {
+									class: 'social__link-icon'
+								},
+								name: 'ph_twitter-logo-light'
+							},
+							label: 'Twitter',
+							link: '#'
+						},
+						{
+							icon_component: {
+								this: {
+									class: 'social__link-icon'
+								},
+								name: 'ph_facebook-logo-light',
+							},
+							label: 'Facebook',
+							link: '#'
+						},
+						{
+							icon_component: {
+								this: {
+									class: 'social__link-icon'
+								},
+								name: 'ph_behance-logo-light',
+							},
+							label: 'Behance',
+							link: '#'
+						},
+						{
+							icon_component: {
+								this: {
+									class: 'social__link-icon'
+								},
+								name: 'ph_dribbble-logo-light',
+							},
+							label: 'Dribbble',
+							link: '#'
+						},
+						{
+							icon_component: {
+								this: {
+									class: 'social__link-icon'
+								},
+								name: 'ph_pinterest-logo-light',
+							},
+							label: 'Pinterest',
+							link: '#'
+						},
+						
+					]
+				}
+			})%>
+		</div>
+	</div>
+</section>
