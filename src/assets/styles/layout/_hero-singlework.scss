@@ -12,6 +12,7 @@
     &__body {
         overflow: hidden;
         position: relative;
+        border: 1px solid map.get($COLORS, border_default);
     }
     &__noise {
         position: absolute;

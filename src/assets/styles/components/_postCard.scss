@@ -1,0 +1,97 @@
+@use 'sass:map';
+
+.postCard {
+    @extend %card;
+    backdrop-filter: unset;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    @include rem(gap, 16px);
+    font-family: map.get($FONTS, chillax);
+
+    &__link-image {
+        position: relative;
+        aspect-ratio: 416 / 270;
+        overflow: hidden;
+        border: 1px solid map.get($COLORS, border_default);
+        width: 100%;
+    }
+    &__body {
+        display: flex;
+        flex-flow: column nowrap;
+        flex-grow: 1;
+        align-items: start;
+        @include rem(gap, 8px);
+    }
+    &__date {
+        @extend %textMetaSmall;
+        text-transform: uppercase;
+        color: map.get($COLORS, muted);
+    }
+    &__title {
+        font-family: map.get($FONTS, satoshi);
+        @extend %h4;
+    }
+    &__text {
+        color: map.get($COLORS, muted);
+    }
+    &__category {
+        @extend %input;
+        @extend %textMetaSmall;
+        text-transform: uppercase;
+        @include rem(padding, 8px);
+    }
+    &__icon-rounded {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        visibility: hidden;
+        opacity: 0;
+        transition: .4s ease-in-out;
+        transition-property: visibility, opacity;
+    }
+    &__noise {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        
+        img {
+            @extend %workCardImage;
+        }
+    }
+    &__image {
+        transition: transform .4s ease-in-out;
+
+        img {
+            @extend %workCardImage;
+        }
+    }
+
+    @media (any-hover: hover) {
+        &__link-image:hover {
+            .postCard {
+                &__image {
+                    transform: scale(1.1);
+                }
+                &__icon-rounded {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        @include clamp(gap, 32px 16px);
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            @include rem(gap, 32px);
+        }
+    }
+}

@@ -1,0 +1,261 @@
+<%
+	blockClass = 'posts'
+	subClass = `body-${blockClass}`
+%>
+
+<section class='layout__<%=blockClass%> <%=blockClass%>'>
+	<div class='<%=blockClass%>__container container'>
+		<%- include('src/ejs/components/headerText.ejs', {
+			headerText_component: {
+				block: blockClass,
+				header: {
+					label: `Blog`,
+					type: 'h1'
+				},
+				text: {
+					label: [
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor lorem."
+					],
+					size: '24'
+				},
+				button_component: {
+                    block: blockClass,
+                    this: {
+                        dataAttribute: "data-fsc-scroll data-fsc-scroll-to=.about-singlework data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start"
+                    },
+                    size: 'small',
+                    type: 'button-text',
+                    label: 'More Details',
+                    icon_component: {
+                        name: 'ph_arrow-down-light',
+                        rounded: true
+                    }
+                }
+			}
+		})%>
+		<div class="<%=blockClass%>__body <%=subClass%>">
+			<%- include('src/ejs/components/postCard.ejs', {
+				postCard_component: {
+					this: {
+						parent: subClass,
+						tag: 'article'
+					},
+					image: {
+						link: '#',
+						image_component: {
+							this: {
+								parent: 'postCard'
+							},
+							img: {
+								src: 'media/image/blog/b1.png'
+							}
+						}
+					},
+					date: {
+						label: '23rd Aug 2023',
+						attr: '23-08-2023'
+					},
+					tag: {
+						link: '#',
+						label: 'WEbdesign'
+					},
+					title: {
+						tag: 'h4',
+						label: 'How to Build a Stunning Website with Framer'
+					},
+					text: {
+						size: '16',
+						label: [
+							'Learn how to create an impressive website using Framer with our step-by-step guide.'
+						]
+					}
+				}
+			})%>
+			<%- include('src/ejs/components/postCard.ejs', {
+				postCard_component: {
+					this: {
+						parent: subClass,
+						tag: 'article'
+					},
+					image: {
+						link: '#',
+						image_component: {
+							this: {
+								parent: 'postCard'
+							},
+							img: {
+								src: 'media/image/blog/b2.png'
+							}
+						}
+					},
+					date: {
+						label: '23rd Aug 2023',
+						attr: '23-08-2023'
+					},
+					tag: {
+						link: '#',
+						label: 'WEbdesign'
+					},
+					title: {
+						tag: 'h4',
+						label: '10 website elements for maximum user engagement'
+					},
+					text: {
+						size: '16',
+						label: [
+							"10 website elements to engage users, from intuitive navigation to compelling visuals."
+						]
+					}
+				}
+			})%>
+			<%- include('src/ejs/components/postCard.ejs', {
+				postCard_component: {
+					this: {
+						parent: subClass,
+						tag: 'article'
+					},
+					image: {
+						link: '#',
+						image_component: {
+							this: {
+								parent: 'postCard'
+							},
+							img: {
+								src: 'media/image/blog/b3.png'
+							}
+						}
+					},
+					date: {
+						label: '23rd Aug 2023',
+						attr: '23-08-2023'
+					},
+					tag: {
+						link: '#',
+						label: 'WEbdesign'
+					},
+					title: {
+						tag: 'h4',
+						label: 'The importance of content in driving website traffic'
+					},
+					text: {
+						size: '16',
+						label: [
+							"Quality content is king. Learn how to create valuable, SEO-optimized content."
+						]
+					}
+				}
+			})%>
+			<%- include('src/ejs/components/postCard.ejs', {
+				postCard_component: {
+					this: {
+						parent: subClass,
+						tag: 'article'
+					},
+					image: {
+						link: '#',
+						image_component: {
+							this: {
+								parent: 'postCard'
+							},
+							img: {
+								src: 'media/image/blog/b4.png'
+							}
+						}
+					},
+					date: {
+						label: '23rd Aug 2023',
+						attr: '23-08-2023'
+					},
+					tag: {
+						link: '#',
+						label: 'WEbdesign'
+					},
+					title: {
+						tag: 'h4',
+						label: '10 common web development mistakes to avoid'
+					},
+					text: {
+						size: '16',
+						label: [
+							"10 common web development mistakes and improve your site's functionality and user experience."
+						]
+					}
+				}
+			})%>
+			<%- include('src/ejs/components/postCard.ejs', {
+				postCard_component: {
+					this: {
+						parent: subClass,
+						tag: 'article'
+					},
+					image: {
+						link: '#',
+						image_component: {
+							this: {
+								parent: 'postCard'
+							},
+							img: {
+								src: 'media/image/blog/b5.png'
+							}
+						}
+					},
+					date: {
+						label: '23rd Aug 2023',
+						attr: '23-08-2023'
+					},
+					tag: {
+						link: '#',
+						label: 'WEbdesign'
+					},
+					title: {
+						tag: 'h4',
+						label: 'Why responsive web design is critical for your business'
+					},
+					text: {
+						size: '16',
+						label: [
+							"Responsive web design ensures your site looks great and performs well on all devices."
+						]
+					}
+				}
+			})%>
+			<%- include('src/ejs/components/postCard.ejs', {
+				postCard_component: {
+					this: {
+						parent: subClass,
+						tag: 'article'
+					},
+					image: {
+						link: '#',
+						image_component: {
+							this: {
+								parent: 'postCard'
+							},
+							img: {
+								src: 'media/image/blog/b6.png'
+							}
+						}
+					},
+					date: {
+						label: '23rd Aug 2023',
+						attr: '23-08-2023'
+					},
+					tag: {
+						link: '#',
+						label: 'WEbdesign'
+					},
+					title: {
+						tag: 'h4',
+						label: 'The art of SEO writing: How to write content that ranks on Google'
+					},
+					text: {
+						size: '16',
+						label: [
+							"Optimize your website with expert tips on writing content that ranks high on Google."
+						]
+					}
+				}
+			})%>
+		</div>
+	</div>
+</section>

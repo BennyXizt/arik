@@ -1,0 +1,45 @@
+@use 'sass:map';
+
+.posts {
+    &__container {
+        @include rem(max-width, 1660px);
+    }
+    &__headerText {
+        button,
+        .icon-rounded {
+            backdrop-filter: unset;
+        }
+
+        &:not(:last-child) {
+            @include rem(padding-bottom, 32px);
+        }
+    }
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(500px, 100%), 1fr));
+        @include rem(gap, 16px);
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        &__body {
+            @include clamp(gap, 32px 16px);
+        }
+        &__headerText {
+            &:not(:last-child) {
+                @include clamp(padding-bottom, 64px 32px);
+            }
+        }
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            &__body {
+                @include rem(gap, 32px);
+            }
+            &__headerText {
+                &:not(:last-child) {
+                    @include rem(padding-bottom, 64px);
+                }
+            }
+        }
+    }
+}

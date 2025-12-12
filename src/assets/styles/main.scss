@@ -28,7 +28,8 @@
 	'./layout/contacts',
 	'./layout/hero-work',
 	'./layout/hero-singlework',
-	'./layout/about-singlework';
+	'./layout/about-singlework',
+	'./layout/posts';
 // internal layout END
 
 @import 
@@ -53,7 +54,8 @@
 	'./components/aboutContentCard',
 	'./components/awardsCard',
 	'./components/contactForm',
-	'./components/singleworkAboutCard';
+	'./components/singleworkAboutCard',
+	'./components/postCard';
 // internal components END
 
 @import
