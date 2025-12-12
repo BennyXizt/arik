@@ -1,0 +1,76 @@
+<%
+	blockClass = 'hero-singlework'
+%>
+
+<section class='layout__<%=blockClass%> <%=blockClass%>'>
+	<div class='<%=blockClass%>__container container'>
+		<%- include('src/ejs/components/headerText.ejs', {
+			headerText_component: {
+				block: blockClass,
+				header: {
+					label: `Space`,
+					type: 'h1'
+				},
+				text: {
+					label: [
+						"Modern and visually appealing website that reflected the client's brand.",
+					],
+					size: '24'
+				},
+				info: [
+					{
+						label: 'Client',
+						value: 'Pawel Gola'
+					},
+					{
+						label: 'Timeline',
+						value: '3 Weeks'
+					},
+					{
+						label: 'Services',
+						value: 'Template'
+					},
+					{
+						label: 'Website',
+						value: 'gola.io'
+					},
+				],
+				button_component: {
+                    block: blockClass,
+                    this: {
+                        dataAttribute: "data-fsc-scroll data-fsc-scroll-to=.about-singlework data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start"
+                    },
+                    size: 'small',
+                    type: 'button-text',
+                    label: 'More Details',
+                    icon_component: {
+                        name: 'ph_arrow-down-light',
+                        rounded: true
+                    }
+                }
+			}
+		})%>
+		<div class="<%=blockClass%>__body">
+			<%- include('externe/components/Image/Image.ejs', {
+				image_component: {
+					this: {
+						class: `${blockClass}__noise`
+					},
+					img: {
+						src: '/media/image/works/Noise.png',
+					}
+				}
+			}) %>
+			<%- include('externe/components/Image/Image.ejs', {
+				image_component: {
+					this: {
+						class: `${blockClass}__image`
+					},
+					img: {
+						src: '/media/image/works/w1.png',
+					}
+				}
+			}) %>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,44 @@
+<%
+// Пример вызова в шаблоне (EJS):
+//
+// <\%- include('src/ejs/components/singleworkAboutCard.ejs', { 
+//	singleworkAboutCard_component: {
+//		this: {
+//			parent: 'parentClass',
+//			block: 'childBlockClass',
+//			class: ['childClass'],
+//			tag: 'div',
+//			style: ['customStyle'],
+//			dataAttribute: ['customDataAttributes'], 
+//		}
+//	}
+//	}) %>
+%>
+<%
+	if(typeof singleworkAboutCard_component === 'undefined' || !singleworkAboutCard_component) {
+		return
+	}
+
+	var {thisClass, blockClass, thisTag, thisStyles, thisDataAttributes} = externe.setupEJSComponent({...singleworkAboutCard_component, componentName: 'singleworkAboutCard'})
+
+	thisTag = 'article'
+
+	var textSizes = ['12', '14', '18', '20', '24']
+	var textClass = 'singleworkAboutCard__text text'
+	if(typeof singleworkAboutCard_component.text.size !== 'undefined' && singleworkAboutCard_component.text.size) {
+		if(textSizes.includes(singleworkAboutCard_component.text.size)) {
+			textClass += ` text--size-${singleworkAboutCard_component.text.size}`;
+		}
+	}
+%>
+
+<<%=thisTag%> <%-thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>	
+	<<%=singleworkAboutCard_component.title.tag%> class="<%=blockClass%>__title">
+		<%=singleworkAboutCard_component.title.label%>
+	</<%=singleworkAboutCard_component.title.tag%>>
+	<% for(const text of singleworkAboutCard_component.text.label) { %>
+		<p class="<%=textClass%>">
+			<%=text%>
+		</p>
+	<% } %>
+</<%=thisTag%>>

@@ -30,17 +30,37 @@
 %>
 
 <article class="<%=blockClass%>">
-	<div class="headerText__tag">
-		<%=headerText_component.tag%>
-	</div>
-	<<%=headerText_component.header.type%> class='headerText__title'>
-		<%-headerText_component.header.label%>
-	</<%=headerText_component.header.type%>>
-	<div class="<%=textClass%>">
-		<% for(const text of headerText_component.text.label) { %>
-			<p><%=text%></p>
-		<% } %>
-	</div>
+	<% if(typeof headerText_component.tag !== 'undefined' && headerText_component.tag) { %>
+		<div class="headerText__tag">
+			<%=headerText_component.tag%>
+		</div>
+	<% } %>
+	<% if(typeof headerText_component.header !== 'undefined' && headerText_component.header) { %>
+		<<%=headerText_component.header.type%> class='headerText__title'>
+			<%-headerText_component.header.label%>
+		</<%=headerText_component.header.type%>>
+	<% } %>
+	<% if(typeof headerText_component.text !== 'undefined' && headerText_component.text) { %>
+		<div class="<%=textClass%>">
+			<% for(const text of headerText_component.text.label) { %>
+				<p><%=text%></p>
+			<% } %>
+		</div>
+	<% } %>
+	<% if(typeof headerText_component.info !== 'undefined' && headerText_component.info) { %>
+		<ul class="headerText__info info-headerText">
+			<% for(const item of headerText_component.info) { %>
+				<li class="info-headerText__item">
+					<div class="info-headerText__label">
+						<%=item.label%>
+					</div>
+					<div class="info-headerText__value">
+						<%=item.value%>
+					</div>
+				</li>
+			<% } %>
+		</ul>
+	<% } %>
 	<%- include('src/ejs/components/button.ejs', {
 		button_component: headerText_component.button_component
 	})%>

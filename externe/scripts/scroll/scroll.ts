@@ -43,5 +43,5 @@ function scrollClick(element: HTMLElement) {
             scrollBlock === 'center' || scrollBlock === 'end' || scrollBlock === 'nearest' || scrollBlock === 'start' 
                 ?    scrollBlock : 'end'
                 
-    destination.scrollIntoView({ behavior: typisiertScrollBehaviour, block: typisiertScrollBlock });
+    destination.scrollIntoView({ behavior: typisiertScrollBehaviour, block: typisiertScrollBlock })
 }

@@ -26,7 +26,9 @@
 	'./layout/service-list',
 	'./layout/hero-about',
 	'./layout/contacts',
-	'./layout/hero-work';
+	'./layout/hero-work',
+	'./layout/hero-singlework',
+	'./layout/about-singlework';
 // internal layout END
 
 @import 
@@ -50,7 +52,8 @@
 	'./components/serviceListCard',
 	'./components/aboutContentCard',
 	'./components/awardsCard',
-	'./components/contactForm';
+	'./components/contactForm',
+	'./components/singleworkAboutCard';
 // internal components END
 
 @import

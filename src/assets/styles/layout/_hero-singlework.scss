@@ -1,0 +1,48 @@
+@use 'sass:map';
+
+.hero-singlework {
+    &__headerText {
+        @include rem((
+            max-width: 1000px,
+            padding-bottom: 24px
+        ));
+        margin: 0 auto;
+
+    }
+    &__body {
+        overflow: hidden;
+        position: relative;
+    }
+    &__noise {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        
+        img {
+            @extend %workCardImage;
+        }
+    }
+    &__image {
+        transition: transform .4s ease-in-out;
+
+        img {
+            @extend %workCardImage;
+        }
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        &__headerText {
+            @include clamp(padding-bottom, 64px 24px);
+        }
+    }
+    @supports not (font-size: clamp(1px,1px,1px)) {
+        @include media(desktop) {
+            &__headerText {
+                @include rem(padding-bottom, 64px);
+            }
+        }
+    }
+}
