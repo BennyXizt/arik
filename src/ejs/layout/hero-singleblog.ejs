@@ -1,0 +1,42 @@
+<%
+	blockClass = 'hero-singleblog'
+%>
+
+<section class='layout__<%=blockClass%> <%=blockClass%>'>
+	<div class='<%=blockClass%>__container container'>
+		<%- include('src/ejs/components/headerText.ejs', {
+			headerText_component: {
+				block: blockClass,
+				header: {
+					label: `How to Build a Stunning Website with Framer`,
+					type: 'h1'
+				},
+				text: {
+					label: [
+						"Learn how to create an impressive website using Framer with our step-by-step guide."
+					],
+					size: '20'
+				},
+				button_component: {
+                    block: blockClass,
+                    this: {
+                        dataAttribute: "data-fsc-scroll data-fsc-scroll-to=.about-singlework data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start"
+                    },
+                    size: 'small',
+                    type: 'button-text',
+                    label: 'REad More',
+                    icon_component: {
+                        name: 'ph_arrow-down-light',
+                        rounded: true
+                    }
+                }
+			}
+		})%>
+		<div class="<%=blockClass%>__information">
+			
+		</div>
+		<div class="<%=blockClass%>__media">
+
+		</div>
+	</div>
+</section>

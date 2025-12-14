@@ -99,6 +99,9 @@ section[class^='layout__'] {
   &[class*='clients'] {
     @include rem(margin-top, 48px);
   }
+  &:only-child {
+    margin-top: unset;
+  }
 
   @supports (font-size: clamp(1px,1px,1px)) {
     &:not([class*='hero']) {
@@ -106,6 +109,9 @@ section[class^='layout__'] {
     }
     &[class*='clients'] {
       @include clamp(margin-top, 128px 48px);
+    }
+    &:only-child {
+      margin-top: unset;
     }
   }
   @supports not (font-size: clamp(1px,1px,1px)) {
@@ -118,6 +124,9 @@ section[class^='layout__'] {
       @include media(desktop) {
         @include rem(margin-top, 128px);
       }
+    }
+    &:only-child {
+      margin-top: unset;
     }
   }
 }

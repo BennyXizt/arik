@@ -29,7 +29,8 @@
 	'./layout/hero-work',
 	'./layout/hero-singlework',
 	'./layout/about-singlework',
-	'./layout/posts';
+	'./layout/posts',
+	'./layout/hero-singleblog';
 // internal layout END
 
 @import 
@@ -58,6 +59,5 @@
 	'./components/postCard';
 // internal components END
 
-@import
-	'./pages/services',
-	'./pages//about';
+// @import
+// 	'./pages/';

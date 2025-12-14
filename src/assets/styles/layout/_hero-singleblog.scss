@@ -1,0 +1,17 @@
+@use 'sass:map';
+
+.hero-singleblog {
+    &__headerText {
+        &:not(:only-child) {
+            @include rem(margin-bottom, 64px);
+        }
+    }
+
+    @supports (font-size: clamp(1px,1px,1px)) {
+        &__headerText {
+            &:not(:only-child) {
+                @include clamp(margin-bottom, 64px 32px);
+            }
+        }
+    }
+}
