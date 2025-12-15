@@ -1,0 +1,82 @@
+<%
+	blockClass = 'about'
+	topSubClass = `top-${blockClass}`
+	contentSubClass = `wrapper-${blockClass}`
+%>
+
+<section class='layout__<%=blockClass%> <%=blockClass%>'>
+	<article class="<%=blockClass%>__top <%=topSubClass%>">
+		<h2 class="<%=topSubClass%>__title">
+			Arik <span>Andersson</span>
+		</h2>
+		<%- include('externe/components/Image/Image.ejs', {
+			image_component: {
+				this: {
+					parent: topSubClass
+				},
+				img: {
+					src: "media/image/arik.png"
+				}
+			}
+		}) %>
+		<h2 class="<%=topSubClass%>__title">
+			Arik <span>Andersson</span>
+		</h2>
+	</article>
+	<div class='<%=blockClass%>__container container'>
+		<article class="<%=blockClass%>__wrapper <%=contentSubClass%>">
+			<div class="<%=contentSubClass%>__left">
+				<h6 class="<%=contentSubClass%>__title">
+					A website that leaves <span>a lasting impression!</span>
+				</h6>
+			</div>
+			<div class="<%=contentSubClass%>__right">
+				<div class="<%=contentSubClass%>__text text text--size-18">
+					<p>Hi, I'm Arik Andersson - a freelancer specializing in premium web design, development, and SEO services. I'm passionate about creating unique and effective solutions for my clients, and I bring a personal touch to every project. Let's work together to bring your vision to life!</p>
+				</div>
+				<%- include('src/ejs/components/social.ejs', {
+					social_component: {
+						this: {
+							parent: contentSubClass
+						},
+						type: 'horizontal',
+						list: [
+							{
+								icon_component: {
+									block: 'social',
+									name: 'ph_instagram-logo-light', 
+									size: '38',
+									rounded: true
+								}
+							},
+							{
+								icon_component: {
+									block: 'social',
+									name: 'ph_twitter-logo-light',
+									size: '38',
+									rounded: true
+								}
+							},
+							{
+								icon_component: {
+									block: 'social',
+									name: 'ph_dribbble-logo-light',
+									size: '38',
+									rounded: true
+								}
+							},
+							{
+								icon_component: {
+									block: 'social',
+									name: 'ph_behance-logo-light',
+									size: '38',
+									rounded: true
+								}
+							}
+						]
+					}
+				}) %>
+			</div>
+		</article>
+	</div>
+</section>

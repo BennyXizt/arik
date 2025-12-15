@@ -1,0 +1,77 @@
+@use 'sass:map';
+
+.about {
+    &__container {
+        @include rem(max-width, 1200px);
+    }
+    @include fluid(padding-bottom, 232px 80px);
+}
+
+.top-about {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    &__title {
+        &:last-child {
+            display: none;
+        }
+    }
+
+    &__image {
+        aspect-ratio: 880 / 769;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            mix-blend-mode: lighten;
+        }
+    }
+
+    @include media(desktop) {
+        flex-flow: row nowrap;
+        justify-content: center;
+        @include rem(gap, 32px);
+        @include clamp(gap, 32px 16px);
+
+        & > * {
+            flex: 0 0 auto;
+        }
+
+        &__title {
+            &:last-child {
+                display: unset;
+            }
+        }
+    }
+}
+
+.wrapper-about {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    @include fluid(gap, 64px 32px);
+
+    & > * {
+        @include rem(flex, 1 1 430px);
+    }
+
+    &__title {
+        font-family: map.get($FONTS, satoshi);
+    }
+    &__text {
+        color: map.get($COLORS, muted);
+    }
+
+    &__right {
+        & > * {
+            @include fluid(padding-bottom, 32px 16px);
+
+            &:last-child {
+                padding-bottom: unset;
+            }
+        }
+    }
+}
