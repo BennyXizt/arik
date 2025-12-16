@@ -3,11 +3,11 @@
 .header {
     pointer-events: none;
     width: 100%;
-    @include rem(top, 20px);
+    @include fluid(top, 48px 20px);
     position: fixed;
     left: 50%;
     transform: translate(-50%, 0);
-    z-index: 999;
+    z-index: map.get($ZINDEXES, immortal);
 
     &__body {
         pointer-events: all;
@@ -16,9 +16,10 @@
         align-items: center;
         border: 1px solid map.get($COLORS, border_default);
         border-radius: 2px;
-        @include rem((
-            padding: 12px 12px 12px 12px,
-            gap: 12px
+        padding: 12px;
+        @include fluid((
+            padding-top: 24px 12px,
+            gap: 32px 12px
         ));
         backdrop-filter: blur(30px);
         background-color: map.get($COLORS, background_muted);
@@ -27,7 +28,7 @@
         flex: 1;
 
         &__list {
-            @include rem(gap, 12px);
+            @include fluid(gap, 20px 12px);
         }
     }
     
@@ -40,39 +41,6 @@
         }
         .menu {
             @include rem(padding, 10px 0);
-        }
-    }
-
-    @supports not (font-size: clamp(1px,1px,1px)) {
-       @include media(desktop) {
-        @include rem(top, 48px);
-
-        &__body {
-            @include rem((
-                padding: 12px 12px 12px 24px,
-                gap: 32px
-            ));
-        }
-        .menu {
-            &__list {
-                @include rem(gap, 20px);
-            }
-        }
-       }
-    }
-    @supports (font-size: clamp(1px,1px,1px)) {
-        @include clamp(top, 48px 20px);
-
-        &__body {
-            @include clamp((
-                padding-left: 24px 12px,
-                gap: 32px 12px
-            ));
-        }
-        .menu {
-            &__list {
-                @include clamp(gap, 20px 12px);
-            }
         }
     }
 }
