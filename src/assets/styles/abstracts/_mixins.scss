@@ -203,7 +203,10 @@
         hyphens: auto;
         text-wrap: pretty;
         text-wrap: balance;
-        @include rem(font-size, $font_size);
+
+        $max: math.max(map.get(map.get($map, clamp), font_size), $font_size);
+        $min: math.min(map.get(map.get($map, clamp), font_size), $font_size);
+        @include fluid(font-size, $max $min);
 
         @if not math.is-unitless($line_height) {
             @include line-height($line_height, $font_size);
@@ -211,45 +214,5 @@
         @else {
             line-height: $line_height;
         }
-    }
-
-    @supports (font-size: clamp(1rem, 2vw, 2rem)) {
-        $map_container: map.get($map, clamp);
-
-        @if($map_container != null) {
-            #{$type} {
-                $max: math.max(map.get(map.get($map, clamp), font_size), $font_size);
-                $min: math.min(map.get(map.get($map, clamp), font_size), $font_size);
-
-                $modificator: 0.01 * map.get(map.get($map, clamp), width);
-
-                $preffered: math.div($max, $modificator) + vw;
-                
-                $max: pxToRem($max);
-                $min: pxToRem($min);
-
-                font-size: clamp($min, $preffered, $max);
-            }      
-        }
-    }
-
-    @supports not (font-size: clamp(1rem, 2vw, 2rem)) {
-        $map_container: map.get($map, media);
-        
-        @if($map_container != null) {
-            #{$type} {
-                @each $media, $multiplier in map.get($map, media) {
-                    @include media($media, $mediaType) {                    
-                        @if math.is-unitless($multiplier) {
-                            @include rem(font-size, ($font_size * $multiplier));
-                        }
-                        @else {
-                            @include rem(font-size, $multiplier);
-                        }                    
-                    }
-                }
-            }
-        }
-       
     }
 } 
