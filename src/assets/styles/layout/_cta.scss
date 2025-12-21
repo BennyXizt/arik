@@ -3,7 +3,10 @@
 .cta {
     background-color: map.get($COLORS, background_muted);
     .marquee {
-        @include rem(padding, 8px 0);
+        @include fluid((
+            padding-top: 16px 8px,
+            padding-bottom: 16px 8px
+        ));
         border-radius: 2px;
         background: rgba(218, 197, 167, 0.1);
 
@@ -11,7 +14,7 @@
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
-            @include rem(gap, 20px);
+            @include fluid(gap, 40px 20px);
 
             & > * {
                 white-space: nowrap;

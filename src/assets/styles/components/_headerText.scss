@@ -7,7 +7,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    @include rem(gap, 12px);
+    @include fluid(gap, 16px 12px);
 
     &__tag {
         text-transform: uppercase;
@@ -35,11 +35,11 @@
     }
 
     &--gap-8 {
-        @include rem(gap, 6px);
+        @include fluid(gap, 8px 6px);
 
         .headerText {
             &__button {
-                @include rem(margin-top, 16px);
+                @include fluid(margin-top, 24px 16px);
             }
         }
     }
@@ -48,53 +48,21 @@
         text-align: left;
         align-items: flex-start;
     }
-
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            @include rem(gap, 16px);
-
-            &--gap-8 {
-                @include rem(gap, 8px);
-
-                .headerText {
-                    &__button {
-                        @include rem(margin-top, 24px);
-                    }
-                }
-            }
-        }
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        @include clamp(gap, 16px 12px);
-
-        &--gap-8 {
-            @include clamp(gap, 8px 6px);
-
-            .headerText {
-                &__button {
-                    @include clamp(margin-top, 24px 16px);
-                }
-            }
-        }
-    }
 }
 
 .info-headerText {
     align-self: stretch;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(226px, 100%), 1fr));
-    @include rem(gap, 10px);
+    @include fluid(gap, 32px 10px);
 
     &__item {
         @extend %input;
         backdrop-filter: unset;
         display: flex;
         flex-flow: column nowrap;
-        @include rem((
-            gap: 4px,
-            padding: 8px
-        ));
+        @include rem(gap, 4px);
+        @include fluid(padding, 16px 8px);
     }
     &__label {
         @extend %textMeta;
@@ -104,23 +72,5 @@
     &__value {
         @extend %textMeta;
         text-transform: uppercase;
-    }
-
-    @supports  (font-size: clamp(1px,1px,1px)) {
-        @include clamp(gap, 32px 10px);
-
-        &__item {
-            @include clamp(padding, 16px 8px);
-        }
-    }
-
-    @supports  not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            @include rem(gap, 32px);
-
-            &__item {
-                @include rem(padding, 16px);
-            }
-        }
     }
 }

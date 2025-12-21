@@ -6,12 +6,12 @@
 
     &__header {
         &:not(:last-child) {
-            @include rem(margin-bottom, 20px)
+            @include fluid(margin-bottom, 32px 20px)
         }
     }
     &__body {
         display: grid;
-        @include rem(gap, 8px);
+        @include fluid(gap, 16px 8px);
     }
 
     &__label {
@@ -43,30 +43,5 @@
     }
     &__button {
         font-family: map.get($FONTS, satoshi);
-    }
-
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        &__header {
-            &:not(:last-child) {
-                @include clamp(margin-bottom, 32px 20px)
-            }
-        }
-        &__body {
-            @include clamp(gap, 16px 8px);
-        }
-    }
-
-    @supports not (font-size: clamp(1px,1px,1px)) {
-       @include media(desktop) {
-            &__header {
-                &:not(:last-child) {
-                    @include rem(margin-bottom, 32px)
-                }
-            }
-            &__body {
-                @include rem(gap, 16px);
-            }
-       }
     }
 }

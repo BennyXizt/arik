@@ -2,7 +2,7 @@
 
 .hero {
     &__image {
-        height: 60dvh;
+        aspect-ratio: 880 / 769;
 
         img {
             mix-blend-mode: lighten;
@@ -11,8 +11,5 @@
             object-fit: contain;
             object-position: center;
         }
-    }
-    &__headerText {
-        max-height: 40dvh;
     }
 }

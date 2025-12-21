@@ -3,10 +3,10 @@
 .item-list-service {
     font-family: map.get($FONTS, satoshi);
     @extend %input;
-    @include rem(padding, 20px);
+    @include fluid(padding, 64px 20px);
 
     & > * {
-        @include rem(margin-bottom, 16px);
+        @include fluid(margin-bottom, 48px 16px);
 
         &:last-child {
             margin-bottom: unset;
@@ -17,7 +17,7 @@
     &__tag {
         @extend %textMeta;
         text-transform: uppercase;
-        @include rem(margin-bottom, 8px);
+        @include fluid(margin-bottom, 16px 8px);
     }
 
     &__title {
@@ -66,6 +66,10 @@
     }
 
     .table-service {
+        &__text {
+            font-family: map.get($FONTS, chillax);
+            color: map.get($COLORS, muted);
+        }
         &__label {
             @extend %textMeta;
             text-transform: uppercase;
@@ -75,12 +79,12 @@
         &__row {
             &:not(:first-child) {
                 td {
-                    @include rem(padding-top, 20px);
+                   @include fluid(padding-top, 48px 20px);
                 }
             }
             &:not(:last-child) {
                 td {
-                    @include rem(padding-bottom, 20px);
+                    @include fluid(padding-bottom, 48px 20px);
                     border-bottom: 1px solid map.get($COLORS, border_default);
                 }
             }
@@ -98,66 +102,6 @@
                     opacity: 1;
                 }
             }
-        }
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        @include clamp(padding, 64px 20px);
-
-        & > * {
-            @include clamp(margin-bottom, 48px 16px);
-        }
-
-        &__tag {
-            @include clamp(margin-bottom, 16px 8px);
-        }
-
-        .table-service {
-            &__text {
-                font-family: map.get($FONTS, chillax);
-                color: map.get($COLORS, muted);
-            }
-            &__row {
-                &:not(:first-child) {
-                    td {
-                        @include clamp(padding-top, 48px 20px);
-                    }
-                }
-                &:not(:last-child) {
-                    td {
-                        @include clamp(padding-bottom, 48px 20px);
-                    }
-                }
-            }
-        }
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            @include rem(padding, 64px);
-
-            & > * {
-                @include rem(margin-bottom, 48px);
-            }
-
-            &__tag {
-                @include rem(margin-bottom, 16px);
-            }
-
-            .table-service {
-                &__row {
-                    &:not(:first-child) {
-                        td {
-                            @include rem(padding-top, 48px);
-                        }
-                    }
-                    &:not(:last-child) {
-                        td {
-                            @include rem(padding-bottom, 48px);
-                        }
-                    }
-                }
-            }
-            
         }
     }
 }

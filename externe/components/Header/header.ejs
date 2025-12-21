@@ -5,7 +5,9 @@
                 <%if(header_component.homePage === true) { %>
                     <%- include('externe/components/Image/Image.ejs', {
                         image_component: {
-                            block: 'header',
+                            this: {
+                                parent: 'header'
+                            },
                             img: {
                                 src: '/media/image/logo.svg',
                                 alt: 'website-logo'
@@ -39,6 +41,7 @@
             }) %>
             <%- include('src/ejs/components/button.ejs', {
                 button_component: {
+                    block: "header",
                     label: 'Let’s talk',
                     link: '',
                     size: 'small',
@@ -47,7 +50,9 @@
             })%>
             <%- include('externe/components/Burger/Burger.ejs', {
                 burger_component: {
-                    block: 'header'
+                    this: {
+                        parent: 'header'
+                    }
                 }
             })%>
         </div>

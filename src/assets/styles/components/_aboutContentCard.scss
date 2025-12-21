@@ -5,7 +5,7 @@
     color: map.get($COLORS, muted);
     font-family: map.get($FONTS, satoshi);
     display: grid;
-    @include rem(gap, 8px);
+    @include fluid(gap, 16px 8px);
 
     &__tag {
         @extend %textMeta;
@@ -34,15 +34,5 @@
     }
     &__noise {
         @extend %noise;
-    }
-
-    @supports  (font-size: clamp(1px,1px,1px)) {   
-        @include clamp(gap, 16px 8px);
-    }
-
-    @supports not (font-size: clamp(1px,1px,1px)) {   
-        @include media(desktop) {
-            @include rem(gap, 16px);
-        }
     }
 }

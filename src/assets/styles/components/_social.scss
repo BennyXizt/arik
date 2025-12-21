@@ -4,23 +4,29 @@
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    @include rem(gap, 8px);
+    @include fluid((
+        column-gap: 10px 8px,
+        row-gap: 16px 8px
+    ));
 
     &--vertical {
         flex-direction: column;
         align-items: flex-start;
     }
     &--button {
+        @include fluid(column-gap, 16px 8px);
+
         .social {
             &__item {
-                @include rem(flex, 1 1 128px);
+                flex: 1;
+                @include fluid(flex-basis, 256px 128px);
             }
             &__label {
                 color: map.get($COLORS, base);
             }
             &__link {
                 @extend %input;
-                @include rem(padding, 10px 15px);
+                @include fluid(padding, (16px 10px) (24px 15px));
             }
         }
     }
@@ -36,18 +42,18 @@
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        @include rem(column-gap, 8px);
+        @include fluid(column-gap, 16px 8px);
 
         &-icon {
-            @include rem((
-                width: 14px,
-                height: 14px
-            ));
+            @include fluid((
+                width: 20px 14px,
+                height: 20px 14px
+            ))
         }
         &-arrow {
-            @include rem((
-                width: 14px,
-                height: 14px
+            @include fluid((
+                width: 18px 14px,
+                height: 18px 14px
             ));
             margin-left: auto;
         }
@@ -73,77 +79,5 @@
                 }
             }
         }
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        @include clamp((
-            column-gap: 10px 8px,
-            row-gap: 16px 8px
-        ));
-        &__link {
-            @include clamp(column-gap, 16px 8px);
-
-            &-icon {
-                @include clamp((
-                    width: 20px 14px,
-                    height: 20px 14px
-                ))
-            }
-            &-arrow {
-                @include clamp((
-                    width: 18px 14px,
-                    height: 18px 14px
-                ));
-            }
-        }
-        &--button {
-            @include clamp(column-gap, 16px 8px);
-            .social {
-                &__item {
-                    @include clamp(flex-basis, 256px 128px);
-                }
-                &__link {
-                    @include clamp(padding, (16px 10px) (24px 15px));
-                }
-            }
-            
-        }
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-       @include media(desktop) {
-            .social {
-                @include rem((
-                    column-gap: 10px,
-                    row-gap: 16px
-                ));
-                &__link {
-                    @include rem(column-gap, 16px);
-
-                    &-icon {
-                        @include rem((
-                            width: 20px,
-                            height: 20px
-                        ))
-                    }
-                    &-arrow {
-                        @include rem((
-                            width: 18px,
-                            height: 18px
-                        ));
-                    }
-                }
-                &--button {
-                    @include rem(column-gap, 16px);
-                    .social {
-                        &__item {
-                            @include rem(flex-basis, 256px);
-                        }
-                        &__link {
-                            @include rem(padding, 16px 24px);
-                        }
-                    }
-                }
-            }
-       }
     }
 }

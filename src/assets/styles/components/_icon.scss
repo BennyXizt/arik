@@ -18,244 +18,86 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    @include rem((
-        width: 38px,
-        height: 38px
+    @include fluid((
+        width: 46px 38px,
+        height: 46px 38px
     ));
 
     &__icon {
-        @include rem((
-            width: 18px,
-            height: 18px
+        @include fluid((
+            width: 23px 18px,
+            height: 23px 18px
         ));
     }
 
     &--size-38 {
-        @include rem((
-            width: 32px,
-            height: 32px
+        @include fluid((
+            width: 38px 32px,
+            height: 38px 32px
         ));
 
         .icon-rounded__icon {
-            @include rem((
-                width: 14px,
-                height: 14px
+            @include fluid((
+                width: 16px 14px,
+                height: 16px 14px
             ));
         }
     }
     &--size-32 {
-        @include rem((
-            width: 32px,
-            height: 32px
+        @include fluid((
+            width: 32px 30px,
+            height: 32px 30px
         ));
 
         .icon-rounded__icon {
-            @include rem((
-                width: 14px,
-                height: 14px
+            @include fluid((
+                width: 15px 14px,
+                height: 15px 14px
             ));
         }
     }
     &--size-30 {
-        @include rem((
-            width: 22px,
-            height: 22px
+        @include fluid((
+            width: 30px 22px,
+            height: 30px 22px
         ));
 
         .icon-rounded__icon {
-            @include rem((
-                width: 12px,
-                height: 12px
+            @include fluid((
+                width: 14px 12px,
+                height: 14px 12px
             ));
         }
     }
     &--primary {
         @include iconRoundedPrimary;
     }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        @include clamp((
-            width: 46px 38px,
-            height: 46px 38px
-        ));
-        &__icon {
-            @include clamp((
-                width: 23px 18px,
-                height: 23px 18px
-            ));
-        }
-        &--size-38 {
-            @include clamp((
-                width: 38px 32px,
-                height: 38px 32px
-            ));
-
-            .icon-rounded__icon {
-                @include clamp((
-                    width: 16px 14px,
-                    height: 16px 14px
-                ));
-            }
-        }
-        &--size-32 {
-            @include clamp((
-                width: 32px 30px,
-                height: 32px 30px
-            ));
-
-            .icon-rounded__icon {
-                @include clamp((
-                    width: 15px 14px,
-                    height: 15px 14px
-                ));
-            }
-        }
-        &--size-30 {
-            @include clamp((
-                width: 30px 22px,
-                height: 30px 22px
-            ));
-
-            .icon-rounded__icon {
-                @include clamp((
-                    width: 14px 12px,
-                    height: 14px 12px
-                ));
-            }
-        }
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            @include rem((
-                width: 46px,
-                height: 46px
-            ));
-
-            &__icon {
-                @include rem((
-                    width: 23px,
-                    height: 23px
-                ));
-            }
-            &--size-38 {
-                @include rem((
-                    width: 38px,
-                    height: 38px
-                ));
-
-                .icon-rounded__icon {
-                    @include rem((
-                        width: 16px,
-                        height: 16px
-                    ));
-                }
-            }
-            &--size-32 {
-                @include rem((
-                    width: 32px,
-                    height: 32px
-                ));
-
-                .icon-rounded__icon {
-                    @include rem((
-                        width: 15px,
-                        height: 15px
-                    ));
-                }
-            }
-            &--size-30 {
-                @include rem((
-                    width: 30px,
-                    height: 30px
-                ));
-
-                .icon-rounded__icon {
-                    @include rem((
-                        width: 14px,
-                        height: 14px
-                    ));
-                }
-            }
-        }
-    }
 }
 
 .icon {
-    @include rem((
-        width: 18px,
-        height: 18px
+    @include fluid((
+        width: 23px 18px,
+        height: 23px 18px
     ));
 
     &--size-38 {
-        @include rem((
-            width: 14px,
-            height: 14px
+        @include fluid((
+            width: 16px 14px,
+            height: 16px 14px
         ));
     }
 
     &--size-32 {
-        @include rem((
-            width: 14px,
-            height: 14px
+        @include fluid((
+            width: 15px 14px,
+            height: 15px 14px
         ));
     }
 
     &--size-30 {
-        @include rem((
-            width: 12px,
-            height: 12px
+        @include fluid((
+            width: 14px 12px,
+            height: 14px 12px
         ));
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        @include clamp((
-            width: 23px 18px,
-            height: 23px 18px
-        ));
-        &--size-38 {
-            @include clamp((
-                width: 16px 14px,
-                height: 16px 14px
-            ));
-        }
-        &--size-32 {
-            @include clamp((
-                width: 15px 14px,
-                height: 15px 14px
-            ));
-        }
-        &--size-30 {
-            @include clamp((
-                width: 14px 12px,
-                height: 14px 12px
-            ));
-        }
-    }
-
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            @include rem((
-                width: 23px,
-                height: 23px
-            ));
-            &--size-38 {
-                @include rem((
-                    width: 16px,
-                    height: 16px
-                ));
-            }
-            &--size-32 {
-                @include rem((
-                    width: 15px,
-                    height: 15px
-                ));
-            }
-            &--size-30 {
-                @include rem((
-                    width: 14px,
-                    height: 14px
-                ));
-            }
-        }
     }
 }

@@ -10,7 +10,7 @@
         text-transform: uppercase;
 
         &:not(:only-child) {
-            @include rem(margin-bottom, 20px);
+            @include fluid(margin-bottom, 32px 20px);
         }
     }
 
@@ -40,22 +40,5 @@
     }
     &__year {
         @extend %textMeta;
-    }
-
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            &__title {
-                &:not(:only-child) {
-                    @include rem(margin-bottom, 32px);
-                }
-            }
-        }
-    }
-    @supports (font-size: clamp(1px,1px,1px)) {
-        &__title {
-            &:not(:only-child) {
-                @include clamp(margin-bottom, 32px 20px);
-            }
-        }
     }
 }

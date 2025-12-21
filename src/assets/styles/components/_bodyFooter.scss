@@ -3,13 +3,11 @@
 .body-footer {
     display: flex;
     flex-flow: row wrap;
-    @include rem(gap, 20px);
+    @include fluid(gap, 62px 20px);
 
     &__content {
-        @include rem((
-            margin-bottom: 30px,
-            gap: 20px
-        ));
+        @include rem(gap, 20px);
+        @include fluid(margin-bottom, 88px 30px);
         flex-grow: 1;
         flex-direction: column;
         display: flex;
@@ -19,11 +17,11 @@
     &__list {
         display: flex;
         flex-flow: row wrap;
-        @include rem(gap, 20px);
+        @include fluid(gap, 62px 20px);
     }
 
     &__button {
-        @include rem(margin-top, 8px);
+       @include fluid(margin-top, 16px 8px);
     }
 
     @include media(mobile) {
@@ -41,44 +39,9 @@
         }
     }
 
-    @supports (font-size: clamp(1px,1px,1px)) {
-        @include clamp(gap, 62px 20px);
-
-        &__content {
-            @include clamp(margin-bottom, 88px 30px);
-        }
-
-        &__list {
-            @include clamp(gap, 62px 20px);
-        }
-
-        &__button {
-            @include clamp(margin-top, 16px 8px);
-        }
-
-        .content-footer {
-            @include clamp(gap, 43px 20px);
-        }
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            @include rem(gap, 62px);
-
-            &__content {
-                @include rem(margin-bottom, 88px);
-            }
-
-            &__list {
-                @include rem(gap, 62px);
-            }
-
-            &__button {
-                @include rem(margin-top, 16px);
-            }
-
-            .content-footer {
-                @include rem(gap, 43px);
-            }
-        }
+    .content-footer {
+        display: flex;
+        flex-flow: column nowrap;
+        @include fluid(gap, 43px 20px);
     }
 }

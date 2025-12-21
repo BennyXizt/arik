@@ -8,29 +8,11 @@
         @extend %h4;
 
         &:not(:last-child) {
-           @include rem(margin-bottom, 8px);
+           @include fluid(margin-bottom, 16px 8px);
         }
     }
 
     &__text {
         color: map.get($COLORS, muted);
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        &__title {
-            &:not(:last-child) {
-                @include clamp(margin-bottom, 16px 8px);
-            }
-        }
-    }
-
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            &__title {
-                &:not(:last-child) {
-                    @include rem(margin-bottom, 16px);
-                }
-            }
-        }
     }
 }

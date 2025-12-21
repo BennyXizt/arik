@@ -8,7 +8,7 @@
         position: relative;
 
         & > * {
-            @include rem(margin-bottom, 16px);
+            @include fluid(margin-bottom, 32px 16px);
 
             &:last-child {
                 margin-bottom: unset;
@@ -23,10 +23,10 @@
         @extend %input;
         @extend %textMetaSmall;
         text-transform: uppercase;
-        @include rem((
-            padding: 8px,
-            right: 10px,
-            top: 10px
+        @include rem(padding, 8px);
+        @include fluid((
+            right: 20px 10px,
+            top: 20px 10px
         ));
     }
     &__tag {
@@ -48,45 +48,10 @@
     &__list {
         display: flex;
         flex-flow: column nowrap;
-        @include rem(gap, 8px);
+        @include fluid(gap, 16px 8px);
         li {
             list-style-type: initial;
             list-style-position: inside;
-        }
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        &__wrapper {
-            & > * {
-                @include clamp(margin-bottom, 32px 16px);
-            }
-        }
-        &__time {
-            @include clamp((
-                right: 20px 10px,
-                top: 20px 10px
-            ));
-        }
-        &__list {
-            @include clamp(gap, 16px 8px);
-        }
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            &__wrapper {
-                & > * {
-                    @include rem(margin-bottom, 32px);
-                }
-            }
-            &__time {
-                @include rem((
-                    right: 20px,
-                    top: 20px
-                ));
-            }
-            &__list {
-                @include rem(gap, 16px);
-            }
         }
     }
 }

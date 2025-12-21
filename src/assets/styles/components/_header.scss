@@ -16,11 +16,8 @@
         align-items: center;
         border: 1px solid map.get($COLORS, border_default);
         border-radius: 2px;
-        padding: 12px;
-        @include fluid((
-            padding-top: 24px 12px,
-            gap: 32px 12px
-        ));
+        @include rem(padding, 12px);
+        @include fluid(gap, 32px 12px);
         backdrop-filter: blur(30px);
         background-color: map.get($COLORS, background_muted);
     }

@@ -6,7 +6,7 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
-    @include rem(gap, 16px);
+    @include fluid(gap, 32px 16px);
     font-family: map.get($FONTS, chillax);
 
     &__link-image {
@@ -83,15 +83,6 @@
                     opacity: 1;
                 }
             }
-        }
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        @include clamp(gap, 32px 16px);
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            @include rem(gap, 32px);
         }
     }
 }
