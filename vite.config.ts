@@ -11,6 +11,15 @@ export default defineConfig({
   base: './',
   build: {
     rollupOptions: {
+      input: {
+        main: 'index.html',
+        blog: 'blog.html',
+        about: 'about.html',
+        contact: 'contacts.html',
+        services: 'services.html',
+        work: 'work.html',
+        worksingle: 'worksingle.html',
+      },
       output: {
          // JS
         entryFileNames: 'assets/js/[name].js',
