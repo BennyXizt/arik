@@ -7,11 +7,15 @@ import { autoloader } from '~/scripts/autoloader/autoloader'
 
 window.addEventListener('click', function(e) {
     const 
-        burger: HTMLElement | null = (e.target as HTMLElement).closest('.burger')
+        burger: HTMLElement | null = (e.target as HTMLElement).closest('.burger'),
+        submenuSpan = (e.target as HTMLElement).closest('.submenu-menu span')
+
     
     if(burger)
         BurgerMenu(burger)
 
+    if(submenuSpan)
+        displaySubmenu(submenuSpan)
 
 })
 
@@ -97,3 +101,19 @@ document.fonts.ready.then(async() => {
     })
     
 })
+
+function displaySubmenu(submenuSpan) {
+    const 
+        parent = submenuSpan.parentElement,
+        ul = parent.querySelector('ul')
+
+
+    parent.querySelectorAll('.active').forEach(e => {
+        if(!e.isSameNode(submenuSpan) && !e.isSameNode(ul))
+            e.classList.remove('active')
+    })
+    
+    submenuSpan.classList.toggle('active')
+    ul.classList.toggle('active')
+    
+}
