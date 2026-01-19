@@ -28,23 +28,53 @@
             @include fluid(gap, 20px 12px);
         }
 
-        .submenu-menu {
-            cursor: pointer;
+        // .submenu-menu {
+        //     cursor: pointer;
 
-            span {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                @include rem(gap, 6px);
-            }
-        }
+        //     ul {
+        //         overflow: hidden;
+        //         height: 0px;
+        //         transform: translateY(-20px);
 
-        svg {
-            @include rem((
-                width: 8px,
-                height: 6px
-            ));
-        }
+
+        //         li {
+        //             @include fluid(padding-top, 16px 8px);
+        //             @include fluid(padding-bottom, 16px 8px);
+        //             & li {
+        //                 &:last-child {
+        //                     padding-bottom: unset;
+        //                 }
+        //             }
+        //         }
+
+        //         &.active {
+        //             overflow: unset;
+        //             border-width: 1px;
+        //             height: max-content;
+        //             transform: translateY(10px);
+        //         }
+        //     }
+
+        //     span {
+        //         display: flex;
+        //         align-items: center;
+        //         justify-content: flex-end;
+        //         @include rem(gap, 6px);
+
+        //         &.active {
+        //             svg {
+        //                 transform: rotate(180deg);
+        //             }
+        //         }
+        //     }
+
+        //     svg {
+        //         @include rem((
+        //             width: 8px,
+        //             height: 6px
+        //         ));
+        //     }
+        // }
     }
     
     @include media(tablet) {
@@ -59,59 +89,38 @@
                 @include rem(padding, 10px 0);
             }
 
-            .submenu-menu {
-                & > ul {
-                    position: absolute;
-                    transition: .4s ease-in-out;
-                    transition-property: transform, opacity, visibility;
-                    border: 0px solid map.get($COLORS, border_default);
+            // .submenu-menu {
+            //     & > ul {
+            //         position: absolute;
+            //         transition: .4s ease-in-out;
+            //         transition-property: transform, opacity, visibility;
+            //         border: 0px solid map.get($COLORS, border_default);
 
-                    border-radius: 2px;
-                    background-color: map.get($COLORS, background_muted);   
+            //         border-radius: 2px;
+            //         background-color: map.get($COLORS, background_muted);   
 
-                    li {
-                        @include fluid(padding, 16px 8px);
-                        & li {
-                            &:last-child {
-                                padding-bottom: unset;
-                            }
-                        }
-                    }
-                }
-                span {
-                    svg {
-                        transition: transform .4s ease-in-out;
-                    }
-                    
-                    &.active {
-                        svg {
-                            transform: rotate(180deg);
-                        }
-                    }
-                }
-                ul {
-                    overflow: hidden;
-                    height: 0px;
-                    transform: translateY(-20px);
+            //         li {
+            //             @include fluid(padding, 16px 8px);
+            //         }
+            //     }
+            //     span {
+            //         justify-content: flex-start;
 
-                    &.active {
-                        overflow: unset;
-                        border-width: 1px;
-                        height: max-content;
-                        transform: translateY(10px);
-                    }
-                }
+            //         svg {
+            //             transition: transform .4s ease-in-out;
+            //         }
+            //     }
 
-                // @media(any-hover: hover) {
-                //     &:hover {
-                //         & > ul {
-                //             border-width: 1px;
-                //             max-height: unset;
-                //             transform: translateY(10px);
-                //         }
-                //     }
-                // }
-            }
+            //     // @media(any-hover: hover) {
+            //     //     &:hover {
+            //     //         & > ul {
+            //     //             border-width: 1px;
+            //     //             max-height: unset;
+            //     //             transform: translateY(10px);
+            //     //         }
+            //     //     }
+            //     // }
+            // }
         }
     }
 }

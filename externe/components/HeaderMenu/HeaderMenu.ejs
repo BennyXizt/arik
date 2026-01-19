@@ -26,12 +26,14 @@
         return
     }
 
-    function generateMenu(menu, blockClass='menu') {
+    function generateMenu(menu, blockClass='menu', parentClass='menu') {
         if(menu.length == 0) return
 
         let str = `\<ul class="${blockClass}__list">`
         for(const item of menu) {
             let activePageClass = ''
+            const linkClass = parentClass === blockClass ? `${blockClass}__link` :
+                `${parentClass}__link ${blockClass}__link`
             
             if (
                 (typeof header_menu_component.activePage !== 'undefined' && header_menu_component.activePage) &&
@@ -46,7 +48,7 @@
             }
             
             str += item.href ? 
-                `\<a href="${item.href}" class="${blockClass}__link ${activePageClass}">${item.anchor}\</a>` :
+                `\<a href="${item.href}" class="${linkClass} ${activePageClass}">${item.anchor}\</a>` :
                 item.anchor
             
             if(item.submenus && item.submenus.length > 0) {
