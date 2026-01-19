@@ -30,14 +30,14 @@
             <% } %>
             <%- include('externe/components/HeaderMenu/HeaderMenu.ejs', {
                 header_menu_component: {
-                    activePage: header_component.active,
+                    activePage: header_component.active ?? '',
                     list: [
                         {'href': './services.html', 'anchor': 'Services'},
                         {'href': './work.html', 'anchor': 'Work'},
                         {'href': './about.html', 'anchor': 'About'},
                         {'href': './blog.html', 'anchor': 'Blog'},
                         {'anchor': 'Pages', 'submenus': [
-                            {'href': './contacts.html', 'anchor': 'Contact'},
+                            {'href': './contact.html', 'anchor': 'Contact'},
                             {'href': './worksingle.html', 'anchor': 'Work Single'},
                             {'href': './blog.html', 'anchor': 'Blog'},
                             {'href': '', 'anchor': 'Test', 'submenus': [

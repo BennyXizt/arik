@@ -22,59 +22,9 @@
         background-color: map.get($COLORS, background_muted);
     }
     .menu {
-        flex: 1;
-
         &__list {
             @include fluid(gap, 20px 12px);
         }
-
-        // .submenu-menu {
-        //     cursor: pointer;
-
-        //     ul {
-        //         overflow: hidden;
-        //         height: 0px;
-        //         transform: translateY(-20px);
-
-
-        //         li {
-        //             @include fluid(padding-top, 16px 8px);
-        //             @include fluid(padding-bottom, 16px 8px);
-        //             & li {
-        //                 &:last-child {
-        //                     padding-bottom: unset;
-        //                 }
-        //             }
-        //         }
-
-        //         &.active {
-        //             overflow: unset;
-        //             border-width: 1px;
-        //             height: max-content;
-        //             transform: translateY(10px);
-        //         }
-        //     }
-
-        //     span {
-        //         display: flex;
-        //         align-items: center;
-        //         justify-content: flex-end;
-        //         @include rem(gap, 6px);
-
-        //         &.active {
-        //             svg {
-        //                 transform: rotate(180deg);
-        //             }
-        //         }
-        //     }
-
-        //     svg {
-        //         @include rem((
-        //             width: 8px,
-        //             height: 6px
-        //         ));
-        //     }
-        // }
     }
     
     @include media(tablet) {
@@ -89,38 +39,34 @@
                 @include rem(padding, 10px 0);
             }
 
-            // .submenu-menu {
-            //     & > ul {
-            //         position: absolute;
-            //         transition: .4s ease-in-out;
-            //         transition-property: transform, opacity, visibility;
-            //         border: 0px solid map.get($COLORS, border_default);
+            &__item {
+                position: relative;
+                > ul {
+                    position: absolute;
+                    top: calc(100% + 2px);
+                    right: 0;
+                    border: 0px solid map.get($COLORS, border_default);
 
-            //         border-radius: 2px;
-            //         background-color: map.get($COLORS, background_muted);   
+                    border-radius: 2px;
+                    background-color: map.get($COLORS, background_muted);  
+                }
+            }
 
-            //         li {
-            //             @include fluid(padding, 16px 8px);
-            //         }
-            //     }
-            //     span {
-            //         justify-content: flex-start;
+            .submenu-menu {
+                ul {
+                    &.active {
+                        border-width: 1px;
+                    }
+                }
+                & > ul {
+                    transition: .4s ease-in-out;
+                    transition-property: transform, opacity, visibility; 
 
-            //         svg {
-            //             transition: transform .4s ease-in-out;
-            //         }
-            //     }
-
-            //     // @media(any-hover: hover) {
-            //     //     &:hover {
-            //     //         & > ul {
-            //     //             border-width: 1px;
-            //     //             max-height: unset;
-            //     //             transform: translateY(10px);
-            //     //         }
-            //     //     }
-            //     // }
-            // }
+                    li {
+                        @include fluid(padding, 16px 8px);
+                    }
+                }
+            }
         }
     }
 }

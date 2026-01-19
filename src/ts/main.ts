@@ -8,14 +8,16 @@ import { autoloader } from '~/scripts/autoloader/autoloader'
 window.addEventListener('click', function(e) {
     const 
         burger: HTMLElement | null = (e.target as HTMLElement).closest('.burger'),
-        submenuSpan = (e.target as HTMLElement).closest('.submenu-menu span')
+        submenu = (e.target as HTMLElement).closest('.submenu-menu span')
 
     
     if(burger)
         BurgerMenu(burger)
 
-    if(submenuSpan)
-        displaySubmenu(submenuSpan)
+    if(submenu)
+        displaySubmenu(submenu)
+    else 
+        closeSubmenu()
 
 })
 
@@ -102,18 +104,35 @@ document.fonts.ready.then(async() => {
     
 })
 
-function displaySubmenu(submenuSpan) {
+function displaySubmenu(target) {
     const 
-        parent = submenuSpan.parentElement,
+        parent = target.parentElement,
         ul = parent.querySelector('ul')
 
-
-    parent.querySelectorAll('.active').forEach(e => {
-        if(!e.isSameNode(submenuSpan) && !e.isSameNode(ul))
-            e.classList.remove('active')
-    })
+    closeSubmenu(target)
     
-    submenuSpan.classList.toggle('active')
+    target.classList.toggle('active')
     ul.classList.toggle('active')
+
     
+    
+}
+function closeSubmenu(target = null) {
+    if(!target) {
+        document.querySelectorAll('ul.active').forEach(e => {
+            e.classList.remove('active')
+        })
+        return
+    }
+    else {
+        const 
+            parent = target.parentElement,
+            ul = parent.querySelector('ul')
+            
+        parent.querySelectorAll('.active').forEach(e => {
+            if(!e.isSameNode(target) && !e.isSameNode(ul))
+                e.classList.remove('active')
+        })
+        
+    }
 }
