@@ -20,6 +20,12 @@
         @include fluid(gap, 62px 20px);
     }
 
+    &__item {
+        & > *:not(:first-child) {
+            @include fluid(margin-top, 16px 8px);
+        }
+    }
+
     &__button {
        @include fluid(margin-top, 16px 8px);
     }

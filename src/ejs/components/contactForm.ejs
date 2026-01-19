@@ -20,9 +20,9 @@
 	}
 
 	var {thisClass, blockClass, thisTag, thisStyles, thisDataAttributes} = externe.setupEJSComponent({...contactForm_component, componentName: 'form'})
-	thisTag = 'form'
 %>
 
+<div>
 <<%=thisTag%> data-fsc-phpmailer action='/php/mail.php' method='POST' <%-thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>
 	<div class="<%=blockClass%>__header">
 		<div class="<%=blockClass%>__label">
@@ -52,3 +52,33 @@
 		}) %>
 	</div>
 </<%=thisTag%>>
+<form method="POST" class="testimonials__form form">
+	<div class="<%=blockClass%>__header">
+		<div class="<%=blockClass%>__label">
+			<%=contactForm_component.label%>
+		</div>
+		<<%=contactForm_component.title.tag%> class='<%=blockClass%>__title'>
+			<%=contactForm_component.title.label%>
+		</<%=contactForm_component.title.tag%>>
+	</div>
+	<div class="<%=blockClass%>__body">
+		<input required placeholder="name" type="text" name="name" class="<%=blockClass%>__input">
+		<textarea required placeholder="message" name="message" class="<%=blockClass%>__input"></textarea>
+		<%- include('src/ejs/components/button', {
+			button_component: {
+				block: blockClass,
+				this: {
+					dataAttribute: [
+						'type=submit'
+					]
+				},
+				label: 'Send Message',
+				// link: 'root',
+				size: 'small',
+				style: 'primary'
+			}
+		}) %>
+	</div>
+</form>
+
+</div>

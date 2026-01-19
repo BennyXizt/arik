@@ -1,47 +1,22 @@
 @use 'sass:map';
 
-.form-contacts {
-    font-family: map.get($FONTS, satoshi);
-    @extend %card;
+.form {
+  &__header {
+      &:not(:last-child) {
+        @include fluid(margin-bottom, 32px 20px);
+      }
+  }
+  &__body {
+    display: grid;
+    @include fluid(gap, 16px 8px);
+  }
 
-    &__header {
-        &:not(:last-child) {
-            @include fluid(margin-bottom, 32px 20px)
-        }
-    }
-    &__body {
-        display: grid;
-        @include fluid(gap, 16px 8px);
-    }
-
-    &__label {
-        @extend %textMeta;
-        text-transform: uppercase;
-        color: map.get($COLORS, muted);
-    }
-    &__title {
-        @extend %h2;
-    }
-    &__input {
-        @extend %input;
-        @extend %textMeta;
-        backdrop-filter: unset;
-        @include rem((
-            padding: 16px 24px,
-            height: 53px
-        ));
-
-        color: map.get($COLORS, base);
-
-        &::placeholder {
-            text-transform: uppercase;
-        }
-    }
-    textarea#{&}__input {
-        resize: vertical;
-        @include rem(min-height, 200px);
-    }
-    &__button {
-        font-family: map.get($FONTS, satoshi);
-    }
+  &__label {
+    @extend %textMeta;
+    text-transform: uppercase;
+    color: map.get($COLORS, muted);
+  }
+  &__title {
+    @extend %h2;
+  }
 }

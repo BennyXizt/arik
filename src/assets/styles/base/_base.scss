@@ -107,3 +107,30 @@ main[class*='layout--'] {
       padding-bottom: 160px 80px,
   ));
 }
+
+form {
+  font-family: map.get($FONTS, satoshi);
+  @extend %card;
+
+  input, textarea {
+    @extend %input;
+    @extend %textMeta;
+    @include rem((
+      padding: 16px 24px,
+      height: 53px
+    ));
+    backdrop-filter: unset;
+    color: map.get($COLORS, base);
+
+    &::placeholder {
+      text-transform: uppercase;
+    }
+  }
+  textarea {
+    resize: vertical;
+    @include rem(min-height, 200px);
+  }
+  button {
+    font-family: map.get($FONTS, satoshi);
+  }
+}

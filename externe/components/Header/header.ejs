@@ -35,7 +35,18 @@
                         {'href': './services.html', 'anchor': 'Services'},
                         {'href': './work.html', 'anchor': 'Work'},
                         {'href': './about.html', 'anchor': 'About'},
-                        {'href': './blog.html', 'anchor': 'Blog'}
+                        {'href': './blog.html', 'anchor': 'Blog'},
+                        {'anchor': 'Pages', 'submenus': [
+                            {'href': '#', 'anchor': 'Page1'},
+                            {'href': '#', 'anchor': 'Page2', 'submenus': [
+                                {'href': '#', 'anchor': 'Page2_1', 'submenus': [
+                                    {'href': '#', 'anchor': 'Page2_1_1'},
+                                    {'href': '#', 'anchor': 'Page2_1_2'},
+                                ]},
+                                {'href': '#', 'anchor': 'Page2_2'}
+                            ]},
+                            {'href': '#', 'anchor': 'Page3'}
+                        ], 'parent': 'Pages'},
                     ]
                 }
             }) %>

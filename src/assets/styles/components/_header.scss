@@ -27,6 +27,24 @@
         &__list {
             @include fluid(gap, 20px 12px);
         }
+
+        .submenu-menu {
+            cursor: pointer;
+
+            span {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                @include rem(gap, 6px);
+            }
+        }
+
+        svg {
+            @include rem((
+                width: 8px,
+                height: 6px
+            ));
+        }
     }
     
     @include media(tablet) {
@@ -37,7 +55,45 @@
             width: max-content;
         }
         .menu {
-            @include rem(padding, 10px 0);
+            &__item {
+                @include rem(padding, 10px 0);
+            }
+
+            .submenu-menu {
+                & > ul {
+                    position: absolute;
+                    transition: .4s ease-in-out;
+                    transition-property: transform, opacity, visibility;
+                    border: 0px solid map.get($COLORS, border_default);
+
+                    border-radius: 2px;
+                    background-color: map.get($COLORS, background_muted);   
+
+                    li {
+                        @include fluid(padding, 16px 8px);
+                        & li {
+                            &:last-child {
+                                padding-bottom: unset;
+                            }
+                        }
+                    }
+                }
+                ul {
+                    // overflow: hidden;
+                    // max-height: 0px;
+                    // transform: translateY(-20px);
+                }
+
+                @media(any-hover: hover) {
+                    &:hover {
+                        & > ul {
+                            border-width: 1px;
+                            max-height: unset;
+                            transform: translateY(10px);
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -18,8 +18,8 @@
 			<%- include('src/ejs/components/contactForm.ejs', {
 				contactForm_component: {
 					this: {
-						parent: blockClass,
-						block: 'form-contacts'
+						class: `${blockClass}__form form-${blockClass}`,
+						tag: 'form'
 					},
 					label: 'Contact',
 					title: {

@@ -11,31 +11,33 @@
 
 <div class="<%=blockClass%>">
 	<div class="workCard__background">
-		<%- include('externe/components/Image/Image.ejs', {
-			image_component: {
-				this: {
-					class: 'workCard__noise'
-				},
-				img: {
-					src: '/media/image/works/Noise.png',
+		<a href="#" class="workCard__link">
+			<%- include('externe/components/Image/Image.ejs', {
+				image_component: {
+					this: {
+						class: 'workCard__noise'
+					},
+					img: {
+						src: '/media/image/works/Noise.png',
+					}
 				}
-			}
-		}) %>
-		<%- include('src/ejs/components/icon.ejs', {
-			icon_component: {
-				block: 'workCard',
-				name: 'ph_arrow-up-right-light',
-				size: '38',
-				rounded: true
-			}
-		}) %>
-		<%- include('externe/components/Image/Image.ejs', {
-			image_component: workCard_component.image_component
-		}) %>
+			}) %>
+			<%- include('src/ejs/components/icon.ejs', {
+				icon_component: {
+					block: 'workCard',
+					name: 'ph_arrow-up-right-light',
+					size: '38',
+					rounded: true
+				}
+			}) %>
+			<%- include('externe/components/Image/Image.ejs', {
+				image_component: workCard_component.image_component
+			}) %>
+		</a>
 	</div>
 	<div class="workCard__content">
 		<h4 class="workCard__title"><%= workCard_component.type%></h4>
-		<a href='<%= workCard_component.tag.link%>'>
+		<a href='<%= workCard_component.tag.link%>' class="workCard__link">
 			<span class="workCard__text"><%= workCard_component.tag.label%></span>
 		</a>
 	</div>
