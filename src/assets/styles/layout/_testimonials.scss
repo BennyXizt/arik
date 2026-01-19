@@ -4,9 +4,9 @@
     &__list {
         display: grid;
         grid-template-columns: 1fr;
-        @include rem((
-            column-gap: 16px,
-            margin-top: 32px
+        @include fluid((
+            column-gap: 32px 16px,
+            margin-top: 64px 32px
         ));
     }
     &__item {
@@ -50,25 +50,6 @@
                         grid-row: 1 / 4;
                     }
                 }
-            }
-        }
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        &__list {
-            @include clamp((
-                column-gap: 32px 16px,
-                margin-top: 64px 32px
-            ));
-        }
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            &__list {
-                @include rem((
-                    column-gap: 32px,
-                    margin-top: 64px
-                ));
             }
         }
     }

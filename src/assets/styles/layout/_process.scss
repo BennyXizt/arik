@@ -7,12 +7,12 @@
         flex-flow: column wrap;
         justify-content: center;
         align-items: center;
-        @include rem(gap, 8px);
+        @include fluid(gap, 16px 8px);
 
         &:after {
             content: '';
             width: 1px;
-            @include rem(height, 40px);
+            @include fluid(height, 96px 40px);
             background-color: map.get($COLORS, border_default);
         }
     }
@@ -25,6 +25,10 @@
         display: grid;
         grid-template-columns: 1fr 40px 1fr;
         @include rem(column-gap, 10px);
+
+        @include media(tablet) {
+            @include fluid(column-gap, 80px 10px);
+        }
 
         &:not(:first-child) {
             @include rem(margin-top, -48px);
@@ -68,6 +72,10 @@
                 width: 40px,
                 height: 40px
             ));
+            @include fluid((
+                padding-left: 12px 8px,
+                padding-right: 12px 8px
+            ));
             backdrop-filter: blur(30px);
             background: map.get($COLORS, background_muted);
             display: flex;
@@ -101,49 +109,6 @@
 
             &:after {
                 @include rem(margin-left, 19px);
-            }
-        }
-    }
-    @supports (font-size: clamp(1px,1px,1px)) {
-        &__top {
-            @include clamp(gap, 16px 8px);
-
-            &:after {
-                @include clamp(height, 96px 40px);
-            }
-        }
-        &__item {
-            @include media(tablet) {
-                @include clamp(column-gap, 80px 10px);
-            }
-        }
-        &__line {
-            &::after {
-                @include clamp((
-                    padding-left: 12px 8px,
-                    padding-right: 12px 8px
-                ));
-            }
-        }
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            &__top {
-                @include rem(gap, 16px);
-
-                &:after {
-                    @include rem(height, 96px);
-                }
-            }
-            &__item {
-                @include rem(column-gap, 80px);
-            }
-            &__line {
-                &::after {
-                    @include rem((
-                        padding: 8px 12px
-                    ));
-                }
             }
         }
     }

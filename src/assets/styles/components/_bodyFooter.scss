@@ -48,6 +48,8 @@
     .content-footer {
         display: flex;
         flex-flow: column nowrap;
+        justify-content: flex-start;
         @include fluid(gap, 43px 20px);
+
     }
 }

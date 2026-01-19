@@ -7,40 +7,13 @@
         display: flex;
         flex-flow: row wrap;
         @include rem(gap, 20px);
+        @include fluid(column-gap, 64px 20px);
         align-items: flex-end;
     }
 
     &__item {
         flex: 1 1 10px;
-    }
-
-    
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        &__container {
-            @include clamp(column-gap, 64px 20px);
-        }
-
-        @include media(mobile, max) {
-            &__item {
-                flex-basis: calc(50% - clamp(20px, 5vw, 64px));
-            }
-        }
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            .stats {
-                &__container {
-                    @include rem(column-gap, 64px);
-                }
-            }
-        }
-        @include media(mobile, max) {
-            .stats {
-                &__item {
-                    flex-basis: calc(50% - 20px);
-                }
-            }
-        }
+        flex-basis: calc(50% - 20px);
+        flex-basis: calc(50% - clamp(20px, 5vw, 64px));
     }
 }

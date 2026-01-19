@@ -7,30 +7,11 @@
         align-items: center;
     }
     &__content {
-        @include rem((
-            margin-top: 16px,
-            gap: 16px
+        @include fluid((
+            margin-top: 32px 16px,
+            gap: 32px 16px
         ));
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(min(410px,100%), 1fr));
-    }
-
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            &__content {
-                @include rem((
-                    margin-top: 32px,
-                    gap: 32px
-                ));
-            }
-        }
-    }
-    @supports (font-size: clamp(1px,1px,1px)) {
-        &__content {
-            @include clamp((
-                margin-top: 32px 16px,
-                gap: 32px 16px
-            ));
-        }
     }
 }

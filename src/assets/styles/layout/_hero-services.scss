@@ -19,30 +19,9 @@
     }
 
     &__button {
-        @include rem((
-            margin-top: 16px,
-            margin-bottom: 16px
+        @include fluid((
+            margin-top: 48px 16px,
+            margin-bottom: 64px 16px
         ));
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        &__button {
-            @include clamp((
-                margin-top: 48px 16px,
-                margin-bottom: 64px 16px
-            ));
-        }
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            .hero-services {
-                &__button {
-                    @include rem((
-                        margin-top: 48px,
-                        margin-bottom: 64px
-                    ));
-                }
-            }
-        }
     }
 }

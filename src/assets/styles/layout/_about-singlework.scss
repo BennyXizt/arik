@@ -6,6 +6,7 @@
         flex-flow: row wrap;
         align-items: flex-start;
         @include rem(gap, 20px);
+        @include fluid(column-gap, 96px 20px);
     }
 
     &__tag {
@@ -25,7 +26,7 @@
 
     &__items {
         display: grid;
-        @include rem(gap, 16px);
+        @include fluid(gap, 32px 16px);
     }
 
     @include media(tablet) {
@@ -33,24 +34,5 @@
             position: sticky;
             @include rem(top, 30px + 68px + 160px);
         }
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        &__container {
-            @include clamp(column-gap, 96px 20px);
-        }
-        &__items {
-            @include clamp(gap, 32px 16px);
-        }
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-       @include media(desktop) {
-            &__container {
-                @include rem(column-gap, 96px);
-            }
-            &__items {
-                @include rem(gap, 32px);
-            }
-       }
     }
 }

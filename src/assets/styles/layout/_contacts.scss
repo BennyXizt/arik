@@ -3,7 +3,7 @@
 .contacts {
     &__container {
         align-items: flex-start;
-        @include rem(column-gap, 20px);
+        @include fluid(column-gap, 80px 20px);
     }
     &__picture {
         display: none;
@@ -16,7 +16,7 @@
     }
     .social--button {
         .social__item {
-            @include rem(flex-basis, 292px);
+            @include fluid(flex-basis, 292px 128px);
         }
     }
 
@@ -35,25 +35,6 @@
                 object-fit: cover;
                 object-position: center;
                 mix-blend-mode: lighten;
-            }
-        }
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        &__container {
-            @include clamp(column-gap, 80px 20px);
-        }
-        .social--button {
-            .social__item {
-                @include clamp(flex-basis, 292px 128px);
-            }
-        }
-    }
-
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            &__container {
-                @include rem(column-gap, 80px);
             }
         }
     }

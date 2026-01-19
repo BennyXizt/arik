@@ -29,33 +29,9 @@
     }
 
     &__body {
-        @include rem(padding, 40px 0);
-    }
-
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            .marquee {
-                @include rem(padding, 16px 0);
-
-                &__inner {
-                    @include rem(gap, 40px);
-                }
-            }
-            &__body {
-                @include rem(padding, 160px 0);
-            }
-        }
-    }
-    @supports (font-size: clamp(1px,1px,1px)) {
-        .marquee {
-            @include clamp(padding, (16px 8px) 0);
-
-            &__inner {
-                @include clamp(gap, 40px 20px);
-            }
-        }
-        &__body {
-            @include clamp(padding, (160px 40px) 0);
-        }
+        @include fluid((
+            padding-top: 160px 40px,
+            padding-bottom: 160px 40px,
+        ));
     }
 }

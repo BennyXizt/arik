@@ -8,24 +8,7 @@
         ul {
             display: flex;
             align-items: center;
-            @include rem(column-gap, 48px);
-        }
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        .marquee {
-            ul {
-                @include clamp(column-gap, 128px 48px);
-            }
-        }
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            .marquee {
-                ul {
-                    @include rem(column-gap, 128px);
-                }
-            }
+            @include fluid(column-gap, 128px 48px);
         }
     }
 }

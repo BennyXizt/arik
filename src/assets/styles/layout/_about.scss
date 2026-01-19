@@ -33,8 +33,7 @@
     @include media(desktop) {
         flex-flow: row nowrap;
         justify-content: center;
-        @include rem(gap, 32px);
-        @include clamp(gap, 32px 16px);
+        @include fluid(gap, 32px 16px);
 
         & > * {
             flex: 0 0 auto;

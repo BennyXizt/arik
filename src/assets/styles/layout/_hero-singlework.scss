@@ -2,10 +2,8 @@
 
 .hero-singlework {
     &__headerText {
-        @include rem((
-            max-width: 1000px,
-            padding-bottom: 24px
-        ));
+        @include rem(max-width, 1000px);
+        @include fluid(padding-bottom, 64px 24px);
         margin: 0 auto;
 
     }
@@ -31,19 +29,6 @@
 
         img {
             @extend %workCardImage;
-        }
-    }
-
-    @supports (font-size: clamp(1px,1px,1px)) {
-        &__headerText {
-            @include clamp(padding-bottom, 64px 24px);
-        }
-    }
-    @supports not (font-size: clamp(1px,1px,1px)) {
-        @include media(desktop) {
-            &__headerText {
-                @include rem(padding-bottom, 64px);
-            }
         }
     }
 }
