@@ -15,7 +15,7 @@ export default defineConfig({
         main: 'index.html',
         blog: 'blog.html',
         about: 'about.html',
-        contact: 'contacts.html',
+        contact: 'contact.html',
         services: 'services.html',
         work: 'work.html',
         worksingle: 'worksingle.html',
