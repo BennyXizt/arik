@@ -108,7 +108,7 @@ main[class*='layout--'] {
   ));
 }
 
-form {
+form:not(.metabox-location-side) {
   font-family: map.get($FONTS, satoshi);
   @extend %card;
 

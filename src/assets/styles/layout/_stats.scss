@@ -1,19 +1,18 @@
 @use 'sass:map';
 
 .stats {
-    @include rem(max-width, 1230px);
-
     &__container {
         display: flex;
         flex-flow: row wrap;
-        @include rem(gap, 20px);
+        @include rem((
+            gap: 20px,
+            max-width: 1260px
+        ));
         @include fluid(column-gap, 64px 20px);
         align-items: flex-end;
     }
 
     &__item {
-        flex: 1 1 10px;
-        flex-basis: calc(50% - 20px);
-        flex-basis: calc(50% - clamp(20px, 5vw, 64px));
+        flex: 1 1 pxToRem(252px);
     }
 }

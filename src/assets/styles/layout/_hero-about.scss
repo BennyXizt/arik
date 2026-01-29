@@ -5,6 +5,8 @@
         @include rem(flex, 1 1 520px);
 
         img {
+            aspect-ratio: 520 / 590;
+            height: max-content;
             width: 100%;
             object-fit: cover;
             object-position: center;

@@ -2,7 +2,7 @@
 
 .hero-services {
     &__container {
-        @include rem(max-width, 1630px);
+        @include rem(max-width, 1660px);
         display: flex;
         flex-flow: column wrap;
         justify-content: center;
@@ -16,12 +16,5 @@
             object-fit: cover;
             object-position: center;
         }
-    }
-
-    &__button {
-        @include fluid((
-            margin-top: 48px 16px,
-            margin-bottom: 64px 16px
-        ));
     }
 }

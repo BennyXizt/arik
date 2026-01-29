@@ -94,7 +94,6 @@
 
 .menu .submenu-menu {
     $speed: .4s;
-    cursor: pointer;
 
     &__list {
         overflow: hidden;
@@ -104,7 +103,7 @@
         transition-property: transform;
         display: flex;
         flex-flow: column nowrap;
-        align-items: flex-end;
+        // align-items: flex-end;
 
         &.active {
             overflow: unset;
@@ -146,5 +145,18 @@
             width: 8px,
             height: 6px
         ));
+    }
+
+    @media(any-hover: hover) {
+        &:hover {
+            > .submenu-menu {
+                &__list {
+                    overflow: unset;
+                    height: max-content;
+                    transform: translateY(-10px);
+                }
+            }
+            
+        }
     }
 }

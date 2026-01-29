@@ -18,6 +18,20 @@
             }
         })%>
         <main class="layout layout--blog">
+            <%- include('src/ejs/components/headerText.ejs', {
+                headerText_component: {
+                    header: {
+                        label: `Blog`,
+                        type: 'h1'
+                    },
+                    text: {
+                        label: [
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor lorem."
+                        ],
+                        size: '24'
+                    },
+                }
+            })%>
 			<%- include('src/ejs/layout/posts.ejs')%>
 		</main>
         <%- include('src/ejs/layout/cta.ejs')%>

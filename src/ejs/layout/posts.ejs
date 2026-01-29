@@ -5,34 +5,6 @@
 
 <section class='layout__<%=blockClass%> <%=blockClass%>'>
 	<div class='<%=blockClass%>__container container'>
-		<%- include('src/ejs/components/headerText.ejs', {
-			headerText_component: {
-				block: blockClass,
-				header: {
-					label: `Blog`,
-					type: 'h1'
-				},
-				text: {
-					label: [
-						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor lorem."
-					],
-					size: '24'
-				},
-				button_component: {
-                    block: blockClass,
-                    this: {
-                        dataAttribute: "data-fsc-scroll data-fsc-scroll-to=.about-singlework data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start"
-                    },
-                    size: 'small',
-                    type: 'button-text',
-                    label: 'More Details',
-                    icon_component: {
-                        name: 'ph_arrow-down-light',
-                        rounded: true
-                    }
-                }
-			}
-		})%>
 		<div class="<%=blockClass%>__body <%=subClass%>">
 			<%- include('src/ejs/components/postCard.ejs', {
 				postCard_component: {

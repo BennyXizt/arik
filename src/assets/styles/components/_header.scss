@@ -22,6 +22,9 @@
         background-color: map.get($COLORS, background_muted);
     }
     .menu {
+        &__item {
+            cursor: pointer;
+        }
         &__list {
             @include fluid(gap, 20px 12px);
         }
@@ -64,6 +67,16 @@
 
                     li {
                         @include fluid(padding, 16px 8px);
+                    }
+                }
+
+                @media (any-hover: hover) {
+                    &:hover {
+                        > .submenu-menu {
+                            &__list {
+                                border-width: 1px;
+                            }
+                        }
                     }
                 }
             }

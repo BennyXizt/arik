@@ -122,6 +122,9 @@ function closeSubmenu(target = null) {
         document.querySelectorAll('ul.active').forEach(e => {
             e.classList.remove('active')
         })
+        document.querySelectorAll('span.active').forEach(e => {
+            e.classList.remove('active')
+        })
         return
     }
     else {

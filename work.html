@@ -19,7 +19,12 @@
         })%>
         <main class="layout layout--work">
 			<%- include('src/ejs/layout/hero-work.ejs')%>
-			<%- include('src/ejs/layout/work.ejs')%>
+			<%- include('src/ejs/layout/work.ejs', {
+                work_layout: {
+                    isHeaderNeed: false,
+                    b: 'asfasf'
+                }
+            })%>
 		</main>
         <%- include('src/ejs/layout/cta.ejs')%>
         <%- include('src/ejs/layout/footer.ejs')%>
