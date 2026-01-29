@@ -150,6 +150,11 @@
     @media(any-hover: hover) {
         &:hover {
             > .submenu-menu {
+                &__trigger {
+                    svg {
+                        transform: rotate(180deg);
+                    }
+                }
                 &__list {
                     overflow: unset;
                     height: max-content;
