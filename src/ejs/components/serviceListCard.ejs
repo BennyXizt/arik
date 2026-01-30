@@ -34,6 +34,14 @@
 		thisClass = blockClass
 	}
 
+	var thisID = ''
+	if(
+		(typeof serviceListCard_component.this !== 'undefined' && serviceListCard_component.this) &&
+		(typeof serviceListCard_component.this.id !== 'undefined' && serviceListCard_component.this.id)
+	) {
+		thisID = `id='${serviceListCard_component.this.id}'`
+	}
+
 	var thisType = 'article'
 	if(
 		(typeof serviceListCard_component.this !== 'undefined' && serviceListCard_component.this) &&
@@ -75,7 +83,7 @@
 	}
 %>
 
-<<%=thisType%> <%=thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>
+<<%=thisType%> <%=thisDataAttributes%> class='<%=thisClass%>' <%-thisID %> <%-thisStyles%>>
 	<div class='<%=blockClass%>__tag'>
 		<%=serviceListCard_component.tag%>
 	</div>
