@@ -1,0 +1,100 @@
+<%
+	blockClass = 'pricing'
+
+	var textSizes = ['12', '14', '18', '20', '24']
+	var textClass = 'pricingCard__text text'
+
+	list = [
+		{
+			tag: 'Lite',
+			title: '$3900.00',
+			text: {
+				size: '',
+				label: [
+					'Affordable web design package with a custom design, CMS integration, and responsive design for small businesses and startups.'
+				]
+			},
+			services: [
+				'Concept',
+				'Strategy',
+				'Webdesign',
+				'Prototype',
+			]
+		},
+		{
+			popular: true,
+			tag: 'Premium',
+			title: '$6900.00',
+			text: {
+				size: '',
+				label: [
+					'Comprehensive web design package with UX/UI design, interactive prototype, Framer development, and CMS integration for medium businesses.'
+				]
+			},
+			services: [
+				'Concept',
+				'Strategy',
+				'Webdesign',
+				'Development',
+			]
+		},
+		{
+			tag: 'Gold',
+			title: '$9900.00',
+			text: {
+				size: '',
+				label: [
+					'Elite web design package with SEO optimization, research, and SEO support for businesses looking to dominate their market.'
+				]
+			},
+			services: [
+				'Webdesign',
+				'Development',
+				'Content',
+				'SEO',
+			]
+		},
+	]
+%>
+
+<section class='layout__<%=blockClass%> <%=blockClass%>'>
+	<div class='<%=blockClass%>__container container'>
+		<% for(const item of list) { 
+			if(textSizes.includes(item.text.size)) {
+				textClass += ` text--size-${item.text.size}`;
+			}
+		%>
+			<article class="<%=blockClass%>__card pricingCard cms">
+				<% if(item.popular) { %>
+					<div class="pricingCard__popular">popular</div>
+				<% } %>
+				<div class="pricingCard__header">
+					<div class="pricingCard__tag">
+						<%=item.tag%>
+					</div>
+					<h3 class="pricingCard__title">
+						<%=item.title%>
+					</h3>
+					<div class="<%=textClass%>">
+						<% for(const text of item.text.label) { %>
+							<p><%=text%></p>
+						<% } %>
+					</div>
+				</div>
+				<ul class="pricingCard__services">
+					<% for(const service of item.services) { %>
+						<li class="pricingCard__service"><%=service%></li>
+					<% } %>
+				</ul>
+				<%- include('src/ejs/components/button.ejs', {
+					button_component: {
+						label: 'Get Started',
+						size: 'small',
+						link: './contact.html',
+						style: 'primary'
+					}
+				})%>
+			</article>
+		<% } %>
+	</div>
+</section>

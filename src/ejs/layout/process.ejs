@@ -4,9 +4,10 @@
 
 <section class="layout__process process">
 	<div class="process__container container">
-		<div class="process__top">
+		<div class="process__top" data-fsc-watcher data-fsc-watcher-once>
 			<%- include('src/ejs/components/headerText.ejs', {
 				headerText_component: {
+					block: 'process',
 					tag: 'THe PRocess',
 					header: {
 						label: `Your Website <span>in 5 steps</span>`,
@@ -19,6 +20,7 @@
 						size: '20'
 					},
 					button_component: {
+						block: 'headerText',
 						type: 'button-text',
 						icon_component: {
 							block: 'asfasgas',
@@ -33,6 +35,9 @@
 		<ul class="process__list">
 			<%- include('src/ejs/components/processCard.ejs', {
 				processCard_component: {
+					this: {
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
+					},
 					direction: 'right',
 					time: '2 Hours',
 					tag: 'Do we Match?',
@@ -54,6 +59,9 @@
 			})%>
 			<%- include('src/ejs/components/processCard.ejs', {
 				processCard_component: {
+					this: {
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
+					},
 					direction: 'left',
 					time: '1 Week',
 					tag: 'lorem ipsum',
@@ -75,6 +83,9 @@
 			})%>
 			<%- include('src/ejs/components/processCard.ejs', {
 				processCard_component: {
+					this: {
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
+					},
 					direction: 'right',
 					time: '1 week',
 					tag: 'SOme MAgic',
@@ -95,6 +106,9 @@
 			})%>
 			<%- include('src/ejs/components/processCard.ejs', {
 				processCard_component: {
+					this: {
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
+					},
 					direction: 'left',
 					time: '4 week',
 					tag: 'More Magic',
@@ -116,6 +130,9 @@
 			})%>
 			<%- include('src/ejs/components/processCard.ejs', {
 				processCard_component: {
+					this: {
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
+					},
 					direction: 'right',
 					time: '2 hours',
 					tag: 'ready to go',

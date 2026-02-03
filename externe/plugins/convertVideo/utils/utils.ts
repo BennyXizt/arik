@@ -114,24 +114,3 @@ export function convertToWEBMscale480({inputFile, outputFile}) {
         .on('error', (err: Error) => console.log('Ошибка конвертации файла: ', err))
         .run()
 }
-export function convertToMOV({ inputFile, outputFile }) {
-  ffmpeg(inputFile)
-    .output(outputFile)
-    .outputOptions([
-      '-c copy',                 // ❌ Копирование без перекодирования
-      '-map_metadata -1',        // ❌ Удаляет все метаданные (глобальные и потоковые)
-      '-map_chapters -1',        // ❌ Удаляет главы
-      '-metadata title=',        // ❌ Убирает название
-      '-metadata comment=',      // ❌ Убирает комментарий
-      '-metadata author=',       // ❌ Убирает автора
-      '-metadata encoder=',      // ❌ Убирает информацию о кодеке/энкодере
-      '-metadata creation_time=', // ❌ Убирает дату создания
-      '-an'                  // убираем аудио
-    ])
-    .on('progress', (progress) =>
-      console.log(`${basename(outputFile)} | Обработка: ${progress.percent?.toFixed(2)}%`)
-    )
-    .on('end', () => console.log('Файл без метаданных, качество сохранено'))
-    .on('error', (err) => console.log('Ошибка: ', err))
-    .run();
-}

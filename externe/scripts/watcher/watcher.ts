@@ -3,17 +3,36 @@
  * Компонент Intersection Observer, позволяющий следить за появлением элемента в viewport Браузера.
  *
  * Поддерживаемые атрибуты `data-fsc-watcher-*`:
- * - data-fsc-watcher — инициализирует элемент как счетчик
+ * - data-fsc-watcher — инициализирует элемент
+ * - data-fsc-watcher-once — элемент будет отслеживаем лишь один раз
  */
 
 export const watcherObserverArray = [watcherObserver, '[data-fsc-watcher]']
 
+
 function watcherObserver(entry: IntersectionObserverEntry, observer: IntersectionObserver) {
-  const rootClass = entry.target.classList[0].match(/^([A-Za-z-]+)(?:__.*)?$/)
+  const 
+    el = entry.target as HTMLElement,
+    isFinite = el.hasAttribute('data-fsc-watcher-once')
   
   if(entry.isIntersecting) 
-    entry.target.classList.add(`${rootClass![1]}--active`)   
+  {
+    el.classList.add('intersected')   
+
+    if(isFinite) el.dataset.fscWatcherShowed = 'true'
+  }  
   else 
-    entry.target.classList.remove(`${rootClass![1]}--active`)   
+  {
+    el.classList.remove('intersected')   
+
+    if(isFinite && el.hasAttribute('data-fsc-watcher-showed')) {
+      el.removeAttribute('data-fsc-watcher')
+      el.removeAttribute('data-fsc-watcher-once')
+      el.removeAttribute('data-fsc-watcher-showed')
+      observer.unobserve(el) 
+    }
+  }
+   
+
    
 }

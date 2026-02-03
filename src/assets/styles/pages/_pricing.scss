@@ -1,0 +1,8 @@
+
+.layout--pricing {
+    .headerText {
+        &__title {
+            @extend %hSmall;
+        }
+    }
+}

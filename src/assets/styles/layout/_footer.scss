@@ -26,40 +26,77 @@
         }
     }
 
-    .accordion {
+    [data-fsc-accordion] {
         font-family: map.get($FONTS, satoshi);
 
-        &__title {
-            @extend %h5;
+        .accordion {
+            &__title {
+                @extend %h5;
+            }
+            &__body {
+                @include fluid(padding-top, 32px 20px);
+                opacity: 1;
+                visibility: visible;
+                height: max-content;
+
+                li {
+                    @extend %textMeta;
+                    text-transform: uppercase;
+                    color: map.get($COLORS, muted);
+                    transition: color .3s ease-in-out;
+
+                    @media (any-hover: hover) and (pointer: fine) {
+                        &:hover {
+                            color: map.get($COLORS, base);
+                        }
+                    }
+                }
+
+                & > *:not(:last-child) {
+                    @include fluid(margin-bottom, 16px 8px);
+                }
+            }
+            &__icon {
+                display: none;
+                @include rem((
+                    width: 15px,
+                    height: 15px
+                ))
+            }
         }
-
-        &__body {
-            @include fluid(padding-top, 32px 20px);
-
-            li {
-                @extend %textMeta;
-                text-transform: uppercase;
-                color: map.get($COLORS, muted);
-                transition: color .3s ease-in-out;
-
-                @media (any-hover: hover) and (pointer: fine) {
-                    &:hover {
-                        color: map.get($COLORS, base);
+    }
+        
+    @include media(tablet, max) {
+        [data-fsc-accordion] {
+            [data-fsc-accordion-body] {
+                height: 0;
+                opacity: 0;
+                visibility: hidden;
+                transition: .3s ease-in-out;
+                transition-property: height, opacity, visibility, padding;
+                overflow: hidden;
+            }
+            .accordion {
+                &__icon {
+                    transition: .3s ease-in-out;
+                    transition-property: transform;
+                    display: unset;
+                }
+            }
+            &[data-fsc-accordion-active] {
+                .accordion {
+                    &__body {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                    &__icon {
+                        transform: rotate(45deg);
                     }
                 }
             }
-
-            & > *:not(:last-child) {
-                @include fluid(margin-bottom, 16px 8px);
-            }
         }
-
-        &__icon {
-            @include rem((
-                width: 15px,
-                height: 15px
-            ))
-        }
+       
+       
     }
 
     & > * {

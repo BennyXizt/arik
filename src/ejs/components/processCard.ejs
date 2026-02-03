@@ -3,6 +3,9 @@
 		return
 	}
 
+	var {blockClass, thisClass, thisID, thisTag, thisStyles, thisDataAttributes} = externe.setupEJSComponent({...processCard_component, componentName: 'processCard'})
+
+
 	var textSizes = ['12', '14', '18', '20', '24']
 	var textClass = 'processCard__text text'
 	if(typeof processCard_component.text.size !== 'undefined' && processCard_component.text.size) {
@@ -22,7 +25,7 @@
 	<li class="process__item">
 		<div class="process__empty"></div>
 		<div class="process__line"></div>
-		<div class="processCard__wrapper">
+		<div <%-thisDataAttributes%> class="processCard__wrapper">
 			<div class="processCard__time">
 				<%= processCard_component.time%>
 			</div>
@@ -46,7 +49,7 @@
 	</li>
 <% } else { %>
 	<li class="process__item">
-		<div class="processCard__wrapper">
+		<div <%-thisDataAttributes%> class="processCard__wrapper">
 			<div class="processCard__time">
 				<%= processCard_component.time%>
 			</div>

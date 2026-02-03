@@ -3,9 +3,10 @@
 %>
 
 <section class="layout__testimonials testimonials">
-	<div class="testimonials__container container">
+	<div class="testimonials__container container" data-fsc-watcher data-fsc-watcher-once>
 		<%- include('src/ejs/components/headerText.ejs', {
 			headerText_component: {
+				block: 'testimonials',
 				header: {
 					label: `What my <span>clients say</span>`,
 					type: 'h3'

@@ -33,12 +33,15 @@
 	'./layout/about',
 	'./layout/hero-singleblog',
 	'./layout/content-singleblog',
-	'./layout/blognews';
+	'./layout/blognews',
+	'./layout/pricing',
+	'./layout/faq';
 // internal layout END
 
 @import 
 	'../../../externe/components/Burger/Burger',
-	'../../../externe/components/HeaderMenu/HeaderMenu';
+	'../../../externe/components/HeaderMenu/HeaderMenu',
+	'../../../externe/components/Accordion/Accordion';
 
 // internal components START
 @import
@@ -51,7 +54,6 @@
 	'./components/processCard',
 	'./components/testimonialCard',
 	'./components/bodyFooter',
-	'./components/accordion',
 	'./components/social',
 	'./components/statsItem',
 	'./components/serviceListCard',
@@ -66,4 +68,5 @@
 @import
 	'./pages/services',
 	'./pages/blogsingle',
-	'./pages/about';
+	'./pages/about',
+	'./pages/pricing';
