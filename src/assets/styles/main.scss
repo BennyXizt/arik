@@ -30,7 +30,10 @@
 	'./layout/hero-singlework',
 	'./layout/about-singlework',
 	'./layout/posts',
-	'./layout/about';
+	'./layout/about',
+	'./layout/hero-singleblog',
+	'./layout/content-singleblog',
+	'./layout/blognews';
 // internal layout END
 
 @import 
@@ -56,9 +59,11 @@
 	'./components/awardsCard',
 	'./components/contactForm',
 	'./components/singleworkAboutCard',
-	'./components/postCard';
+	'./components/postCard',
+	'./components/info-singleblog';
 // internal components END
 
 @import
 	'./pages/services',
+	'./pages/blogsingle',
 	'./pages/about';

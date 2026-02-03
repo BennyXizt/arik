@@ -1,0 +1,91 @@
+<%
+	blockClass = 'hero-singleblog'
+%>
+
+<section class='layout__<%=blockClass%> <%=blockClass%>'>
+	<div class='<%=blockClass%>__container container'>
+		<%- include('src/ejs/components/headerText.ejs', {
+			headerText_component: {
+				block: blockClass,
+				header: {
+					label: `How to Build a Stunning Website with Framer`,
+					type: 'h1'
+				},
+				text: {
+					label: [
+						'Learn how to create an impressive website using Framer with our step-by-step guide.',
+					],
+					size: '20'
+				},
+				button_component: {
+					this: {
+						dataAttribute: "data-fsc-scroll data-fsc-scroll-to=.content-singleblog data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=end"
+					},
+					block: 'headerText',
+					size: 'small',
+					type: 'button-text',
+					label: 'REad More',
+					icon_component: {
+						name: 'ph_arrow-down-light',
+						rounded: true
+					}
+				}
+			}
+		})%>
+		<%- include('src/ejs/components/info-singleblog.ejs', {
+			infoSingleblog_component: {
+				this: {
+					class: `${blockClass}__info`,
+					tag: 'ul'
+				},
+				list: [
+					{
+						label: 'Date',
+						value: {
+							type: 'date',
+							label: '23rd Aug 2023'
+						}
+					},
+					{
+						label: 'Category',
+						value: {
+							type: 'text',
+							label: 'Web Design'
+						}
+					},
+					{
+						label: 'Reading time',
+						value: {
+							type: 'text',
+							label: '5 min'
+						}
+					},
+				]
+			}
+		})%>
+		<div class="<%=blockClass%>__media">
+			<%- include('externe/components/Image/Image.ejs', {
+				image_component: {
+					this: {
+						block: `${blockClass}__noise`
+					},	
+					img: {
+						src: 'media/image/works/Noise.png'
+					}
+				}
+			}) %>
+			<%- include('externe/components/Image/Image.ejs', {
+				image_component: {
+					this: {
+						block: `${blockClass}__image`
+					},	
+					img: {
+						src: 'media/image/blog/b1.png',
+						width: 1400,
+						height: 900
+					}
+				}
+			}) %>
+		</div>
+	</div>
+</section>

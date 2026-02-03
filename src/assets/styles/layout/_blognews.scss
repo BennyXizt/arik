@@ -1,0 +1,18 @@
+@use 'sass:map';
+
+.blognews {
+    margin-top: 300px;
+    &__container {
+        max-width: pxToRem(1660px);
+    }
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include fluid((
+            padding-left: 32px 16px,
+            padding-right: 32px 16px,
+
+        ));
+    }
+}

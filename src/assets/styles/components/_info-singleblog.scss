@@ -1,0 +1,28 @@
+@use 'sass:map';
+
+.info-singleblog {
+    font-family: map.get($FONTS, satoshi);
+    display: flex;
+    flex-flow: row wrap;
+    @include fluid(gap, 16px 8px);
+
+    &__list {
+        @extend %input;
+        @include fluid(padding, 32px 16px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include fluid(gap, 16px 8px);
+        flex: 1 1 320px;
+    }
+
+    &__label,
+    &__value {
+        @extend %textMeta;
+        text-transform: uppercase;
+    }
+
+    &__label {
+        color: map.get($COLORS, muted);
+    }
+}

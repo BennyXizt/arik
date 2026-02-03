@@ -68,17 +68,56 @@
 			}
 		}
 	}
+
+	list = [
+		{
+			icon_component: {
+				block: 'social',
+				name: 'ph_instagram-logo-light', 
+				size: '38',
+				rounded: true
+			},
+			label: 'Instagram'
+		},
+		{
+			icon_component: {
+				block: 'social',
+				name: 'ph_twitter-logo-light',
+				size: '38',
+				rounded: true
+			},
+			label: 'Twitter'
+		},
+		{
+			icon_component: {
+				block: 'social',
+				name: 'ph_dribbble-logo-light',
+				size: '38',
+				rounded: true
+			},
+			label: 'Dribbble'
+		},
+		{
+			icon_component: {
+				block: 'social',
+				name: 'ph_behance-logo-light',
+				size: '38',
+				rounded: true
+			},
+			label: 'Behance'
+		}
+	]
 %>
 
 <<%=thisType%> <%=thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>
-	<% if(social_component.list !== 'undefined' && social_component.list) { %>
-		<% for(const item of social_component.list) { %>
+	<% if(list !== 'undefined' && list) { %>
+		<% for(const item of list) { %>
 			<li class="social__item">
 				<a href="<%=item.link%>" class="social__link">
 					<%- include('src/ejs/components/icon.ejs', {
 						icon_component: item.icon_component
 					}) %>
-					<% if(item.label !== 'undefined' && item.label) { %>
+					<% if(social_component.label !== 'undefined' && social_component.label) { %>
 						<span class="social__label">
 							<%=item.label%>
 						</span>

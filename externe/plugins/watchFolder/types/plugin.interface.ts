@@ -1,3 +1,4 @@
+import { SVGFolderTranslation } from '../i18n';
 import type { Language, Video } from './plugin.type'
 
 export interface FFmpegProgressInterface {
@@ -19,6 +20,18 @@ export interface SVGFolderInterface {
     relativePath: string,
     nameOfTheOutputFile: string,
     language?: Language,
+    dummy?: {
+        destination: string,
+        fileName: string
+    },
+    convertType: string | undefined
+}
+export interface SVGToFile { 
+    filePath: string,
+    watchDir: string,
+    nameOfTheOutputFile: string,
+    translation: SVGFolderTranslation, 
+    relativePath: string, 
     dummy?: {
         destination: string,
         fileName: string

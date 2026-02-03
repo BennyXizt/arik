@@ -1,0 +1,29 @@
+.layout--blogsingle {
+    &[class*=layout--] {
+        @include fluid(padding-bottom, 128px 80px);
+    }
+    section {
+        &[class^='layout__blognews'] {
+            @include fluid(margin-top, 128px 80px);
+        }
+        &[class^='layout__posts'] {
+            @include fluid(margin-top, 32px 16px);
+        }
+    }
+    .hero-singleblog {
+        .headerText {
+            max-width: pxToRem(1200px);
+            margin: 0 auto;
+            
+            &__title {
+                @extend %hSmall;
+            }
+        }
+    }
+    .posts {
+        &__container {
+            padding: unset;
+        }
+    }
+    
+}

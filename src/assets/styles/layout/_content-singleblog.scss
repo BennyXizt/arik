@@ -1,0 +1,36 @@
+@use 'sass:map';
+
+.content-singleblog {
+    &__container {
+        max-width: 1060px;
+    }
+    &__author {
+        @extend %card;
+
+        &:not(:first-child) {
+            @include fluid(margin-top, 48px 16px);
+        }
+    }
+    &__social {
+        &:not(:first-child) {
+            @include fluid(margin-top, 16px 8px);
+        }
+    }
+}
+
+.author-content {
+    &__title {
+        &:not(:last-child) {
+            @include fluid(margin-bottom, 16px 8px);
+        }
+    }
+    &__text {
+        color: map.get($COLORS, muted);
+    }
+    &__body {
+        max-width: pxToRem(792px);
+        &:not(:last-child) {
+            @include fluid(margin-bottom, 32px 16px);
+        }
+    }
+}

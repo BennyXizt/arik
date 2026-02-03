@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import { config } from 'dotenv';
 import { ViteEjsPlugin } from 'vite-plugin-ejs'
+import { qrcode } from 'vite-plugin-qrcode'
 import { resolve } from 'path'
 import { ViteWatchVideoFolderPlugin, ViteWatchEJSFolderPlugin, ViteWatchFontsFolderPlugin, ViteWatchSVGFolderPlugin } from './externe/plugins/watchFolder'
 import { externe } from './externe/plugins/ejsUtils'
@@ -86,6 +87,7 @@ export default defineConfig({
     postcss: {}
   },
   plugins: [
+     qrcode(),
      ViteEjsPlugin({
       head_component: {
         lang: 'en',
@@ -125,7 +127,8 @@ export default defineConfig({
       dummy: {
         destination:  `${__dirname}/externe/pages/`,
         fileName:  'fontIcons.html'
-      } 
+      },
+      convertType: process.env.VITE_CONVERT_SVG_TYPE 
     }),
     ViteWatchFontsFolderPlugin({
       relativePath: `${__dirname}/src/assets/fonts`,

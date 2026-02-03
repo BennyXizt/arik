@@ -19,7 +19,12 @@
         color: map.get($COLORS, muted);
     }
 
-    .avatar-testimonialCard {
+    @include media(desktop) {
+        @include rem(grid-template-rows, 32px 1fr 32px);
+    }
+}
+
+.avatar-testimonialCard {
         display: flex;
         flex-flow: row wrap;
         justify-content: flex-start;
@@ -50,8 +55,3 @@
             color: map.get($COLORS, muted);
         }
     }
-
-    @include media(desktop) {
-        @include rem(grid-template-rows, 32px 1fr 32px);
-    }
-}

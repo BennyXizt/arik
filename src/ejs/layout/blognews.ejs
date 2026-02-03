@@ -1,0 +1,26 @@
+<%
+	blockClass = 'blognews'
+%>
+
+<section class='layout__<%=blockClass%> <%=blockClass%>'>
+	<div class='<%=blockClass%>__container container'>
+		<div class="<%=blockClass%>__header">
+			<h5 class="<%=blockClass%>__title">Related <span>News</span></h5>
+			<%- include('src/ejs/components/button.ejs', {
+				button_component: {
+					block: blockClass,
+					label: 'See all',
+					type: 'button-text',
+					link: './blog.html',
+					icon_component: {
+						block: 'work',
+						name: 'ph_arrow-up-right-light',
+						size: '32',
+						rounded: true
+					}
+				}
+			}) %>
+		</div>
+		<%- include('src/ejs/layout/posts.ejs') %>
+	</div>
+</section>
