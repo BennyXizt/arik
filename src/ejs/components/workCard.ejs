@@ -9,7 +9,7 @@
 	}
 %>
 
-<div class="<%=blockClass%>">
+<li class="<%=blockClass%>" data-fsc-watcher data-fsc-watcher-once>
 	<div class="workCard__background">
 		<a href="./worksingle.html" class="workCard__link">
 			<%- include('externe/components/Image/Image.ejs', {
@@ -41,4 +41,4 @@
 			<span class="workCard__text"><%= workCard_component.tag.label%></span>
 		</a>
 	</div>
-</div>
+</li>

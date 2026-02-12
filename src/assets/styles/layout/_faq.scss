@@ -13,6 +13,8 @@
         @include fluid(margin-top, 32px 16px);
         flex: 1 1 pxToRem(300px);
         font-family: map.get($FONTS, satoshi);
+
+        @extend %watcherDefault;
     }
     &__tag {
         @extend %textMeta;
@@ -36,6 +38,8 @@
     }
     .accordion {
         @extend %input;
+        backdrop-filter: unset;
+        @extend %watcherDefault;
         @include fluid(padding, 32px 16px);
 
         &:not(:last-child) {

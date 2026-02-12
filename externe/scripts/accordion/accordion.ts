@@ -35,6 +35,7 @@ function accordionClick(element: HTMLElement) {
         opacity: 1;
         visibility: visible;
         height: max-content;
+        max-height: unset;
     `
 
     accordion!.append(clone)
@@ -43,7 +44,8 @@ function accordionClick(element: HTMLElement) {
     
 
     if(accordion.hasAttribute('data-fsc-accordion-active')) {
-        hiddenPart.style.height = cloneHeight
+        hiddenPart.style.maxHeight = cloneHeight
+        hiddenPart.style.height = 'max-content'
 
         if(dataBehaviourType !== 'default')
             tempParticle.push(hiddenPart!)

@@ -3,6 +3,7 @@
 .awards-about {
     font-family: map.get($FONTS, satoshi);
     @extend %card;
+    @extend %watcherDefault;
 
     &__title {
         @extend %textMeta;

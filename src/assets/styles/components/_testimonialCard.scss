@@ -19,6 +19,8 @@
         color: map.get($COLORS, muted);
     }
 
+    @extend %watcherDefault;
+
     @include media(desktop) {
         @include rem(grid-template-rows, 32px 1fr 32px);
     }

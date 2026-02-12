@@ -102,3 +102,70 @@
 %hSmall {
     @include fluid(font-size, 80px 32px);
 }
+
+// watcher
+%watcherUp {
+    transition: 
+        opacity .6s ease-in-out,
+        transform 1s cubic-bezier(.16,1,.3,1);
+    transform: translateY(-40px) scale(.6);
+    opacity: 0;
+}
+%watcherDown {
+    transition: 
+        opacity .6s ease-in-out,
+        transform 1s cubic-bezier(.16,1,.3,1);
+    transform: translateY(40px) scale(.6);
+    opacity: 0;
+}
+%watcherWatch {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+%watcherDefault {
+    &[data-fsc-watcher] {
+        @extend %watcherUp;
+
+        &.intersected {
+            @extend %watcherWatch;
+        }
+    }
+}
+%watcherDefaultReverse {
+    &[data-fsc-watcher] {
+        @extend %watcherDown;
+
+        &.intersected {
+            @extend %watcherWatch;
+        }
+    }
+}
+%watcherHeaderText {
+    &[data-fsc-watcher] {
+        .headerText {
+            &__tag {
+                @extend %watcherUp;
+            }
+
+            &__title,
+            &__text,
+            &__button {
+                @extend %watcherDown;
+            }
+        }
+
+        &.intersected {
+            .headerText {
+                &__tag {
+                   @extend %watcherWatch;
+                }
+
+                &__title,
+                &__text,
+                &__button {
+                    @extend %watcherWatch;
+                }
+            }
+        }
+    }
+}

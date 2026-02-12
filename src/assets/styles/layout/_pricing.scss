@@ -10,6 +10,7 @@
 
 .pricingCard {
     @extend %card;
+    @extend %watcherDefault;
     display: flex;
     flex-flow: column wrap;
     @include fluid(gap, 32px 16px);

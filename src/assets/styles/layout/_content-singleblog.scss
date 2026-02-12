@@ -3,6 +3,7 @@
 .content-singleblog {
     &__container {
         max-width: 1060px;
+        @extend %watcherDefault;
     }
     &__author {
         @extend %card;

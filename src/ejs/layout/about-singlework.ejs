@@ -24,6 +24,10 @@
 		<div class="<%=blockClass%>__items">
 			<%- include('src/ejs/components/singleworkAboutCard.ejs', {
 				singleworkAboutCard_component: {
+					this:{
+						parent: blockClass,
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
+					},
 					title: {
 						tag: 'h4',
 						label: 'Challenge'
@@ -38,6 +42,10 @@
 			})%>
 			<%- include('src/ejs/components/singleworkAboutCard.ejs', {
 				singleworkAboutCard_component: {
+					this:{
+						parent: blockClass,
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
+					},
 					title: {
 						tag: 'h4',
 						label: 'Goal'
@@ -52,6 +60,10 @@
 			})%>
 			<%- include('src/ejs/components/singleworkAboutCard.ejs', {
 				singleworkAboutCard_component: {
+					this:{
+						parent: blockClass,
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
+					},
 					title: {
 						tag: 'h4',
 						label: 'Result'

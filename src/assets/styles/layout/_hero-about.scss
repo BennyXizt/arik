@@ -1,11 +1,14 @@
 @use 'sass:map';
 
 .hero-about {
+    &__container {
+        @extend %watcherHeaderText;
+    }
     &__picture {
         @include rem(flex, 1 1 520px);
-
+        aspect-ratio: 520 / 590;
+        
         img {
-            aspect-ratio: 520 / 590;
             height: max-content;
             width: 100%;
             object-fit: cover;

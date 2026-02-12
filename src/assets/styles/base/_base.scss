@@ -111,6 +111,7 @@ main[class*='layout--'] {
 form:not(.metabox-location-side) {
   font-family: map.get($FONTS, satoshi);
   @extend %card;
+  @extend %watcherDefault;
 
   input, textarea {
     @extend %input;

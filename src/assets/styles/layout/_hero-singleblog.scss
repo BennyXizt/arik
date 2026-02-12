@@ -7,6 +7,7 @@
         }
     }
     &__media {
+        @extend %watcherDefault;
         position: relative;
         border: 1px solid map.get($COLORS, border_default);
         border-radius: 2px;
@@ -19,7 +20,7 @@
     &__noise {
         position: absolute;
         width: 100%;
-        height: 100%;
+        aspect-ratio: 1400 / 900;
         z-index: 1;
 
         img {

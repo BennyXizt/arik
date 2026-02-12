@@ -64,7 +64,7 @@
 				textClass += ` text--size-${item.text.size}`;
 			}
 		%>
-			<article class="<%=blockClass%>__card pricingCard cms">
+			<article class="<%=blockClass%>__card pricingCard cms" data-fsc-watcher data-fsc-watcher-once>
 				<% if(item.popular) { %>
 					<div class="pricingCard__popular">popular</div>
 				<% } %>

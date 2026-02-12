@@ -10,6 +10,28 @@
         ));
         @include fluid(column-gap, 64px 20px);
         align-items: flex-end;
+
+        &[data-fsc-watcher] {
+            .item-stats {
+                &__title {
+                    @extend %watcherUp;
+                }
+                &__value {
+                    @extend %watcherDown;
+                }
+            }
+
+            &.intersected {
+                .item-stats {
+                    &__title {
+                        @extend %watcherWatch;
+                    }
+                    &__value {
+                        @extend %watcherWatch;
+                    }
+                }
+            }
+        }
     }
 
     &__item {

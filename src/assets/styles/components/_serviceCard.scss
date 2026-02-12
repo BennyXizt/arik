@@ -4,6 +4,7 @@
     font-family: map.get($FONTS, satoshi);
     @extend %addCounter;
     @extend %card;
+    @extend %watcherDefault;
     backdrop-filter: unset;
     display: flex;
     flex-flow: column nowrap;

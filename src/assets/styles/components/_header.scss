@@ -70,7 +70,7 @@
                     }
                 }
 
-                @media (any-hover: hover) {
+                @media (hover: hover) and (pointer: fine) {
                     &:hover {
                         > .submenu-menu {
                             &__list {

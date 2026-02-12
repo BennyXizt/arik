@@ -27,7 +27,7 @@
 %>
 
 <section class='layout__<%=blockClass%> <%=blockClass%>'>
-	<div class='<%=blockClass%>__container container cms'>
+	<div class='<%=blockClass%>__container container cms' data-fsc-watcher data-fsc-watcher-once>
 		<% for(const item of text) { %>
 			<section>
 				<<%=item.title.type%>>

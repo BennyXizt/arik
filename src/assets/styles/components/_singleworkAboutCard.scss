@@ -2,6 +2,7 @@
 
 .singleworkAboutCard {
     @extend %card;
+    @extend %watcherDefault;
     backdrop-filter: unset;
 
     &__title {

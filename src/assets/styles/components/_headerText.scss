@@ -59,6 +59,8 @@
     &__item {
         @extend %input;
         backdrop-filter: unset;
+        @extend %watcherDefault;
+        backdrop-filter: unset;
         display: flex;
         flex-flow: column nowrap;
         @include rem(gap, 4px);

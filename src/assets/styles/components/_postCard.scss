@@ -2,6 +2,8 @@
 
 .postCard {
     @extend %card;
+    @extend %watcherDefault;
+    
     backdrop-filter: unset;
     display: flex;
     flex-flow: column nowrap;
@@ -10,6 +12,7 @@
     font-family: map.get($FONTS, chillax);
 
     &__link-image {
+        display: block;
         position: relative;
         aspect-ratio: 416 / 270;
         overflow: hidden;
@@ -37,6 +40,7 @@
     }
     &__category {
         @extend %input;
+        backdrop-filter: unset;
         @extend %textMetaSmall;
         text-transform: uppercase;
         @include rem(padding, 8px);
@@ -58,7 +62,7 @@
         left: 0;
         z-index: 1;
         width: 100%;
-        height: 100%;
+        aspect-ratio: 416 / 270;
         
         img {
             @extend %workCardImage;
@@ -66,13 +70,15 @@
     }
     &__image {
         transition: transform .4s ease-in-out;
+        width: 100%;
+        aspect-ratio: 416 / 270;
 
         img {
             @extend %workCardImage;
         }
     }
 
-    @media (any-hover: hover) {
+    @media (hover: hover) and (pointer: fine) {
         &__link-image:hover {
             .postCard {
                 &__image {

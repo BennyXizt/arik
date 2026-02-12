@@ -3,7 +3,7 @@
 %>
 
 <section class='layout__<%=blockClass%> <%=blockClass%>'>
-	<div class='<%=blockClass%>__container container'>
+	<div class='<%=blockClass%>__container container' data-fsc-watcher data-fsc-watcher-once>
 		<%- include('src/ejs/components/headerText.ejs', {
 			headerText_component: {
 				block: blockClass,
@@ -38,7 +38,7 @@
 				button_component: {
                     block: blockClass,
                     this: {
-                        dataAttribute: "data-fsc-scroll data-fsc-scroll-to=.about-singlework data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start"
+                        dataAttribute: "data-fsc-scroll data-fsc-scroll-to=.about-singlework data-fsc-scroll-offset=120px data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start"
                     },
                     size: 'small',
                     type: 'button-text',
@@ -50,7 +50,7 @@
                 }
 			}
 		})%>
-		<div class="<%=blockClass%>__body">
+		<div class="<%=blockClass%>__body" data-fsc-watcher data-fsc-watcher-once>
 			<%- include('externe/components/Image/Image.ejs', {
 				image_component: {
 					this: {

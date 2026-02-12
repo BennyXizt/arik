@@ -1,6 +1,7 @@
 @use 'sass:map';
 
 .social {
+    @extend %watcherDefault;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -26,6 +27,7 @@
             }
             &__link {
                 @extend %input;
+                backdrop-filter: unset;
                 @include fluid(padding, (16px 10px) (24px 15px));
             }
         }
@@ -59,7 +61,7 @@
         }
     }
 
-    @media (any-hover: hover) {
+    @media (hover: hover) and (pointer: fine) {
         &__link:hover {
             .social {
                 &__icon-rounded {

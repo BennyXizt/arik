@@ -25,7 +25,7 @@
 <<%=thisTag%> <%-thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>
 	<% if(typeof infoSingleblog_component.list !== 'undefined' && infoSingleblog_component.list) { %>
 		<% for(const item of infoSingleblog_component.list) { %>
-			<li class="<%=blockClass%>__list">
+			<li class="<%=blockClass%>__list" data-fsc-watcher data-fsc-watcher-once>
 				<div class="<%=blockClass%>__label">
 					<%=item.label%>
 				</div>

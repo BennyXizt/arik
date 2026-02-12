@@ -2,6 +2,7 @@
 
 .content-about {
     @extend %card;
+    @extend %watcherDefaultReverse;
     color: map.get($COLORS, muted);
     font-family: map.get($FONTS, satoshi);
     display: grid;
@@ -24,6 +25,8 @@
     &__image {
         border: 1px solid map.get($COLORS, border_default);
         border-radius: 2px;
+        width: 100%;
+        aspect-ratio: 704 / 417;
 
         img {
             width: 100%;
@@ -34,5 +37,7 @@
     }
     &__noise {
         @extend %noise;
+        width: 100%;
+        aspect-ratio: 704 / 417;
     }
 }

@@ -22,7 +22,7 @@ rl.question(questionString, (inputFile) => {
             '.vob', '.ogv', '.rm', '.rmvb', '.asf', '.divx', '.f4v',
             '.f4p', '.nut', '.yuv', '.amv', '.nsv'
         ],
-        outputFormat = '.mp4'
+        outputFormat = '.mov'
     
     if(convertationType == 2) {
         const 

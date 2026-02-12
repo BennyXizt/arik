@@ -46,7 +46,7 @@
 		thisStyles = `style='${social_component.this.style}'`
 	}
 
-	var thisDataAttributes = undefined
+	var thisDataAttributes = ''
 	if(
 		(typeof social_component.this !== 'undefined' && social_component.this) &&
 		(typeof social_component.this.dataAttribute !== 'undefined' && social_component.this.dataAttribute)
@@ -68,6 +68,8 @@
 			}
 		}
 	}
+
+	thisDataAttributes += ' data-fsc-watcher data-fsc-watcher-once'
 
 	list = [
 		{

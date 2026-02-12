@@ -3,7 +3,7 @@
 %>
 
 <section class='layout__<%=blockClass%> <%=blockClass%>'>
-	<div class='<%=blockClass%>__container container'>
+	<div class='<%=blockClass%>__container container' data-fsc-watcher data-fsc-watcher-once>
 		<%- include('externe/components/Image/Image.ejs', {
 			image_component: {
 				this: {
@@ -32,7 +32,7 @@
 					button_component: {
 						block: blockClass,
 						this: {
-							dataAttribute: `data-fsc-scroll data-fsc-scroll-to=.${blockClass}__content-about data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start`
+							dataAttribute: `data-fsc-scroll data-fsc-scroll-to=.${blockClass}__content-about data-fsc-scroll-offset=120px data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start`
 						},
 						size: 'small',
 						type: 'button-text',
@@ -47,7 +47,8 @@
 			<%- include('src/ejs/components/aboutContentCard.ejs', {
 				aboutContentCard_component: {
 					this: {
-						parent: blockClass
+						parent: blockClass,
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
 					},
 					tag: 'Arik Andersson',
 					title: {
@@ -81,7 +82,8 @@
 			<%- include('src/ejs/components/awardsCard.ejs', {
 				awardsCard_component: {
 					this: {
-						class: 'about__awards'
+						class: 'about__awards',
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
 					},
 					title: {
 						label: 'Awards',

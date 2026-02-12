@@ -8,6 +8,8 @@
 
     &__list {
         @extend %input;
+        @extend %watcherDefault;
+        backdrop-filter: unset;
         @include fluid(padding, 32px 16px);
         display: flex;
         justify-content: space-between;

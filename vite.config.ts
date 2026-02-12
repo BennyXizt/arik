@@ -127,8 +127,7 @@ export default defineConfig({
       dummy: {
         destination:  `${__dirname}/externe/pages/`,
         fileName:  'fontIcons.html'
-      },
-      convertType: process.env.VITE_CONVERT_SVG_TYPE 
+      }
     }),
     ViteWatchFontsFolderPlugin({
       relativePath: `${__dirname}/src/assets/fonts`,

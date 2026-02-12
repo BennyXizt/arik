@@ -50,7 +50,7 @@
 	<% if(typeof headerText_component.info !== 'undefined' && headerText_component.info) { %>
 		<ul class="headerText__info info-headerText">
 			<% for(const item of headerText_component.info) { %>
-				<li class="info-headerText__item">
+				<li class="info-headerText__item" data-fsc-watcher data-fsc-watcher-once>
 					<div class="info-headerText__label">
 						<%=item.label%>
 					</div>

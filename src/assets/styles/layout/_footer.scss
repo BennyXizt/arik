@@ -20,6 +20,9 @@
         }
 
         &__up {
+            @include rem(flex, 1 1 200px);
+            justify-content: flex-end;
+
             div {
                 order: 1;
             }
@@ -45,7 +48,7 @@
                     color: map.get($COLORS, muted);
                     transition: color .3s ease-in-out;
 
-                    @media (any-hover: hover) and (pointer: fine) {
+                    @media (hover: hover) and (pointer: fine) {
                         &:hover {
                             color: map.get($COLORS, base);
                         }
@@ -66,16 +69,21 @@
         }
     }
         
-    @include media(tablet, max) {
+    @include media(tablet) {
         [data-fsc-accordion] {
             [data-fsc-accordion-body] {
-                height: 0;
-                opacity: 0;
-                visibility: hidden;
-                transition: .3s ease-in-out;
-                transition-property: height, opacity, visibility, padding;
-                overflow: hidden;
+                transform: unset;
+                max-height: max-content;
             }
+            &:hover {
+                [data-fsc-accordion-body] {
+                    transform: unset;
+                }
+            }
+        }
+    }
+    @include media(tablet, max) {
+        [data-fsc-accordion] {
             .accordion {
                 &__icon {
                     transition: .3s ease-in-out;
@@ -85,12 +93,17 @@
             }
             &[data-fsc-accordion-active] {
                 .accordion {
-                    &__body {
-                        opacity: 1;
-                        visibility: visible;
-                    }
                     &__icon {
                         transform: rotate(45deg);
+                    }
+                }
+            }
+            @media (hover: hover) and (pointer: fine) {
+                &:hover {
+                    .accordion {
+                        &__icon {
+                            transform: rotate(45deg);
+                        }
                     }
                 }
             }

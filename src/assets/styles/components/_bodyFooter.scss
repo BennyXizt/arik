@@ -18,9 +18,12 @@
         display: flex;
         flex-flow: row wrap;
         @include fluid(gap, 62px 20px);
+        @include rem(flex, 1 0 200px);
     }
 
     &__item {
+        @include rem(flex, 1 0 150px);
+
         & > *:not(:first-child) {
             @include fluid(margin-top, 16px 8px);
         }

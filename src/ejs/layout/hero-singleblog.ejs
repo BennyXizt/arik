@@ -19,7 +19,7 @@
 				},
 				button_component: {
 					this: {
-						dataAttribute: "data-fsc-scroll data-fsc-scroll-to=.content-singleblog data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=end"
+						dataAttribute: "data-fsc-scroll data-fsc-scroll-to=.content-singleblog data-fsc-scroll-offset=120px data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start"
 					},
 					block: 'headerText',
 					size: 'small',
@@ -36,7 +36,7 @@
 			infoSingleblog_component: {
 				this: {
 					class: `${blockClass}__info`,
-					tag: 'ul'
+					tag: 'ul',
 				},
 				list: [
 					{
@@ -63,7 +63,7 @@
 				]
 			}
 		})%>
-		<div class="<%=blockClass%>__media">
+		<div class="<%=blockClass%>__media" data-fsc-watcher data-fsc-watcher-once>
 			<%- include('externe/components/Image/Image.ejs', {
 				image_component: {
 					this: {

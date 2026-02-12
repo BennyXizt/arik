@@ -4,7 +4,7 @@
 
 <section class='layout__<%=blockClass%> <%=blockClass%>'>
 	<div class='<%=blockClass%>__container container'>
-		<div class="<%=blockClass%>__header">
+		<div class="<%=blockClass%>__header" data-fsc-watcher data-fsc-watcher-once>
 			<div class="<%=blockClass%>__tag">
 				FAQ
 			</div>
@@ -17,7 +17,8 @@
 				accordion_component: {
 					this: {
 						class: `${blockClass}__item`,
-						tag: 'li'
+						tag: 'li',
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
 					},
 					title: { tag: 'h5', label: 'What is the typical turnaround time for a website project?' },
 					icon: {
@@ -31,7 +32,8 @@
 				accordion_component: {
 					this: {
 						class: `${blockClass}__item`,
-						tag: 'li'
+						tag: 'li',
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
 					},
 					title: { tag: 'h5', label: 'Can you help with website maintenance and updates after the project is completed?' },
 					icon: {
@@ -45,7 +47,8 @@
 				accordion_component: {
 					this: {
 						class: `${blockClass}__item`,
-						tag: 'li'
+						tag: 'li',
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
 					},
 					title: { tag: 'h5', label: 'How do you ensure that my website will be optimized for search engines?' },
 					icon: {
@@ -59,7 +62,8 @@
 				accordion_component: {
 					this: {
 						class: `${blockClass}__item`,
-						tag: 'li'
+						tag: 'li',
+						dataAttribute: 'data-fsc-watcher data-fsc-watcher-once'
 					},
 					title: { tag: 'h5', label: 'What is your process for website design and development?' },
 					icon: {
