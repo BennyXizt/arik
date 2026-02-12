@@ -5,6 +5,7 @@ import { qrcode } from 'vite-plugin-qrcode'
 import { resolve } from 'path'
 import { ViteWatchVideoFolderPlugin, ViteWatchEJSFolderPlugin, ViteWatchFontsFolderPlugin, ViteWatchSVGFolderPlugin } from './externe/plugins/watchFolder'
 import { externe } from './externe/plugins/ejsUtils'
+import autoprefixer from 'autoprefixer'
 
 config()
 
@@ -84,7 +85,17 @@ export default defineConfig({
     },
   },
   css: {
-    postcss: {}
+    postcss: {
+      plugins: [autoprefixer({
+        overrideBrowserslist: [
+          ">0.5%",
+          "last 2 versions",
+          "Firefox ESR",
+          "Safari >= 10",
+          "not dead"
+        ]
+      })]
+    }
   },
   plugins: [
      qrcode(),
