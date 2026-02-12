@@ -8,8 +8,6 @@
         @include fluid(gap, 48px 16px);
     }
     &__header {
-        position: sticky;
-        @include rem(top, 20px + 62px + 64px);
         @include fluid(margin-top, 32px 16px);
         flex: 1 1 pxToRem(300px);
         font-family: map.get($FONTS, satoshi);
@@ -104,6 +102,13 @@
                     }
                 }
             }
+        }
+    }
+
+    @include media(tablet) {
+        &__header {
+            position: sticky;
+            @include rem(top, 20px + 62px + 64px);
         }
     }
 }

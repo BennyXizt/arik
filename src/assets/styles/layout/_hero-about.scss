@@ -5,11 +5,10 @@
         @extend %watcherHeaderText;
     }
     &__picture {
-        @include rem(flex, 1 1 520px);
         aspect-ratio: 520 / 590;
         
         img {
-            height: max-content;
+            height: 100%;
             width: 100%;
             object-fit: cover;
             object-position: center;
@@ -33,6 +32,12 @@
         ));
     }
 
+    @include media(tablet, max) {
+        &__picture {
+            width: 100%;
+            @include rem(max-width, 520px);
+        }
+    }
     @include media(tablet) {
         &__container {
             display: flex;
@@ -41,8 +46,11 @@
         }
 
         &__picture {
+            @include rem(flex, 1 1 520px);
+
             img {
                 position: sticky;
+                height: max-content;
                 @include rem(top, 20px + 62px + 64px);
             }
         }

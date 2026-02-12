@@ -2,7 +2,8 @@
 
 .footer {
     background-color: map.get($COLORS, background_muted);
-    @include fluid(padding, 64px 40px);
+    @include fluid(padding-top, 64px 40px);
+    @include fluid(padding-bottom, 64px 40px);
 
     &__container {
         @include rem(max-width, 1630px);

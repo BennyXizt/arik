@@ -86,7 +86,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            outline: 16px solid  map.get($BASE, background_color);
+            outline: solid  map.get($BASE, background_color);
+            @include fluid(outline-width, 16px 8px);
         }
     }
 

@@ -7,18 +7,20 @@ import { autoloader } from '~/scripts/autoloader/autoloader'
 
 window.addEventListener('click', function(e) {
     const 
+        hoverSupported = window.matchMedia('(hover: hover) and (pointer: fine)').matches,
         burger: HTMLElement | null = (e.target as HTMLElement).closest('.burger'),
-        submenu = (e.target as HTMLElement).closest('.submenu-menu span')
+        submenu = (e.target as HTMLElement).closest('.submenu-menu')
 
     
     if(burger)
         BurgerMenu(burger)
 
-    if(submenu)
-        displaySubmenu(submenu)
-    else 
-        closeSubmenu()
-
+    if(!hoverSupported) {
+        if(submenu)
+            displaySubmenu(submenu)
+        else 
+            closeSubmenu()
+    }
 })
 
 document.fonts.ready.then(async() => {
@@ -107,15 +109,13 @@ document.fonts.ready.then(async() => {
 function displaySubmenu(target) {
     const 
         parent = target.parentElement,
-        ul = parent.querySelector('ul')
+        ul = parent.querySelector('ul'),
+        span = parent.querySelector('span');
 
     closeSubmenu(target)
     
-    target.classList.toggle('active')
+    span.classList.toggle('active')
     ul.classList.toggle('active')
-
-    
-    
 }
 function closeSubmenu(target = null) {
     if(!target) {
@@ -130,9 +130,10 @@ function closeSubmenu(target = null) {
     else {
         const 
             parent = target.parentElement,
-            ul = parent.querySelector('ul')
+            ul = parent.querySelector('ul'),
+            span = parent.querySelector('span');
             
-        parent.querySelectorAll('.active').forEach(e => {
+        span.querySelectorAll('.active').forEach(e => {
             if(!e.isSameNode(target) && !e.isSameNode(ul))
                 e.classList.remove('active')
         })

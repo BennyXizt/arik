@@ -103,7 +103,19 @@
         transition-property: transform;
         display: flex;
         flex-flow: column nowrap;
-        // align-items: flex-end;
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            @include rem((
+                top: -20px,
+                height: 20px
+            ))
+        }
+
 
         &.active {
             overflow: unset;
@@ -150,6 +162,8 @@
     @media (hover: hover) and (pointer: fine) {
         &:hover {
             > .submenu-menu {
+                transform: translateY(10px);
+
                 &__trigger {
                     svg {
                         transform: rotate(180deg);
@@ -158,7 +172,7 @@
                 &__list {
                     overflow: unset;
                     height: max-content;
-                    transform: translateY(-10px);
+                    transform: translateY(10px);
                 }
             }
             
