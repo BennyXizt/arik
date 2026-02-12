@@ -1,33 +1,2025 @@
 <!DOCTYPE html>
-<% if(typeof head_component.lang !== 'undefined' && head_component.lang) { %>
-   <html lang="<%= head_component.lang %>">
-<% } else { %>
+
    <html lang="en">
-<% } %>
+
 <head>
-   <%- include('externe/components/Head/Head.ejs') %>
+   
+
+
+<!-- Encoding + Compatibility -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Title & head_component -->
+<title>My App</title>
+
+    <meta name="description" content="Default project description" />
+
+
+    <meta name="keywords" content="vite, ejs, scss, javascript" />
+
+
+    <meta name="author" content="Your Name" />
+
+<!-- Open Graph (for social previews) -->
+
+    <meta property="og:title" content="My App" />
+
+
+    <meta property="og:description" content="Default project description" />
+
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+
+   <meta name="twitter:title" content="My App" />
+
+
+    <meta name="twitter:description" content="Default project description" />
+
+
+<!-- Favicon -->
+<!-- Styles -->
+<!-- <link rel="stylesheet" href="./src/assets/styles/main.scss"> -->
    <!-- <link rel="stylesheet" href="../../src/assets/styles/main.scss"> -->
+  <script type="module" crossorigin src="./assets/js/main-Dxc1gy8B.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/styles/main.css">
 </head>
 <body>
-    <%- include('externe/components/DummyAside/DummyAside.ejs') %>
+    
+
+<div data-fsc-dummyaside></div>
+
     <div class="wrapper">
-        <%- include('externe/components/Header/Header.ejs', {
-            header_component: {
-                homePage: true
-            }
-        })%>
-        <main class="layout">
-			<%- include('src/ejs/layout/hero.ejs')%>
-			<%- include('src/ejs/layout/clients.ejs')%>
-			<%- include('src/ejs/layout/services.ejs')%>
-			<%- include('src/ejs/layout/work.ejs')%>
-			<%- include('src/ejs/layout/process.ejs')%>
-			<%- include('src/ejs/layout/testimonials.ejs')%>
-			<%- include('src/ejs/layout/about.ejs')%>
-		</main>
-        <%- include('src/ejs/layout/cta.ejs')%>
-        <%- include('src/ejs/layout/footer.ejs')%>
+        <header class="header">
+    <div class="header__container container">
+        <div class="header__body">
+            
+                
+                    
+
+
+
+
+
+
+    <figure  class='header__image image' >
+        
+            <img 
+                src="./media/image/logo.svg"
+                
+                
+                 alt="website-logo" 
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+                
+            
+            
+
+
+
+<div class="header__menu menu">
+    <nav class="menu__body">
+        
+            <ul class="menu__list"><li class="menu__item"><a href="./services.html" class="menu__link ">Services</a></li><li class="menu__item"><a href="./work.html" class="menu__link ">Work</a></li><li class="menu__item"><a href="./about.html" class="menu__link ">About</a></li><li class="menu__item"><a href="./blog.html" class="menu__link ">Blog</a></li><li class="menu__item menu__item--submenu submenu-menu"><span class='submenu-menu__trigger submenu-menu__trigger--first'>Pages
+
+
+<svg class="submenu-menu__icon icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-drop-down-line"></use>                                    
+</svg>
+</span><ul class="submenu-menu__list"><li class="submenu-menu__item"><a href="./contact.html" class="submenu-menu__link ">Contact</a></li><li class="submenu-menu__item"><a href="./pricing.html" class="submenu-menu__link ">Pricing</a></li><li class="submenu-menu__item"><a href="./worksingle.html" class="submenu-menu__link ">Work Single</a></li><li class="submenu-menu__item"><a href="./blogsingle.html" class="submenu-menu__link ">Blog Single</a></li></ul></li></ul>
+        
+    </nav>
+</div>
+            
+
+<a href=./contact.html  class="header__button button button--size-small button--style-primary">
+	Let’s talk
+	
+</a>
+            
+
+
+
+<button  class='header__burger burger' >
+    <span></span>
+</button>
+        </div>
     </div>
-    <script type="module" src="/src/ts/main.ts"></script>
+</header>
+        <main class="layout">
+			
+
+<section class="layout__hero hero" data-fsc-watcher data-fsc-watcher-once>
+	<div class="hero__container container">
+		
+
+
+
+
+
+
+    <figure  class='hero__image image' >
+        
+            <img 
+                src="media/image/arik.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		
+
+<article class="hero__headerText headerText">
+	
+	
+		<h1 class='headerText__title'>
+			Web Designer <span>& Developer</span>
+		</h1>
+	
+	
+		<div class="headerText__text text text--size-24">
+			
+				<p>Premium web design, development, and SEO services to help your business stand out.</p>
+			
+		</div>
+	
+	
+	
+
+<button  data-fsc-scroll data-fsc-scroll-to=.services data-fsc-scroll-offset=300px data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start class="headerText__button button button--size-small button--type-button-text">
+	More Details
+	
+
+
+	<div class="icon-rounded">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-down-light"></use>                                    
+</svg>
+
+	</div>
+
+</button>
+</article>
+	</div>
+</section>
+			
+
+<section class="layout__clients clients">
+	<div class="clients__container container">
+		
+
+
+
+
+<article class='clients__marquee marquee' >
+    <ul class="marquee__inner" data-fsc-marquee>
+        
+            
+                <li class="marquee__item" data-fsc-marquee-item>
+                    
+
+
+
+
+
+
+    <figure  class='image' >
+        
+            <img 
+                src="media/image/brands/brand1.svg"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+                </li>           
+            
+                <li class="marquee__item" data-fsc-marquee-item>
+                    
+
+
+
+
+
+
+    <figure  class='image' >
+        
+            <img 
+                src="media/image/brands/brand2.svg"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+                </li>           
+            
+                <li class="marquee__item" data-fsc-marquee-item>
+                    
+
+
+
+
+
+
+    <figure  class='image' >
+        
+            <img 
+                src="media/image/brands/brand3.svg"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+                </li>           
+            
+                <li class="marquee__item" data-fsc-marquee-item>
+                    
+
+
+
+
+
+
+    <figure  class='image' >
+        
+            <img 
+                src="media/image/brands/brand4.svg"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+                </li>           
+            
+                <li class="marquee__item" data-fsc-marquee-item>
+                    
+
+
+
+
+
+
+    <figure  class='image' >
+        
+            <img 
+                src="media/image/brands/brand5.svg"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+                </li>           
+            
+                <li class="marquee__item" data-fsc-marquee-item>
+                    
+
+
+
+
+
+
+    <figure  class='image' >
+        
+            <img 
+                src="media/image/brands/brand6.svg"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+                </li>           
+            
+        
+    </ul>
+</article>
+	</div>
+</section>
+			
+
+<section class="layout__services services">
+	<div class="services__container container">
+		<ul class="services__list">
+			
+
+<article class="services__serviceCard serviceCard" data-fsc-watcher data-fsc-watcher-once>
+	
+		<h4 class="serviceCard__title">Web design</h4>
+	
+	
+		<div class="serviceCard__text text">
+			
+				<p>Visually stunning web designs that captivate your audience by blending your brand voice and customer needs.</p>
+			
+		</div>
+	
+	
+		
+
+<a href=./services#webdesign  class="serviceCard__button button button--type-button-text">
+	About Webdesign
+	
+
+
+	<div class="serviceCard__icon-rounded icon-rounded icon-rounded--size-32">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+</a>
+	
+</article>
+			
+
+<article class="services__serviceCard serviceCard" data-fsc-watcher data-fsc-watcher-once>
+	
+		<h4 class="serviceCard__title">Development</h4>
+	
+	
+		<div class="serviceCard__text text">
+			
+				<p>Get custom web development solutions that are tailored to your specifications, designed to deliver a flawless user experience.</p>
+			
+		</div>
+	
+	
+		
+
+<a href=./services#development  class="serviceCard__button button button--type-button-text">
+	About Webflow
+	
+
+
+	<div class="serviceCard__icon-rounded icon-rounded icon-rounded--size-32">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+</a>
+	
+</article>
+			
+
+<article class="services__serviceCard serviceCard" data-fsc-watcher data-fsc-watcher-once>
+	
+		<h4 class="serviceCard__title">Content &amp; Seo</h4>
+	
+	
+		<div class="serviceCard__text text">
+			
+				<p>Proven SEO strategies that enhance your online performance, bringing you to the forefront of organic search results.</p>
+			
+		</div>
+	
+	
+		
+
+<a href=./services#seo  class="serviceCard__button button button--type-button-text">
+	About SEO
+	
+
+
+	<div class="serviceCard__icon-rounded icon-rounded icon-rounded--size-32">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+</a>
+	
+</article>
+		</ul>
+	</div>
+</section>
+			
+		
+
+<section class="layout__work work">
+	<div class="work__container container" data-fsc-watcher data-fsc-watcher-once>
+		
+			<div class="work__header">
+				<h5 class="work__title">Selected <span>Work</span></h5>
+				
+
+<a href=./work.html  class="work__button button button--type-button-text">
+	See all
+	
+
+
+	<div class="work__icon-rounded icon-rounded icon-rounded--size-32">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+</a>
+			</div>
+		
+		<ul class="work__content">
+			
+
+<li class="workCard" data-fsc-watcher data-fsc-watcher-once>
+	<div class="workCard__background">
+		<a href="./worksingle.html" class="workCard__link">
+			
+
+
+
+
+
+
+    <figure  class='workCard__noise image' >
+        
+            <img 
+                src="./media/image/works/Noise.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+			
+
+
+	<div class="workCard__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+			
+
+
+
+
+
+
+    <figure  class='workCard__image image' >
+        
+            <img 
+                src="./media/image/works/w1.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		</a>
+	</div>
+	<div class="workCard__content">
+		<h4 class="workCard__title">Space</h4>
+		<a href='' class="workCard__link">
+			<span class="workCard__text">Webdesign</span>
+		</a>
+	</div>
+</li>
+			
+
+<li class="workCard" data-fsc-watcher data-fsc-watcher-once>
+	<div class="workCard__background">
+		<a href="./worksingle.html" class="workCard__link">
+			
+
+
+
+
+
+
+    <figure  class='workCard__noise image' >
+        
+            <img 
+                src="./media/image/works/Noise.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+			
+
+
+	<div class="workCard__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+			
+
+
+
+
+
+
+    <figure  class='workCard__image image' >
+        
+            <img 
+                src="./media/image/works/w2.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		</a>
+	</div>
+	<div class="workCard__content">
+		<h4 class="workCard__title">Nova</h4>
+		<a href='' class="workCard__link">
+			<span class="workCard__text">Webdesign</span>
+		</a>
+	</div>
+</li>
+			
+
+<li class="workCard" data-fsc-watcher data-fsc-watcher-once>
+	<div class="workCard__background">
+		<a href="./worksingle.html" class="workCard__link">
+			
+
+
+
+
+
+
+    <figure  class='workCard__noise image' >
+        
+            <img 
+                src="./media/image/works/Noise.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+			
+
+
+	<div class="workCard__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+			
+
+
+
+
+
+
+    <figure  class='workCard__image image' >
+        
+            <img 
+                src="./media/image/works/w3.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		</a>
+	</div>
+	<div class="workCard__content">
+		<h4 class="workCard__title">Sonic</h4>
+		<a href='' class="workCard__link">
+			<span class="workCard__text">Webdesign</span>
+		</a>
+	</div>
+</li>
+			
+
+<li class="workCard" data-fsc-watcher data-fsc-watcher-once>
+	<div class="workCard__background">
+		<a href="./worksingle.html" class="workCard__link">
+			
+
+
+
+
+
+
+    <figure  class='workCard__noise image' >
+        
+            <img 
+                src="./media/image/works/Noise.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+			
+
+
+	<div class="workCard__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+			
+
+
+
+
+
+
+    <figure  class='workCard__image image' >
+        
+            <img 
+                src="./media/image/works/w4.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		</a>
+	</div>
+	<div class="workCard__content">
+		<h4 class="workCard__title">Solar</h4>
+		<a href='' class="workCard__link">
+			<span class="workCard__text">Webdesign</span>
+		</a>
+	</div>
+</li>
+		</ul>
+	</div>
+</section>
+			
+
+<section class="layout__process process">
+	<div class="process__container container">
+		<div class="process__top" data-fsc-watcher data-fsc-watcher-once>
+			
+
+<article class="process__headerText headerText">
+	
+		<div class="headerText__tag">
+			THe PRocess
+		</div>
+	
+	
+		<h1 class='headerText__title'>
+			Your Website <span>in 5 steps</span>
+		</h1>
+	
+	
+		<div class="headerText__text text text--size-20">
+			
+				<p>Our process ensures that we create a website tailored to your business needs.</p>
+			
+		</div>
+	
+	
+	
+
+<button   class="headerText__button button button--type-button-text">
+	
+	
+
+
+	<div class="asfasgas__icon-rounded icon-rounded">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-down-light"></use>                                    
+</svg>
+
+	</div>
+
+</button>
+</article>
+		</div>
+		<ul class="process__list">
+			
+
+
+	<li class="process__item">
+		<div class="process__empty"></div>
+		<div class="process__line"></div>
+		<div  data-fsc-watcher data-fsc-watcher-once class="processCard__wrapper">
+			<div class="processCard__time">
+				2 Hours
+			</div>
+			<div class="processCard__tag">
+				Do we Match?
+			</div>
+			<h4 class="processCard__title">
+				Discovery Call
+			</h4>
+			<div class="processCard__text text">
+				
+					<p>Before we start, we determine if and how I can help you. What are your requirements for your new website? Why do you need a new website? What goals do you have, and what problems can we solve with a new website?</p>
+				
+			</div>
+			<ul class="processCard__list">
+				
+					<li>We get to know each other better</li>
+				
+					<li>Determine how I can best assist you</li>
+				
+					<li>Understand the goals you have for your website</li>
+				
+			</ul>
+		</div>
+	</li>
+
+			
+
+
+	<li class="process__item">
+		<div  data-fsc-watcher data-fsc-watcher-once class="processCard__wrapper">
+			<div class="processCard__time">
+				1 Week
+			</div>
+			<div class="processCard__tag">
+				lorem ipsum
+			</div>
+			<h4 class="processCard__title">
+				Concept &amp; STrategy
+			</h4>
+			<div class="processCard__text text">
+				
+					<p>Together, we develop a strategy that successfully combines your goals with the needs of your target audience. Based on this concept, I create the first wireframes and an interactive prototype. This provides us with a very good impression of the website and the user interface.</p>
+				
+			</div>
+			<ul class="processCard__list">
+				
+					<li>UX Design</li>
+				
+					<li>Wireframes</li>
+				
+					<li>Interactive Prototype</li>
+				
+			</ul>
+		</div>
+		<div class="process__line"></div>
+		<div class="process__empty"></div>
+	</li>
+
+			
+
+
+	<li class="process__item">
+		<div class="process__empty"></div>
+		<div class="process__line"></div>
+		<div  data-fsc-watcher data-fsc-watcher-once class="processCard__wrapper">
+			<div class="processCard__time">
+				1 week
+			</div>
+			<div class="processCard__tag">
+				SOme MAgic
+			</div>
+			<h4 class="processCard__title">
+				web Design
+			</h4>
+			<div class="processCard__text text">
+				
+					<p>Now comes the magic. Based on the previously developed concept, I create a high-end screen design perfectly tailored to your brand. A web design that sets you apart from your competition, fits your target audience ideally, and provides an excellent user experience.</p>
+				
+			</div>
+			<ul class="processCard__list">
+				
+					<li>High-end web design tailored to your brand</li>
+				
+					<li>Interactive prototype of the design</li>
+				
+			</ul>
+		</div>
+	</li>
+
+			
+
+
+	<li class="process__item">
+		<div  data-fsc-watcher data-fsc-watcher-once class="processCard__wrapper">
+			<div class="processCard__time">
+				4 week
+			</div>
+			<div class="processCard__tag">
+				More Magic
+			</div>
+			<h4 class="processCard__title">
+				Development
+			</h4>
+			<div class="processCard__text text">
+				
+					<p>In this step, we breathe life into your new high-end design. You will receive a custom-built website using a modular web design system and CMS integration. Animations will add the necessary flair to your site and set you apart from the boring competition.</p>
+				
+			</div>
+			<ul class="processCard__list">
+				
+					<li>Custom framer website</li>
+				
+					<li>Modular web design systems</li>
+				
+					<li>CMS integration</li>
+				
+			</ul>
+		</div>
+		<div class="process__line"></div>
+		<div class="process__empty"></div>
+	</li>
+
+			
+
+
+	<li class="process__item">
+		<div class="process__empty"></div>
+		<div class="process__line"></div>
+		<div  data-fsc-watcher data-fsc-watcher-once class="processCard__wrapper">
+			<div class="processCard__time">
+				2 hours
+			</div>
+			<div class="processCard__tag">
+				ready to go
+			</div>
+			<h4 class="processCard__title">
+				WEbsite onboarding
+			</h4>
+			<div class="processCard__text text">
+				
+					<p>In a personal Framer workshop, I will show you how to make changes to your new website quickly and easily. Additionally, you will receive personalized Framer video tutorials that you can access at any time. Edit your Framer website without a complicated backend or the need for an additional programmer. It&#39;s as simple as that.</p>
+				
+			</div>
+			<ul class="processCard__list">
+				
+					<li>Personal workshop</li>
+				
+					<li>Personalized video tutorials</li>
+				
+					<li>Edit text and images directly on your website</li>
+				
+			</ul>
+		</div>
+	</li>
+
+		</ul>
+	</div>
+</section>
+			
+
+<section class="layout__testimonials testimonials">
+	<div class="testimonials__container container" data-fsc-watcher data-fsc-watcher-once>
+		
+
+<article class="testimonials__headerText headerText">
+	
+	
+		<h3 class='headerText__title'>
+			What my <span>clients say</span>
+		</h3>
+	
+	
+		<div class="headerText__text text text--size-18">
+			
+				<p>See what my clients have to say about working with me and the results I helped them achieve.</p>
+			
+		</div>
+	
+	
+	
+</article>
+		<ul class="testimonials__list">
+			<li class="testimonials__item">
+				
+
+<div class="testimonialCard" data-fsc-watcher data-fsc-watcher-once>
+	<div class="testimonialCard__inner">
+		
+
+
+
+
+
+
+    <figure  class='testimonialCard__logo image' >
+        
+            <img 
+                src="./media/image/brands/brand3.svg"
+                
+                
+                
+                 width="30px" 
+                 height="20px" 
+                
+                
+            >
+        
+        
+    </figure>
+
+		<h4 class="testimonialCard__title">
+			Amazing Results with Arik’s Premium Web Design Services.
+		</h4>
+		<div class="testimonialCard__text">
+			
+				<p class="testimonialCard__text text">Arik is a top-notch web designer who created a stunning website for my business. He was attentive to my needs and provided excellent customer service throughout the entire process. I highly recommend his services.</p>
+			
+		</div>
+		<div class="testimonialCard__avatar avatar-testimonialCard">
+			
+
+
+
+
+
+
+    <figure  class='avatar-testimonialCard__image image' >
+        
+            <img 
+                src="./media/image/clients/client1.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+			<div class="avatar-testimonialCard__content">
+				<span class="avatar-testimonialCard__name">
+					John Smith
+				</span>
+				<span class="avatar-testimonialCard__company">
+					ABC Company
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+			</li>
+			<li class="testimonials__item">
+				
+
+<div class="testimonialCard" data-fsc-watcher data-fsc-watcher-once>
+	<div class="testimonialCard__inner">
+		
+
+
+
+
+
+
+    <figure  class='testimonialCard__logo image' >
+        
+            <img 
+                src="./media/image/brands/brand6.svg"
+                
+                
+                
+                 width="24px" 
+                 height="20px" 
+                
+                
+            >
+        
+        
+    </figure>
+
+		<h4 class="testimonialCard__title">
+			Expert Webflow and SEO Services: Excellent Work, Great Results.
+		</h4>
+		<div class="testimonialCard__text">
+			
+				<p class="testimonialCard__text text">Working with Arik on my website redesign was a fantastic experience. He was able to take my vision and turn it into a beautiful and functional website. His attention to detail and creative approach is unmatched. I couldn&#39;t be happier with the end result.</p>
+			
+		</div>
+		<div class="testimonialCard__avatar avatar-testimonialCard">
+			
+
+
+
+
+
+
+    <figure  class='avatar-testimonialCard__image image' >
+        
+            <img 
+                src="./media/image/clients/client2.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+			<div class="avatar-testimonialCard__content">
+				<span class="avatar-testimonialCard__name">
+					David Kim
+				</span>
+				<span class="avatar-testimonialCard__company">
+					Design Inc.
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+			</li>
+			<li class="testimonials__item">
+				
+
+<div class="testimonialCard" data-fsc-watcher data-fsc-watcher-once>
+	<div class="testimonialCard__inner">
+		
+
+
+
+
+
+
+    <figure  class='testimonialCard__logo image' >
+        
+            <img 
+                src="./media/image/brands/brand2.svg"
+                
+                
+                
+                 width="117px" 
+                 height="25px" 
+                
+                
+            >
+        
+        
+    </figure>
+
+		<h4 class="testimonialCard__title">
+			Professional, Collaborative Web Design Experience with Arik.
+		</h4>
+		<div class="testimonialCard__text">
+			
+				<p class="testimonialCard__text text">I had the pleasure of working with Arik on a website development project and was blown away by his expertise and professionalism. He made the process seamless and delivered a website that exceeded our expectations. I highly recommend Arik for all your web development needs.</p>
+			
+		</div>
+		<div class="testimonialCard__avatar avatar-testimonialCard">
+			
+
+
+
+
+
+
+    <figure  class='avatar-testimonialCard__image image' >
+        
+            <img 
+                src="./media/image/clients/client3.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+			<div class="avatar-testimonialCard__content">
+				<span class="avatar-testimonialCard__name">
+					Karen Lee
+				</span>
+				<span class="avatar-testimonialCard__company">
+					Redwood Technologies
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+			</li>
+			<li class="testimonials__item">
+				
+
+<div class="testimonialCard" data-fsc-watcher data-fsc-watcher-once>
+	<div class="testimonialCard__inner">
+		
+
+
+
+
+
+
+    <figure  class='testimonialCard__logo image' >
+        
+            <img 
+                src="./media/image/brands/brand5.svg"
+                
+                
+                
+                 width="114px" 
+                 height="30px" 
+                
+                
+            >
+        
+        
+    </figure>
+
+		<h4 class="testimonialCard__title">
+			Expertise in Web Design: Second to None with Arik.
+		</h4>
+		<div class="testimonialCard__text">
+			
+				<p class="testimonialCard__text text">Arik is not only an exceptional web designer, but also a pleasure to work with. He took the time to understand my business and its unique needs, and created a website that perfectly represents my brand. I highly recommend Arik&#39;s services to anyone looking for a top-quality web designer.</p>
+			
+		</div>
+		<div class="testimonialCard__avatar avatar-testimonialCard">
+			
+
+
+
+
+
+
+    <figure  class='avatar-testimonialCard__image image' >
+        
+            <img 
+                src="./media/image/clients/client4.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+			<div class="avatar-testimonialCard__content">
+				<span class="avatar-testimonialCard__name">
+					Andrew Thompson
+				</span>
+				<span class="avatar-testimonialCard__company">
+					Silverstone Corporation
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+			</li>
+			<li class="testimonials__item">
+				
+
+<div class="testimonialCard" data-fsc-watcher data-fsc-watcher-once>
+	<div class="testimonialCard__inner">
+		
+
+
+
+
+
+
+    <figure  class='testimonialCard__logo image' >
+        
+            <img 
+                src="./media/image/brands/brand4.svg"
+                
+                
+                
+                 width="52px" 
+                 height="20px" 
+                
+                
+            >
+        
+        
+    </figure>
+
+		<h4 class="testimonialCard__title">
+			Web Design and Content Solutions: Stand Out from the Crowd.
+		</h4>
+		<div class="testimonialCard__text">
+			
+				<p class="testimonialCard__text text">Arik&#39;s SEO services have helped my business improve its online presence and increase traffic to our website. He is knowledgeable, professional, and provides excellent results. I highly recommend him for all your SEO needs.</p>
+			
+		</div>
+		<div class="testimonialCard__avatar avatar-testimonialCard">
+			
+
+
+
+
+
+
+    <figure  class='avatar-testimonialCard__image image' >
+        
+            <img 
+                src="./media/image/clients/client5.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+			<div class="avatar-testimonialCard__content">
+				<span class="avatar-testimonialCard__name">
+					Emily Davis
+				</span>
+				<span class="avatar-testimonialCard__company">
+					Greenway Industries
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+			</li>
+			<li class="testimonials__item">
+				
+
+<div class="testimonialCard" data-fsc-watcher data-fsc-watcher-once>
+	<div class="testimonialCard__inner">
+		
+
+
+
+
+
+
+    <figure  class='testimonialCard__logo image' >
+        
+            <img 
+                src="./media/image/brands/brand1.svg"
+                
+                
+                
+                 width="80px" 
+                 height="20px" 
+                
+                
+            >
+        
+        
+    </figure>
+
+		<h4 class="testimonialCard__title">
+			High-Quality Web Design: Exceptional Attention to Detail with Arik.
+		</h4>
+		<div class="testimonialCard__text">
+			
+				<p class="testimonialCard__text text">Arik&#39;s development services are top-notch. He is able to take complex ideas and turn them into functional, user-friendly websites. His attention to detail and commitment to customer satisfaction are unmatched. I highly recommend Arik for all your web development needs.</p>
+			
+		</div>
+		<div class="testimonialCard__avatar avatar-testimonialCard">
+			
+
+
+
+
+
+
+    <figure  class='avatar-testimonialCard__image image' >
+        
+            <img 
+                src="./media/image/clients/client6.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+			<div class="avatar-testimonialCard__content">
+				<span class="avatar-testimonialCard__name">
+					Ryan Chen
+				</span>
+				<span class="avatar-testimonialCard__company">
+					Golden Gate Solutions
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+			</li>
+		</ul>
+	</div>
+</section>
+			
+
+<section class='layout__about about'>
+	<article class="about__top top-about">
+		<h2 class="top-about__title" data-fsc-watcher data-fsc-watcher-once>
+			Arik <span>Andersson</span>
+		</h2>
+		
+
+
+
+
+
+
+    <figure  class='top-about__image image' >
+        
+            <img 
+                src="media/image/arik.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		<h2 class="top-about__title" data-fsc-watcher data-fsc-watcher-once>
+			Arik <span>Andersson</span>
+		</h2>
+	</article>
+	<div class='about__container container'>
+		<article class="about__wrapper wrapper-about" data-fsc-watcher data-fsc-watcher-once>
+			<div class="wrapper-about__left">
+				<h6 class="wrapper-about__title">
+					A website that leaves <span>a lasting impression!</span>
+				</h6>
+			</div>
+			<div class="wrapper-about__right">
+				<div class="wrapper-about__text text text--size-18">
+					<p>Hi, I'm Arik Andersson - a freelancer specializing in premium web design, development, and SEO services. I'm passionate about creating unique and effective solutions for my clients, and I bring a personal touch to every project. Let's work together to bring your vision to life!</p>
+				</div>
+				
+
+
+
+<ul  data-fsc-watcher data-fsc-watcher-once class='wrapper-about__social social' >
+	
+		
+			<li class="social__item">
+				<a href="" class="social__link">
+					
+
+
+	<div class="social__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_instagram-logo-light"></use>                                    
+</svg>
+
+	</div>
+
+					
+					
+				</a>
+			</li>
+		
+			<li class="social__item">
+				<a href="" class="social__link">
+					
+
+
+	<div class="social__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_twitter-logo-light"></use>                                    
+</svg>
+
+	</div>
+
+					
+					
+				</a>
+			</li>
+		
+			<li class="social__item">
+				<a href="" class="social__link">
+					
+
+
+	<div class="social__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_dribbble-logo-light"></use>                                    
+</svg>
+
+	</div>
+
+					
+					
+				</a>
+			</li>
+		
+			<li class="social__item">
+				<a href="" class="social__link">
+					
+
+
+	<div class="social__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_behance-logo-light"></use>                                    
+</svg>
+
+	</div>
+
+					
+					
+				</a>
+			</li>
+		
+	
+</ul>
+			</div>
+		</article>
+	</div>
+</section>
+		</main>
+        
+
+<aside class="cta">
+	
+
+
+
+
+<article class='marquee' >
+    <ul class="marquee__inner" data-fsc-marquee>
+        
+            
+                <li class="marquee__item" data-fsc-marquee-item>
+                    Let’s talk
+                </li>           
+            
+                <li class="marquee__item" data-fsc-marquee-item>
+                    +++
+                </li>           
+            
+        
+    </ul>
+</article>
+	<section class="cta__body">
+		<div class="cta__container container" data-fsc-watcher data-fsc-watcher-once>
+			
+
+<article class="cta__headerText headerText--gap-8 headerText">
+	
+		<div class="headerText__tag">
+			Project in mind?
+		</div>
+	
+	
+		<h2 class='headerText__title'>
+			Let’s make your <span>Website shine</span>
+		</h2>
+	
+	
+		<div class="headerText__text text text--size-20">
+			
+				<p>Premium web design, development, and SEO services to help your business stand out.</p>
+			
+		</div>
+	
+	
+	
+
+<a href=./contact.html  class="headerText__button button button--size-small button--style-primary">
+	Get in touch
+	
+
+
+<svg class="icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+</a>
+</article>
+		</div>
+	</section>
+</aside>
+        
+
+<footer class="footer">
+	<div class="footer__container container">
+		
+
+<div class="footer__body body-footer">
+	<div class="body-footer__content content-footer">
+		<a href=# class="content-footer__logo">
+			
+
+
+
+
+
+
+    <figure  class='header__image image' >
+        
+            <img 
+                src="./media/image/logo.svg"
+                
+                
+                 alt="website-logo" 
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		</a>
+		
+
+
+
+<ul  data-fsc-watcher data-fsc-watcher-once class='content-footer__social social social--vertical' >
+	
+		
+			<li class="social__item">
+				<a href="" class="social__link">
+					
+
+
+	<div class="social__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_instagram-logo-light"></use>                                    
+</svg>
+
+	</div>
+
+					
+						<span class="social__label">
+							Instagram
+						</span>
+					
+					
+				</a>
+			</li>
+		
+			<li class="social__item">
+				<a href="" class="social__link">
+					
+
+
+	<div class="social__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_twitter-logo-light"></use>                                    
+</svg>
+
+	</div>
+
+					
+						<span class="social__label">
+							Twitter
+						</span>
+					
+					
+				</a>
+			</li>
+		
+			<li class="social__item">
+				<a href="" class="social__link">
+					
+
+
+	<div class="social__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_dribbble-logo-light"></use>                                    
+</svg>
+
+	</div>
+
+					
+						<span class="social__label">
+							Dribbble
+						</span>
+					
+					
+				</a>
+			</li>
+		
+			<li class="social__item">
+				<a href="" class="social__link">
+					
+
+
+	<div class="social__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_behance-logo-light"></use>                                    
+</svg>
+
+	</div>
+
+					
+						<span class="social__label">
+							Behance
+						</span>
+					
+					
+				</a>
+			</li>
+		
+	
+</ul>
+	</div>
+	<ul class="body-footer__list">
+		<li class="body-footer__item">
+			
+
+
+
+
+<article  data-fsc-accordion data-fsc-accordion-behaviour=default data-fsc-accordion-media-query='max-width: 767.98px' class='body-footer__accordion accordion'  >
+    <div data-fsc-accordion-summary class="accordion__top">
+            
+                <h6 class="accordion__title">
+                    Pages
+                </h6>
+            
+            
+                
+                    <svg class="accordion__icon">
+                        <use href="./assets/media/sprite.svg#ph_plus-light"></use>                                           
+                    </svg>
+                 
+            
+    </div>
+    
+        <ul data-fsc-accordion-body class="accordion__body"> 
+            
+                <li>
+                    
+                        <a href="/">
+                    
+                    Home
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="./services.html">
+                    
+                    Services
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="./about.html">
+                    
+                    About
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="./contact.html">
+                    
+                    Contact
+                    
+                        </a>
+                    
+                </li>
+            
+        </ul>
+    
+</article>
+			
+
+<button   class="button button--size-small button--style-primary">
+	More Templates
+	
+
+
+<svg class="icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+</button>
+		</li>
+		<li class="body-footer__item">
+			
+
+
+
+
+<article  data-fsc-accordion data-fsc-accordion-behaviour=default data-fsc-accordion-media-query='max-width: 767.98px' class='body-footer__accordion accordion'  >
+    <div data-fsc-accordion-summary class="accordion__top">
+            
+                <h6 class="accordion__title">
+                    CMS
+                </h6>
+            
+            
+                
+                    <svg class="accordion__icon">
+                        <use href="./assets/media/sprite.svg#ph_plus-light"></use>                                           
+                    </svg>
+                 
+            
+    </div>
+    
+        <ul data-fsc-accordion-body class="accordion__body"> 
+            
+                <li>
+                    
+                        <a href="./work.html">
+                    
+                    Work
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="./worksingle.html">
+                    
+                    Work Single
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="./blog">
+                    
+                    Blog
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="#">
+                    
+                    Blog Post
+                    
+                        </a>
+                    
+                </li>
+            
+        </ul>
+    
+</article>
+		</li>
+		<li class="body-footer__item">
+			
+
+
+
+
+<article  data-fsc-accordion data-fsc-accordion-behaviour=default data-fsc-accordion-media-query='max-width: 767.98px' class='body-footer__accordion accordion'  >
+    <div data-fsc-accordion-summary class="accordion__top">
+            
+                <h6 class="accordion__title">
+                    Utility Pages
+                </h6>
+            
+            
+                
+                    <svg class="accordion__icon">
+                        <use href="./assets/media/sprite.svg#ph_plus-light"></use>                                           
+                    </svg>
+                 
+            
+    </div>
+    
+        <ul data-fsc-accordion-body class="accordion__body"> 
+            
+                <li>
+                    
+                        <a href="#">
+                    
+                    404 Error Page
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="#">
+                    
+                    Password Protected
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="#">
+                    
+                    Styleguide
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="#">
+                    
+                    Licensing
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="#">
+                    
+                    Changelog
+                    
+                        </a>
+                    
+                </li>
+            
+        </ul>
+    
+</article>
+		</li>
+	</ul>
+	
+</div>
+		<div class="footer__bottom bottom-footer">
+			<div class="bottom-footer__copyright">
+				© 2022 Made by Pawel Gola. Powered by Framer..
+			</div>
+			
+
+<button  data-fsc-scroll data-fsc-scroll-to=main data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start class="bottom-footer__up button button--type-button-text">
+	To Top
+	
+
+
+	<div class="bottom-footer__icon-rounded icon-rounded">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-light"></use>                                    
+</svg>
+
+	</div>
+
+</button>
+		</div>
+	</div>
+</footer>
+    </div>
 </body>
 </html>

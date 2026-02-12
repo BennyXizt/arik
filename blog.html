@@ -1,42 +1,1097 @@
 <!DOCTYPE html>
-<% if(typeof head_component.lang !== 'undefined' && head_component.lang) { %>
-   <html lang="<%= head_component.lang %>">
-<% } else { %>
+
    <html lang="en">
-<% } %>
+
 <head>
-   <%- include('externe/components/Head/Head.ejs') %>
+   
+
+
+<!-- Encoding + Compatibility -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Title & head_component -->
+<title>My App</title>
+
+    <meta name="description" content="Default project description" />
+
+
+    <meta name="keywords" content="vite, ejs, scss, javascript" />
+
+
+    <meta name="author" content="Your Name" />
+
+<!-- Open Graph (for social previews) -->
+
+    <meta property="og:title" content="My App" />
+
+
+    <meta property="og:description" content="Default project description" />
+
+
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+
+   <meta name="twitter:title" content="My App" />
+
+
+    <meta name="twitter:description" content="Default project description" />
+
+
+<!-- Favicon -->
+<!-- Styles -->
+<!-- <link rel="stylesheet" href="./src/assets/styles/main.scss"> -->
    <!-- <link rel="stylesheet" href="../../src/assets/styles/main.scss"> -->
+  <script type="module" crossorigin src="./assets/js/main-Dxc1gy8B.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/styles/main.css">
 </head>
 <body>
-    <%- include('externe/components/DummyAside/DummyAside.ejs') %>
+    
+
+<div data-fsc-dummyaside></div>
+
     <div class="wrapper">
-        <%- include('externe/components/Header/Header.ejs', {
-            header_component: {
-                homePage: false,
-                active: 'blog'
-            }
-        })%>
-        <main class="layout layout--blog">
-            <%- include('src/ejs/components/headerText.ejs', {
-                headerText_component: {
-                    header: {
-                        label: `Blog`,
-                        type: 'h1'
-                    },
-                    text: {
-                        label: [
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor lorem."
-                        ],
-                        size: '24'
-                    },
-                }
-            })%>
-			<%- include('src/ejs/layout/posts.ejs')%>
-		</main>
-        <%- include('src/ejs/layout/cta.ejs')%>
-        <%- include('src/ejs/layout/footer.ejs')%>
+        <header class="header">
+    <div class="header__container container">
+        <div class="header__body">
+            
+                
+                    <a href="./" class="header__link-logo">
+                       
+
+
+
+
+
+
+    <figure  class='image' >
+        
+            <img 
+                src="./media/image/logo.svg"
+                
+                
+                 alt="website-logo" 
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+                    </a>
+                
+            
+            
+
+
+
+<div class="header__menu menu">
+    <nav class="menu__body">
+        
+            <ul class="menu__list"><li class="menu__item"><a href="./services.html" class="menu__link ">Services</a></li><li class="menu__item"><a href="./work.html" class="menu__link ">Work</a></li><li class="menu__item"><a href="./about.html" class="menu__link ">About</a></li><li class="menu__item"><a href="./blog.html" class="menu__link menu__link--active">Blog</a></li><li class="menu__item menu__item--submenu submenu-menu"><span class='submenu-menu__trigger submenu-menu__trigger--first'>Pages
+
+
+<svg class="submenu-menu__icon icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-drop-down-line"></use>                                    
+</svg>
+</span><ul class="submenu-menu__list"><li class="submenu-menu__item"><a href="./contact.html" class="submenu-menu__link ">Contact</a></li><li class="submenu-menu__item"><a href="./pricing.html" class="submenu-menu__link ">Pricing</a></li><li class="submenu-menu__item"><a href="./worksingle.html" class="submenu-menu__link ">Work Single</a></li><li class="submenu-menu__item"><a href="./blogsingle.html" class="submenu-menu__link ">Blog Single</a></li></ul></li></ul>
+        
+    </nav>
+</div>
+            
+
+<a href=./contact.html  class="header__button button button--size-small button--style-primary">
+	Let’s talk
+	
+</a>
+            
+
+
+
+<button  class='header__burger burger' >
+    <span></span>
+</button>
+        </div>
     </div>
-    <script type="module" src="/src/ts/main.ts"></script>
+</header>
+        <main class="layout layout--blog">
+            
+
+<article class="headerText">
+	
+	
+		<h1 class='headerText__title'>
+			Blog
+		</h1>
+	
+	
+		<div class="headerText__text text text--size-24">
+			
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor lorem.</p>
+			
+		</div>
+	
+	
+	
+</article>
+			
+
+<section class='layout__posts posts'>
+	<div class='posts__container container'>
+		<div class="posts__body body-posts">
+			
+
+
+
+<article  data-fsc-watcher data-fsc-watcher-once class='body-posts__postCard postCard' >
+	<a href="./blogsingle.html" class="postCard__link-image">
+		
+
+
+
+
+
+
+    <figure  class='postCard__noise image' >
+        
+            <img 
+                src="./media/image/works/Noise.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		
+
+
+	<div class="postCard__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+		
+
+
+
+
+
+
+    <figure  class='postCard__image image' >
+        
+            <img 
+                src="media/image/blog/b1.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+	</a>
+	<div class="postCard__body">
+		<time datetime="23-08-2023" class="postCard__date">
+			23rd Aug 2023
+		</time>
+		<h4 class="postCard__title">
+			How to Build a Stunning Website with Framer
+		</h4>
+		<div class="postCard__text text">
+			
+				<p>
+					Learn how to create an impressive website using Framer with our step-by-step guide.
+				</p>
+			
+		</div>
+	</div>
+	<a href="#" class="postCard__category">
+		WEbdesign
+	</a>
+</article>
+			
+
+
+
+<article  data-fsc-watcher data-fsc-watcher-once class='body-posts__postCard postCard' >
+	<a href="./blogsingle.html" class="postCard__link-image">
+		
+
+
+
+
+
+
+    <figure  class='postCard__noise image' >
+        
+            <img 
+                src="./media/image/works/Noise.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		
+
+
+	<div class="postCard__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+		
+
+
+
+
+
+
+    <figure  class='postCard__image image' >
+        
+            <img 
+                src="media/image/blog/b2.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+	</a>
+	<div class="postCard__body">
+		<time datetime="23-08-2023" class="postCard__date">
+			23rd Aug 2023
+		</time>
+		<h4 class="postCard__title">
+			10 website elements for maximum user engagement
+		</h4>
+		<div class="postCard__text text">
+			
+				<p>
+					10 website elements to engage users, from intuitive navigation to compelling visuals.
+				</p>
+			
+		</div>
+	</div>
+	<a href="#" class="postCard__category">
+		WEbdesign
+	</a>
+</article>
+			
+
+
+
+<article  data-fsc-watcher data-fsc-watcher-once class='body-posts__postCard postCard' >
+	<a href="./blogsingle.html" class="postCard__link-image">
+		
+
+
+
+
+
+
+    <figure  class='postCard__noise image' >
+        
+            <img 
+                src="./media/image/works/Noise.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		
+
+
+	<div class="postCard__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+		
+
+
+
+
+
+
+    <figure  class='postCard__image image' >
+        
+            <img 
+                src="media/image/blog/b3.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+	</a>
+	<div class="postCard__body">
+		<time datetime="23-08-2023" class="postCard__date">
+			23rd Aug 2023
+		</time>
+		<h4 class="postCard__title">
+			The importance of content in driving website traffic
+		</h4>
+		<div class="postCard__text text">
+			
+				<p>
+					Quality content is king. Learn how to create valuable, SEO-optimized content.
+				</p>
+			
+		</div>
+	</div>
+	<a href="#" class="postCard__category">
+		WEbdesign
+	</a>
+</article>
+			
+
+
+
+<article  data-fsc-watcher data-fsc-watcher-once class='body-posts__postCard postCard' >
+	<a href="./blogsingle.html" class="postCard__link-image">
+		
+
+
+
+
+
+
+    <figure  class='postCard__noise image' >
+        
+            <img 
+                src="./media/image/works/Noise.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		
+
+
+	<div class="postCard__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+		
+
+
+
+
+
+
+    <figure  class='postCard__image image' >
+        
+            <img 
+                src="media/image/blog/b4.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+	</a>
+	<div class="postCard__body">
+		<time datetime="23-08-2023" class="postCard__date">
+			23rd Aug 2023
+		</time>
+		<h4 class="postCard__title">
+			10 common web development mistakes to avoid
+		</h4>
+		<div class="postCard__text text">
+			
+				<p>
+					10 common web development mistakes and improve your site&#39;s functionality and user experience.
+				</p>
+			
+		</div>
+	</div>
+	<a href="#" class="postCard__category">
+		WEbdesign
+	</a>
+</article>
+			
+
+
+
+<article  data-fsc-watcher data-fsc-watcher-once class='body-posts__postCard postCard' >
+	<a href="./blogsingle.html" class="postCard__link-image">
+		
+
+
+
+
+
+
+    <figure  class='postCard__noise image' >
+        
+            <img 
+                src="./media/image/works/Noise.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		
+
+
+	<div class="postCard__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+		
+
+
+
+
+
+
+    <figure  class='postCard__image image' >
+        
+            <img 
+                src="media/image/blog/b5.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+	</a>
+	<div class="postCard__body">
+		<time datetime="23-08-2023" class="postCard__date">
+			23rd Aug 2023
+		</time>
+		<h4 class="postCard__title">
+			Why responsive web design is critical for your business
+		</h4>
+		<div class="postCard__text text">
+			
+				<p>
+					Responsive web design ensures your site looks great and performs well on all devices.
+				</p>
+			
+		</div>
+	</div>
+	<a href="#" class="postCard__category">
+		WEbdesign
+	</a>
+</article>
+			
+
+
+
+<article  data-fsc-watcher data-fsc-watcher-once class='body-posts__postCard postCard' >
+	<a href="./blogsingle.html" class="postCard__link-image">
+		
+
+
+
+
+
+
+    <figure  class='postCard__noise image' >
+        
+            <img 
+                src="./media/image/works/Noise.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		
+
+
+	<div class="postCard__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+	</div>
+
+		
+
+
+
+
+
+
+    <figure  class='postCard__image image' >
+        
+            <img 
+                src="media/image/blog/b6.png"
+                
+                
+                
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+	</a>
+	<div class="postCard__body">
+		<time datetime="23-08-2023" class="postCard__date">
+			23rd Aug 2023
+		</time>
+		<h4 class="postCard__title">
+			The art of SEO writing: How to write content that ranks on Google
+		</h4>
+		<div class="postCard__text text">
+			
+				<p>
+					Optimize your website with expert tips on writing content that ranks high on Google.
+				</p>
+			
+		</div>
+	</div>
+	<a href="#" class="postCard__category">
+		WEbdesign
+	</a>
+</article>
+		</div>
+	</div>
+</section>
+		</main>
+        
+
+<aside class="cta">
+	
+
+
+
+
+<article class='marquee' >
+    <ul class="marquee__inner" data-fsc-marquee>
+        
+            
+                <li class="marquee__item" data-fsc-marquee-item>
+                    Let’s talk
+                </li>           
+            
+                <li class="marquee__item" data-fsc-marquee-item>
+                    +++
+                </li>           
+            
+        
+    </ul>
+</article>
+	<section class="cta__body">
+		<div class="cta__container container" data-fsc-watcher data-fsc-watcher-once>
+			
+
+<article class="cta__headerText headerText--gap-8 headerText">
+	
+		<div class="headerText__tag">
+			Project in mind?
+		</div>
+	
+	
+		<h2 class='headerText__title'>
+			Let’s make your <span>Website shine</span>
+		</h2>
+	
+	
+		<div class="headerText__text text text--size-20">
+			
+				<p>Premium web design, development, and SEO services to help your business stand out.</p>
+			
+		</div>
+	
+	
+	
+
+<a href=./contact.html  class="headerText__button button button--size-small button--style-primary">
+	Get in touch
+	
+
+
+<svg class="icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+</a>
+</article>
+		</div>
+	</section>
+</aside>
+        
+
+<footer class="footer">
+	<div class="footer__container container">
+		
+
+<div class="footer__body body-footer">
+	<div class="body-footer__content content-footer">
+		<a href=# class="content-footer__logo">
+			
+
+
+
+
+
+
+    <figure  class='header__image image' >
+        
+            <img 
+                src="./media/image/logo.svg"
+                
+                
+                 alt="website-logo" 
+                
+                
+                
+                
+            >
+        
+        
+    </figure>
+
+		</a>
+		
+
+
+
+<ul  data-fsc-watcher data-fsc-watcher-once class='content-footer__social social social--vertical' >
+	
+		
+			<li class="social__item">
+				<a href="" class="social__link">
+					
+
+
+	<div class="social__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_instagram-logo-light"></use>                                    
+</svg>
+
+	</div>
+
+					
+						<span class="social__label">
+							Instagram
+						</span>
+					
+					
+				</a>
+			</li>
+		
+			<li class="social__item">
+				<a href="" class="social__link">
+					
+
+
+	<div class="social__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_twitter-logo-light"></use>                                    
+</svg>
+
+	</div>
+
+					
+						<span class="social__label">
+							Twitter
+						</span>
+					
+					
+				</a>
+			</li>
+		
+			<li class="social__item">
+				<a href="" class="social__link">
+					
+
+
+	<div class="social__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_dribbble-logo-light"></use>                                    
+</svg>
+
+	</div>
+
+					
+						<span class="social__label">
+							Dribbble
+						</span>
+					
+					
+				</a>
+			</li>
+		
+			<li class="social__item">
+				<a href="" class="social__link">
+					
+
+
+	<div class="social__icon-rounded icon-rounded icon-rounded--size-38">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_behance-logo-light"></use>                                    
+</svg>
+
+	</div>
+
+					
+						<span class="social__label">
+							Behance
+						</span>
+					
+					
+				</a>
+			</li>
+		
+	
+</ul>
+	</div>
+	<ul class="body-footer__list">
+		<li class="body-footer__item">
+			
+
+
+
+
+<article  data-fsc-accordion data-fsc-accordion-behaviour=default data-fsc-accordion-media-query='max-width: 767.98px' class='body-footer__accordion accordion'  >
+    <div data-fsc-accordion-summary class="accordion__top">
+            
+                <h6 class="accordion__title">
+                    Pages
+                </h6>
+            
+            
+                
+                    <svg class="accordion__icon">
+                        <use href="./assets/media/sprite.svg#ph_plus-light"></use>                                           
+                    </svg>
+                 
+            
+    </div>
+    
+        <ul data-fsc-accordion-body class="accordion__body"> 
+            
+                <li>
+                    
+                        <a href="/">
+                    
+                    Home
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="./services.html">
+                    
+                    Services
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="./about.html">
+                    
+                    About
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="./contact.html">
+                    
+                    Contact
+                    
+                        </a>
+                    
+                </li>
+            
+        </ul>
+    
+</article>
+			
+
+<button   class="button button--size-small button--style-primary">
+	More Templates
+	
+
+
+<svg class="icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-right-light"></use>                                    
+</svg>
+
+</button>
+		</li>
+		<li class="body-footer__item">
+			
+
+
+
+
+<article  data-fsc-accordion data-fsc-accordion-behaviour=default data-fsc-accordion-media-query='max-width: 767.98px' class='body-footer__accordion accordion'  >
+    <div data-fsc-accordion-summary class="accordion__top">
+            
+                <h6 class="accordion__title">
+                    CMS
+                </h6>
+            
+            
+                
+                    <svg class="accordion__icon">
+                        <use href="./assets/media/sprite.svg#ph_plus-light"></use>                                           
+                    </svg>
+                 
+            
+    </div>
+    
+        <ul data-fsc-accordion-body class="accordion__body"> 
+            
+                <li>
+                    
+                        <a href="./work.html">
+                    
+                    Work
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="./worksingle.html">
+                    
+                    Work Single
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="./blog">
+                    
+                    Blog
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="#">
+                    
+                    Blog Post
+                    
+                        </a>
+                    
+                </li>
+            
+        </ul>
+    
+</article>
+		</li>
+		<li class="body-footer__item">
+			
+
+
+
+
+<article  data-fsc-accordion data-fsc-accordion-behaviour=default data-fsc-accordion-media-query='max-width: 767.98px' class='body-footer__accordion accordion'  >
+    <div data-fsc-accordion-summary class="accordion__top">
+            
+                <h6 class="accordion__title">
+                    Utility Pages
+                </h6>
+            
+            
+                
+                    <svg class="accordion__icon">
+                        <use href="./assets/media/sprite.svg#ph_plus-light"></use>                                           
+                    </svg>
+                 
+            
+    </div>
+    
+        <ul data-fsc-accordion-body class="accordion__body"> 
+            
+                <li>
+                    
+                        <a href="#">
+                    
+                    404 Error Page
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="#">
+                    
+                    Password Protected
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="#">
+                    
+                    Styleguide
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="#">
+                    
+                    Licensing
+                    
+                        </a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="#">
+                    
+                    Changelog
+                    
+                        </a>
+                    
+                </li>
+            
+        </ul>
+    
+</article>
+		</li>
+	</ul>
+	
+</div>
+		<div class="footer__bottom bottom-footer">
+			<div class="bottom-footer__copyright">
+				© 2022 Made by Pawel Gola. Powered by Framer..
+			</div>
+			
+
+<button  data-fsc-scroll data-fsc-scroll-to=main data-fsc-scroll-behaviour=smooth data-fsc-scroll-block=start class="bottom-footer__up button button--type-button-text">
+	To Top
+	
+
+
+	<div class="bottom-footer__icon-rounded icon-rounded">
+
+<svg class="icon-rounded__icon">
+	<use href="./media/icons/sprite.svg#ph_arrow-up-light"></use>                                    
+</svg>
+
+	</div>
+
+</button>
+		</div>
+	</div>
+</footer>
+    </div>
 </body>
 </html>

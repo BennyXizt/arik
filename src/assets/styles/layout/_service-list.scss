@@ -1,9 +1,0 @@
-@use 'sass:map';
-
-.service-list {
-    &__container {
-        display: grid;
-        @include fluid(gap, 32px 16px);
-        @include rem(max-width, 1260px);
-    }
-}

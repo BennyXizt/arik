@@ -1,8 +1,0 @@
-@use 'sass:map';
-
-.hero-work {
-    @include fluid(margin-bottom, 96px 30px);
-    &__container {
-        @extend %watcherHeaderText;
-    }
-}
