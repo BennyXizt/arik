@@ -1,13 +1,11 @@
 import { defineConfig } from 'vite'
-import { config } from 'dotenv';
 import { ViteEjsPlugin } from 'vite-plugin-ejs'
 import { qrcode } from 'vite-plugin-qrcode'
 import { resolve } from 'path'
 import { ViteWatchVideoFolderPlugin, ViteWatchEJSFolderPlugin, ViteWatchFontsFolderPlugin, ViteWatchSVGFolderPlugin } from './externe/plugins/watchFolder'
 import { externe } from './externe/plugins/ejsUtils'
+import { settings } from './settings';
 import autoprefixer from 'autoprefixer'
-
-config()
 
 export default defineConfig({
   base: './',
@@ -46,7 +44,10 @@ export default defineConfig({
           }
           return 'assets/[name][extname]';
         },
-      }
+      },
+      external: [
+        /externe\/plugins\/.*/
+      ]
     }
   },
   server: {
@@ -97,6 +98,11 @@ export default defineConfig({
           "not dead"
         ]
       })]
+    },
+    preprocessorOptions: {
+      scss: {
+        additionalData: `$BUILD_ENV: "${process.env.NODE_ENV}";`
+      }
     }
   },
   plugins: [
@@ -140,7 +146,8 @@ export default defineConfig({
       dummy: {
         destination:  `${__dirname}/externe/pages/`,
         fileName:  'fontIcons.html'
-      }
+      },
+      convertType: settings.SVGConvertType
     }),
     ViteWatchFontsFolderPlugin({
       relativePath: `${__dirname}/src/assets/fonts`,
@@ -152,5 +159,8 @@ export default defineConfig({
       outputVideoFormat: [".mp4"],
       posterDirectory: `${__dirname}/public/media/image/poster`
     })
-  ]
+  ],
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+  }
 })
