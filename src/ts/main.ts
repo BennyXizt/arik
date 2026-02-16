@@ -4,23 +4,24 @@ import '@/assets/styles/main.scss'
 import { BurgerMenu } from '~/components'
 // @ts-ignore
 import { autoloader } from '~/scripts/autoloader/autoloader'
+import { ClickedModule } from './types/plugin.type'
 
-window.addEventListener('click', function(e) {
+window.addEventListener('pointerdown', function(event) {
+    const target = event.target
+
+    if (!(target instanceof Element)) return
+
     const 
-        hoverSupported = window.matchMedia('(hover: hover) and (pointer: fine)').matches,
-        burger: HTMLElement | null = (e.target as HTMLElement).closest('.burger'),
-        submenu = (e.target as HTMLElement).closest('.submenu-menu')
+        burger: HTMLElement | null = (target as HTMLElement).closest('.burger'),
+        submenu = (target as HTMLElement).closest('.submenu-menu__icon')
 
     
     if(burger)
         BurgerMenu(burger)
 
-    if(!hoverSupported) {
-        if(submenu)
-            displaySubmenu(submenu)
-        else 
-            closeSubmenu()
-    }
+    if(submenu)
+        displaySubmenu(submenu)
+
 })
 
 document.fonts.ready.then(async() => {
@@ -34,15 +35,13 @@ document.fonts.ready.then(async() => {
             .forEach(e => e())
 
     const
-        onClickedModules = Array.from(loadedModules)
-            .filter(([k, e]) => typeof e[`${k}ClickArray`] === 'object')
-            .map(e => {
-                return {
-                    func: e[1][`${e[0]}ClickArray`][0],
-                    elementSelector: e[1][`${e[0]}ClickArray`][1] || `[data-fsc-${e[0]}]`
-                }
-            })
-    
+        onClickedModules: ClickedModule[] = Array.from(loadedModules)
+            .flatMap(([_, e]) =>
+                Object.entries(e)
+                    .filter(([key]) => key.endsWith('ClickArray'))
+                    .map(([, value]) => value as ClickedModule)
+            )
+            
     const
         onIntersectionModules = Object.fromEntries(
              Array.from(loadedModules)
@@ -67,6 +66,17 @@ document.fonts.ready.then(async() => {
         onResizeModules = Array.from(loadedModules)
             .filter(([k, e]) => typeof e[`${k}OnResize`] === 'function')
             .map(e => [e[0], e[1][`${e[0]}OnResize`]])
+
+    const
+        onKeyUpModules = Array.from(loadedModules)
+            .map(([k, e]) => {
+                return Object.values(e).find(el => {
+                    if(Array.isArray(el) && el[0].name === `${k}OnKeyUp`)
+                        return true
+                    
+                })
+            })
+            .filter(e => typeof e !== 'undefined')
             
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -84,14 +94,18 @@ document.fonts.ready.then(async() => {
     for(const element of Object.values(onIntersectionModules)) {
         document.querySelectorAll(element.elementSelector).forEach(el => observer.observe(el))
     }
+    
+    window.addEventListener('pointerdown', function(event) {
+        const target = event.target
 
-    window.addEventListener('click', function(event) {
+        if (!(target instanceof Element)) return
+
         onClickedModules.forEach(e => {
             const 
-                DOMElement: HTMLElement | null = (event.target as HTMLElement).closest(e.elementSelector)
+                DOMElement: HTMLElement | null = (target as HTMLElement).closest(e[1])
                 
             if(DOMElement)
-                e.func(DOMElement)
+                e[0](DOMElement, event)
             
         })
     })
@@ -104,15 +118,27 @@ document.fonts.ready.then(async() => {
         onSubmitModules.forEach(e => e[1](event))
     })
     
+
+    onKeyUpModules.forEach(e => {
+        if(!Array.isArray(e)) return 
+
+        const HTMLElement = document.querySelectorAll(e[1]) 
+        HTMLElement.forEach(el => el.addEventListener('keyup', function(event: KeyboardEvent) {
+                e[0](event)
+        }))
+    })
+    
 })
 
 function displaySubmenu(target) {
     const 
-        parent = target.parentElement,
-        ul = parent.querySelector('ul'),
-        span = parent.querySelector('span');
+        root = target.closest('.submenu-menu'),
+        span = root.querySelector('span.submenu-menu__trigger'),
+        ul = root.querySelector('ul')
 
-    closeSubmenu(target)
+    console.log(root);
+    
+    // closeSubmenu(target)
     
     span.classList.toggle('active')
     ul.classList.toggle('active')
@@ -130,10 +156,9 @@ function closeSubmenu(target = null) {
     else {
         const 
             parent = target.parentElement,
-            ul = parent.querySelector('ul'),
-            span = parent.querySelector('span');
+            ul = parent.querySelector('ul')
             
-        span.querySelectorAll('.active').forEach(e => {
+        parent.querySelectorAll('.active').forEach(e => {
             if(!e.isSameNode(target) && !e.isSameNode(ul))
                 e.classList.remove('active')
         })

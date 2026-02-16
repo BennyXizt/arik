@@ -105,18 +105,19 @@
         flex-flow: column nowrap;
         position: relative;
 
-        &:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            width: 100%;
-            @include rem((
-                top: -20px,
-                height: 20px
-            ))
+        @include media(tablet) {
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                width: 100%;
+                @include rem((
+                    top: -20px,
+                    height: 20px
+                ))
+            }
         }
-
-
+        
         &.active {
             overflow: unset;
             height: max-content;
