@@ -21,12 +21,43 @@
         backdrop-filter: blur(30px);
         background-color: map.get($COLORS, background_muted);
     }
+
     .menu {
         &__item {
             cursor: pointer;
         }
         &__list {
             @include fluid(gap, 20px 12px);
+        }
+    }
+
+    .submenu-menu {
+        &__trigger {
+            @include rem(gap, 6px);
+        }
+        &__item {
+            ul {
+                width: 0;
+            }
+        }
+        &__trigger {
+            justify-content: flex-end;
+        }
+        &__list {
+            align-items: flex-end;
+            width: max-content;
+        }
+
+        &.active {
+            > .submenu-menu {
+                &__trigger {
+                    justify-content: flex-end;
+                }
+                &__list {
+                    align-items: flex-end;
+                    width: max-content;
+                }
+            }
         }
     }
     
@@ -79,6 +110,27 @@
                         }
                     }
                 }
+            }
+        }
+    }
+    @include media(tablet, max) {
+        .menu {
+            &__link {
+                @include rem(padding, 5px 0);
+            }
+        }
+        .submenu-menu {
+            &__trigger {
+                @include rem(padding, 5px 0);
+            }
+            &__wrapper {
+                padding: 2px;
+            }
+            &__item {
+                @include fluid(padding-top, 16px 8px);
+                @include fluid(padding-bottom, 16px 8px);
+            
+                @include rem(padding-right, 16px);
             }
         }
     }
