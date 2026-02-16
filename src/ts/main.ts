@@ -135,10 +135,6 @@ function displaySubmenu(target) {
         root = target.closest('.submenu-menu'),
         span = root.querySelector('span.submenu-menu__trigger'),
         ul = root.querySelector('ul')
-
-    console.log(root);
-    
-    // closeSubmenu(target)
     
     span.classList.toggle('active')
     ul.classList.toggle('active')
