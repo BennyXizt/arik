@@ -59,6 +59,17 @@
                 }
             }
         }
+        @media (hover: hover) and (pointer: fine) {
+            > .submenu-menu {
+                &__trigger {
+                    justify-content: flex-end;
+                }
+                &__list {
+                    align-items: flex-end;
+                    width: max-content;
+                }
+            }
+        }
     }
     
     @include media(tablet) {
