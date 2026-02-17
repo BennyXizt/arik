@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<% if(typeof head_component.lang !== 'undefined' && head_component.lang) { %>
+   <html lang="<%= head_component.lang %>">
+<% } else { %>
+   <html lang="en">
+<% } %>
+<head>
+   <%- include('externe/components/Head/Head.ejs') %>
+   <!-- <link rel="stylesheet" href="../../src/assets/styles/main.scss"> -->
+</head>
+<body>
+    <%- include('externe/components/DummyAside/DummyAside.ejs') %>
+    <div class="wrapper">
+        <%- include('externe/components/Header/Header.ejs', {
+            header_component: {
+                homePage: false,
+                active: 'contact'
+            }
+        })%>
+        <main class="layout layout--contacts">
+			<%- include('src/ejs/layout/contacts.ejs')%>
+		</main>
+        <%- include('src/ejs/layout/cta.ejs')%>
+        <%- include('src/ejs/layout/footer.ejs')%>
+    </div>
+    <script type="module" src="/src/ts/main.ts"></script>
+</body>
+</html>
