@@ -52,7 +52,7 @@
 	}
 %>
 
-<<%=blockType%> <%= blockType === 'a' ? `href=${button_component.link}` : ''%> <%=thisDataAttributes%> class="<%=blockClass%>">
+<<%=blockType%> <%- blockType === 'a' ? `href="${button_component.link}"` : ''%> <%=thisDataAttributes%> class="<%=blockClass%>">
 	<%=button_component.label%>
 	<%- include('src/ejs/components/icon.ejs', {
 		icon_component: button_component.icon_component
