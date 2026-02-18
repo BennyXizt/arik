@@ -20,10 +20,18 @@
 	}
 
 	var {thisClass, blockClass, thisTag, thisStyles, thisDataAttributes} = externe.setupEJSComponent({...contactForm_component, componentName: 'form'})
+
+	if(process.env.NODE_ENV === 'development') {
+		thisDataAttributes += '  data-fsc-phpmailer action="/php/mail.php"'
+	}
+	else {
+		thisDataAttributes += "action='#'"
+	}
+	
 %>
 
 <div>
-<<%=thisTag%> data-fsc-watcher data-fsc-watcher-once data-fsc-phpmailer action='#' method='POST' <%-thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>
+<<%=thisTag%> data-fsc-watcher data-fsc-watcher-once  method='POST' <%-thisDataAttributes%> class='<%=thisClass%>' <%-thisStyles%>>
 	<div class="<%=blockClass%>__header">
 		<div class="<%=blockClass%>__label">
 			<%=contactForm_component.label%>
