@@ -4,7 +4,6 @@ import { qrcode } from 'vite-plugin-qrcode'
 import { resolve } from 'path'
 import { ViteWatchVideoFolderPlugin, ViteWatchEJSFolderPlugin, ViteWatchFontsFolderPlugin, ViteWatchSVGFolderPlugin } from './externe/plugins/watchFolder'
 import { externe } from './externe/plugins/ejsUtils'
-import { settings } from './settings';
 import autoprefixer from 'autoprefixer'
 
 export default defineConfig({
@@ -46,7 +45,9 @@ export default defineConfig({
         },
       },
       external: [
-        /externe\/plugins\/.*/
+        /externe\/plugins\/.*/,
+        /externe\/scripts\/phpmailer\/.*/,
+        /externe\/scripts\/dummyaside\/.*/
       ]
     }
   },
@@ -73,7 +74,7 @@ export default defineConfig({
       '/php': {
         target: 'http://localhost:8000',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/php/, '') // убираем /php из пути
+        rewrite: (path) => path.replace(/^\/php/, '')
       }
     }
   },
@@ -147,7 +148,7 @@ export default defineConfig({
         destination:  `${__dirname}/externe/pages/`,
         fileName:  'fontIcons.html'
       },
-      convertType: settings.SVGConvertType
+      convertType: 0
     }),
     ViteWatchFontsFolderPlugin({
       relativePath: `${__dirname}/src/assets/fonts`,
