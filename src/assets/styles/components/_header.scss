@@ -79,6 +79,9 @@
         &__body {
             width: max-content;
         }
+        &__container {
+            display: flex;
+        }
         .menu {
             &__item {
                 @include rem(padding, 10px 0);
