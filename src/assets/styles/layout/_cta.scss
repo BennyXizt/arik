@@ -21,6 +21,7 @@
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
+            will-change: transform;
             @include fluid(gap, 40px 20px);
 
             & > * {

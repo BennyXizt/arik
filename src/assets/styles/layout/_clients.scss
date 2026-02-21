@@ -8,6 +8,7 @@
         ul {
             display: flex;
             align-items: center;
+            will-change: transform;
             @include fluid(column-gap, 128px 48px);
         }
     }
