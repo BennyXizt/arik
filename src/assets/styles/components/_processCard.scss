@@ -26,10 +26,10 @@
         backdrop-filter: unset;
         @extend %textMetaSmall;
         text-transform: uppercase;
-        @include rem(padding, 8px);
         @include fluid((
             right: 20px 10px,
-            top: 20px 10px
+            top: 20px 10px,
+            padding: 8px 4px
         ));
     }
     &__tag {

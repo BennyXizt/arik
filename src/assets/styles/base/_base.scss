@@ -103,8 +103,8 @@ section[class^='layout__'] {
 
 main[class*='layout--'] {
   @include fluid((
-      padding-top: 224px 80px,
-      padding-bottom: 160px 80px,
+      padding-top: 224px 90px,
+      padding-bottom: 160px 90px,
   ));
 }
 
