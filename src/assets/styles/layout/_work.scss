@@ -2,7 +2,7 @@
 
 .work {
     &__container {
-        &[data-fsc-watcher] {
+        &[data-fsc-watcher-animation] {
             .work {
                 &__header {
                     transition: transform 1s cubic-bezier(.16,1,.3,1);

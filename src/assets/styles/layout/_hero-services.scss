@@ -10,7 +10,7 @@
 
         @extend %watcherHeaderText;
 
-        &[data-fsc-watcher] {
+        &[data-fsc-watcher-animation] {
             .hero-services__image {
                 @extend %watcherDown;
             }

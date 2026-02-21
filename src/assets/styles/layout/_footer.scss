@@ -38,7 +38,6 @@
                 @extend %h5;
             }
             &__body {
-                @include fluid(padding-top, 32px 20px);
                 opacity: 1;
                 visibility: visible;
                 height: max-content;
@@ -68,6 +67,13 @@
                 ))
             }
         }
+
+        &[data-fsc-accordion-active] {
+            [data-fsc-accordion-body] {
+                @include fluid(padding-top, 32px 20px);
+                @include fluid(padding-bottom, 32px 20px);
+            }
+        }
     }
         
     @include media(tablet) {
@@ -75,6 +81,8 @@
             [data-fsc-accordion-body] {
                 transform: unset;
                 max-height: max-content;
+                @include fluid(padding-top, 32px 20px);
+                @include fluid(padding-bottom, 32px 20px);
             }
             &:hover {
                 [data-fsc-accordion-body] {
@@ -84,6 +92,14 @@
         }
     }
     @include media(tablet, max) {
+        &__container {
+            & > * {
+                &:not(:first-child) {
+                    margin-top: 10px;
+                }
+            }
+        }
+
         [data-fsc-accordion] {
             .accordion {
                 &__icon {
@@ -101,7 +117,12 @@
             }
             @media (hover: hover) and (pointer: fine) {
                 &:hover {
+                    [data-fsc-accordion-body] {
+                        @include fluid(padding-top, 32px 20px);
+                        @include fluid(padding-bottom, 32px 20px);
+                    }
                     .accordion {
+                     
                         &__icon {
                             transform: rotate(45deg);
                         }

@@ -1,12 +1,12 @@
 @use 'sass:map';
 
 .item-list-service {
-    scroll-margin-top: 120px;
+    @include fluid (scroll-margin-top, 140px 90px);
 
     font-family: map.get($FONTS, satoshi);
     @extend %input;
     backdrop-filter: unset;
-    @include fluid(padding, 64px 20px);
+    @include fluid(padding, 64px 10px);
 
     @extend %watcherDefaultReverse;
 
@@ -27,6 +27,10 @@
 
     &__title {
         @extend %h1;
+    }
+
+    &__link-title {
+        display: block;
     }
 
     &__link-image {
@@ -96,10 +100,6 @@
                 }
             }
         }
-    }
-
-    @include media(tablet) {
-        scroll-margin-top: 20px;
     }
 
     @media (hover: hover) and (pointer: fine) {

@@ -5,5 +5,6 @@
         display: grid;
         @include fluid(gap, 32px 16px);
         @include rem(max-width, 1260px);
+        grid-template-columns: minmax(260px, 1fr);
     }
 }

@@ -73,7 +73,7 @@
 // heding
 %h1 {
     line-height: 1.1;
-    @include fluid(font-size, 64px 48px);
+    @include fluid(font-size, 64px 32px);
 }
 
 %h2 {
@@ -123,7 +123,7 @@
     opacity: 1;
 }
 %watcherDefault {
-    &[data-fsc-watcher] {
+    &[data-fsc-watcher-animation] {
         @extend %watcherUp;
 
         &.intersected {
@@ -132,7 +132,7 @@
     }
 }
 %watcherDefaultReverse {
-    &[data-fsc-watcher] {
+    &[data-fsc-watcher-animation] {
         @extend %watcherDown;
 
         &.intersected {
@@ -141,7 +141,7 @@
     }
 }
 %watcherHeaderText {
-    &[data-fsc-watcher] {
+    &[data-fsc-watcher-animation] {
         .headerText {
             &__tag {
                 @extend %watcherUp;
